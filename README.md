@@ -22,7 +22,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/medusa-c2/medusa?style=social)](https://github.com/medusa-c2/medusa)
 
 **📜 License**: Use, modify, and distribute with attribution - **Cannot be sold or claimed**
-
+# 100% fud payload ( please dont upload to virus total )
 </div>
 
 ---
@@ -1607,3 +1607,4 @@ License: Custom - Use/Modify with Attribution, No Commercial Sale
 - 📝 **Required**: Credit "unknone_hart" in all distributions
 
 </div>
+

@@ -14,7 +14,7 @@
 
 *A comprehensive, feature-rich C2 framework built for educational purposes and authorized penetration testing*
 
-**👨‍💻 Created by: [unknone_hart](https://github.com/kishwordulal1234)**
+**👨‍💻 Created by: [unknone_hart](https://github.com/unknone_hart)**
 
 **⭐ Star this repository if you find it useful!**
 
@@ -30,6 +30,7 @@
 ## 📋 Table of Contents
 
 - [🚀 Quick Start](#-quick-start)
+- [📸 Screenshots & Interface Preview](#-screenshots--interface-preview)
 - [✨ Features](#-features)
 - [🏗️ Architecture](#️-architecture)
 - [📦 Installation](#-installation)
@@ -80,6 +81,185 @@ python client.py
 # Open web interface
 # http://localhost:5000
 ```
+
+---
+
+## 📸 Screenshots & Interface Preview
+
+*Get a visual overview of MEDUSA C2 Framework's professional interface and capabilities*
+
+<div align="center">
+
+### 🖥️ **Main Dashboard - Overview & Status**
+![Dashboard Overview](tool-screenshot/Screenshot%202025-09-14%20121013.png)
+*Professional dashboard showing active clients, listeners, and framework status with Dracula theme*
+
+---
+
+### 👥 **Client Management Interface**
+![Client Management](tool-screenshot/Screenshot%202025-09-14%20121023.png)
+*Connected clients overview with system information and management options*
+
+---
+
+### 👂 **Listener Management System**
+![Listener Management](tool-screenshot/Screenshot%202025-09-14%20121030.png)
+*Create and manage TCP listeners for client connections*
+
+---
+
+### 💻 **Interactive Terminal Interface**
+![Terminal Interface](tool-screenshot/Screenshot%202025-09-14%20121037.png)
+*Real-time command execution with full output display and command history*
+
+---
+
+### 📂 **File Explorer & Management**
+![File Explorer](tool-screenshot/Screenshot%202025-09-14%20121048.png)
+*Remote file system navigation with upload, download, and edit capabilities*
+
+---
+
+### 🔨 **Advanced Payload Builder**
+![Payload Builder](tool-screenshot/Screenshot%202025-09-14%20121059.png)
+*Generate custom executables with stealth modes and persistence options*
+
+---
+
+### ⚙️ **Builder Configuration Interface**
+![Builder Configuration](tool-screenshot/Screenshot%202025-09-14%20121115.png)
+*Configure payload parameters including server IP, port, and stealth settings*
+
+---
+
+### 🚀 **Deployment & Generation Results**
+![Generation Results](tool-screenshot/Screenshot%202025-09-14%20121137.png)
+*Successful payload generation with deployment instructions and connection details*
+
+</div>
+
+### 🎨 **Interface Highlights & Complete Workflow**
+
+| Feature | Description | Visual Benefit | User Experience |
+|---------|-------------|----------------|------------------|
+| **🌃 Dracula Theme** | Professional dark color scheme with purple accents | Reduced eye strain, professional appearance | Enhanced focus during long operations |
+| **📊 Real-Time Updates** | Live status indicators and metrics via WebSocket | Instant feedback on system status | No manual refresh needed |
+| **📱 Responsive Design** | Adapts to different screen sizes (desktop/tablet/mobile) | Works on desktop, tablet, and mobile | Consistent experience across devices |
+| **🎯 Intuitive Navigation** | Clear menu structure with icons and visual hierarchy | Easy access to all framework features | Minimal learning curve |
+| **💫 Visual Feedback** | Color-coded status and progress indicators | Quick understanding of system state | Immediate visual confirmation |
+| **📈 Rich Data Display** | Tables, cards, and organized layouts with sorting | Professional presentation of information | Easy data interpretation |
+
+### 🔍 **Complete Interface Workflow - Start to End**
+
+#### 🚀 **Phase 1: Framework Initialization**
+- **🏠 Dashboard Launch**: Central hub loads with system overview and statistics
+  - Server status indicator (Online/Offline)
+  - Active clients counter (real-time)
+  - Listener status and port information
+  - Framework version and build information
+  - System resource usage metrics
+
+#### 👥 **Phase 2: Client Management & Monitoring**
+- **👥 Client Manager**: Real-time client monitoring and control interface
+  - **Connection Status**: Live indicator showing client connectivity
+  - **System Information**: Hostname, username, OS, architecture
+  - **Network Details**: IP address, connection time, last seen
+  - **Action Buttons**: Interact, terminate, screenshot capabilities
+  - **Filtering Options**: Search and sort by various parameters
+
+#### 👂 **Phase 3: Listener Configuration**
+- **👂 Listener Control**: Dynamic listener creation and management
+  - **Create New Listeners**: Custom IP/port configuration
+  - **Status Management**: Start/stop listener operations
+  - **Connection Monitoring**: Track incoming client connections
+  - **Port Management**: Avoid conflicts and optimize performance
+  - **Security Settings**: Configure connection parameters
+
+#### 💻 **Phase 4: Interactive Command Execution**
+- **💻 Terminal Interface**: Real-time command execution with full control
+  - **Client Selection**: Dropdown menu with active clients
+  - **Command Input**: Syntax-highlighted command entry
+  - **Output Display**: Formatted results with color coding
+  - **Command History**: Previous commands with quick recall
+  - **Directory Tracking**: Current working directory display
+  - **Error Handling**: Clear error messages and suggestions
+
+#### 📁 **Phase 5: File System Operations**
+- **📁 File Browser**: Comprehensive file management system
+  - **Directory Navigation**: Click-to-browse folder structure
+  - **Drive Selection**: Quick access to system drives (C:, D:, etc.)
+  - **File Operations**: Upload, download, edit, delete capabilities
+  - **Visual Indicators**: File types with appropriate icons
+  - **Selection System**: Pink highlight for selected items
+  - **Parent Directory**: One-click navigation up folder hierarchy
+  - **Path Display**: Current location breadcrumb navigation
+
+#### 🔨 **Phase 6: Payload Generation Workflow**
+- **🔨 Payload Builder**: Step-by-step executable generation
+  - **Type Selection**: Python, PowerShell, Netcat options
+  - **Configuration Panel**: Server IP, port, and stealth settings
+  - **Mode Selection**: Silent, Stealth, or Basic operation
+  - **Persistence Options**: 30-second intervals and auto-start
+  - **Generation Process**: Real-time progress indicators
+  - **Output Management**: File creation and download links
+  - **Deployment Instructions**: Clear setup and execution steps
+
+#### ⚙️ **Phase 7: Advanced Configuration**
+- **⚙️ Settings Panel**: Framework customization and optimization
+  - **Connection Parameters**: Timeout and retry settings
+  - **Security Options**: Encryption and authentication
+  - **Performance Tuning**: Resource allocation and limits
+  - **Logging Configuration**: Debug levels and output options
+  - **Theme Customization**: Color scheme and layout preferences
+
+#### 📊 **Phase 8: Monitoring & Analytics**
+- **📊 Status Monitoring**: Real-time system health and performance
+  - **Connection Metrics**: Active sessions and bandwidth usage
+  - **System Resources**: CPU, memory, and network utilization
+  - **Event Logging**: Comprehensive activity tracking
+  - **Alert System**: Notifications for important events
+  - **Performance Graphs**: Historical data visualization
+
+### 🎯 **User Journey Flow Chart**
+
+```
+🚀 Start → 🏠 Dashboard → 👥 Client View → 💻 Execute Commands
+    ↓                        ↓                    ↓
+⚙️ Configure → 👂 Setup Listeners → 📁 File Operations → 🔨 Build Payloads
+    ↓                        ↓                    ↓
+📊 Monitor → 🔍 Analyze Results → 📈 Track Performance → ✅ Complete Mission
+```
+
+### 🎨 **Visual Design Elements**
+
+- **Color Coding System**:
+  - 🟢 **Green**: Success states, online status, completed operations
+  - 🔴 **Red**: Error states, offline status, failed operations
+  - 🟡 **Yellow**: Warning states, pending operations, important notices
+  - 🟣 **Purple**: Primary actions, selected items, framework branding
+  - 🔵 **Blue**: Information states, links, secondary actions
+
+- **Interactive Elements**:
+  - **Hover Effects**: Visual feedback on interactive components
+  - **Loading Indicators**: Progress bars and spinners for operations
+  - **Tooltips**: Contextual help and explanations
+  - **Modal Dialogs**: Focused interactions for complex operations
+  - **Dropdown Menus**: Organized options and selections
+
+### 🏁 **End-to-End Workflow Summary**
+
+1. **🎬 Framework Startup**: Launch server, access dashboard, verify connectivity
+2. **🔧 Initial Setup**: Configure listeners, verify ports, check system status
+3. **📡 Client Deployment**: Generate payloads, deploy to targets, monitor connections
+4. **🎮 Interactive Control**: Execute commands, navigate files, capture screenshots
+5. **📊 Data Management**: Download files, organize results, track activities
+6. **🔍 Analysis Phase**: Review logs, analyze data, generate reports
+7. **🧹 Cleanup**: Terminate sessions, clean temporary files, secure shutdown
+- **💻 Terminal**: Interactive command execution with syntax highlighting
+- **📁 File Browser**: Intuitive file operations with visual indicators
+- **🔨 Payload Builder**: Step-by-step payload generation wizard
+- **⚙️ Configuration**: Easy-to-use settings and options panel
+- **📊 Status Monitoring**: Real-time system health and performance metrics
 
 ---
 
@@ -140,19 +320,288 @@ python client.py
 
 ---
 
-## 🏗️ Architecture
+## 🏗️ Architecture & Complete System Flow
+
+### 🎯 **High-Level System Overview**
 
 ```
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
 │                 │    │                  │    │                 │
 │   Web Browser   │◄──►│   MEDUSA Server  │◄──►│   Client Agent  │
-│   (Dashboard)   │    │                  │    │   (Target PC)   │
+│   (Dashboard)   │    │   (Control Hub)  │    │   (Target PC)   │
 │                 │    │                  │    │                 │
 └─────────────────┘    └──────────────────┘    └─────────────────┘
          │                       │                       │
     WebSocket/HTTP           TCP Listener              TCP Client
      Port 5000               Port 4444              Auto-Reconnect
 ```
+
+### 🔄 **Detailed Communication Flow**
+
+**1. Browser ↔ Server (WebSocket/HTTP - Port 5000)**
+- Real-time dashboard updates via Socket.IO 4.7.5
+- User interface interactions and command inputs
+- File uploads and download requests
+- Live status monitoring and client management
+
+**2. Server ↔ Client (TCP - Port 4444)**
+- JSON-based command protocol
+- 30-second persistent heartbeat connections
+- File transfer with Base64 encoding
+- Screenshot capture and system information
+
+**3. Complete Data Flow Sequence**
+```
+User Command Input → Web Dashboard → WebSocket → Server → TCP → Client
+                                                              ↓
+Dashboard Display ← WebSocket ← Server ← TCP ← Command Results
+```
+
+### 🚀 **Complete System Lifecycle - Start to End**
+
+#### **Phase 1: 🖥️ Server Initialization & Startup**
+
+```
+🔧 Server Startup Sequence:
+├── 1️⃣ Python Environment Check
+│   ├── Validate Python 3.7+ installation
+│   ├── Check required modules (Flask, SocketIO, cryptography)
+│   └── Verify system permissions and resources
+│
+├── 2️⃣ Flask Application Bootstrap
+│   ├── Initialize Flask app with configuration
+│   ├── Set up Dracula theme and static assets
+│   ├── Configure CORS and security headers
+│   └── Load dashboard templates and routes
+│
+├── 3️⃣ Socket.IO WebSocket Setup
+│   ├── Initialize Flask-SocketIO with v4.7.5 compatibility
+│   ├── Configure transports: ['websocket', 'polling']
+│   ├── Set reconnection parameters (infinite attempts)
+│   └── Register event handlers for real-time updates
+│
+├── 4️⃣ TCP Listener Initialization
+│   ├── Bind to 0.0.0.0:4444 (configurable)
+│   ├── Set socket options (SO_REUSEADDR, SO_KEEPALIVE)
+│   ├── Start multi-threaded listener daemon
+│   └── Initialize client connection pool
+│
+└── 5️⃣ Web Interface Launch
+    ├── Start Flask development server on 0.0.0.0:5000
+    ├── Enable debug mode (if specified)
+    ├── Display startup banner with connection info
+    └── Ready to accept connections
+```
+
+#### **Phase 2: 🌐 Web Dashboard Access & Authentication**
+
+```
+🌐 Browser Connection Flow:
+├── 1️⃣ HTTP Request Processing
+│   ├── Browser navigates to http://localhost:5000
+│   ├── Flask serves dashboard.html template
+│   ├── Load CSS (Dracula theme) and JavaScript assets
+│   └── Initialize Socket.IO client connection
+│
+├── 2️⃣ WebSocket Handshake
+│   ├── Establish WebSocket connection on /socket.io/
+│   ├── Negotiate protocol version (Socket.IO 4.x)
+│   ├── Configure transport fallback (WebSocket → Polling)
+│   └── Register client-side event listeners
+│
+├── 3️⃣ Dashboard Initialization
+│   ├── Load framework status and statistics
+│   ├── Populate client list (initially empty)
+│   ├── Display listener status and configuration
+│   └── Initialize real-time update mechanisms
+│
+└── 4️⃣ Interface Ready State
+    ├── All components loaded and functional
+    ├── WebSocket connection established and stable
+    ├── Ready to receive client connections
+    └── User can interact with all framework features
+```
+
+#### **Phase 3: 🤖 Client Agent Deployment & Connection**
+
+```
+🤖 Client Lifecycle Management:
+├── 1️⃣ Client Agent Initialization
+│   ├── Load configuration (SERVER_HOST, SERVER_PORT)
+│   ├── Generate unique client ID (UUID4)
+│   ├── Initialize system information collector
+│   └── Set up 30-second persistence timer
+│
+├── 2️⃣ Initial Connection Attempt
+│   ├── Create TCP socket to server:4444
+│   ├── Configure socket options (timeout, keepalive)
+│   ├── Attempt connection with exponential backoff
+│   └── Handle connection errors gracefully
+│
+├── 3️⃣ Client Registration Handshake
+│   ├── Send initial 'client_connect' message
+│   ├── Transmit system information JSON payload:
+│   │   ├── Hostname, username, OS details
+│   │   ├── IP address, process ID, architecture
+│   │   ├── Python version, working directory
+│   │   └── Client capabilities and features
+│   └── Await server acknowledgment
+│
+├── 4️⃣ Persistent Heartbeat Loop
+│   ├── Send heartbeat every 30 seconds (±jitter)
+│   ├── Check for queued commands from server
+│   ├── Process received tasks immediately
+│   └── Send command results back to server
+│
+└── 5️⃣ Command Execution Engine
+    ├── Receive JSON command packets
+    ├── Parse and validate command structure
+    ├── Execute in appropriate system context
+    ├── Capture output, errors, and return codes
+    └── Encode results and send response
+```
+
+#### **Phase 4: 🔄 Real-Time Communication & Control**
+
+```
+🔄 Bidirectional Communication Flow:
+├── 1️⃣ Server-to-Client Commands
+│   ├── User inputs command in web dashboard
+│   ├── Dashboard sends command via WebSocket
+│   ├── Server queues command for target client
+│   ├── Client polls and retrieves command
+│   ├── Client executes and returns results
+│   └── Results displayed in dashboard terminal
+│
+├── 2️⃣ File Transfer Operations
+│   ├── Upload: Browser → Server → Client
+│   │   ├── User selects file in web interface
+│   │   ├── File uploaded to server temp directory
+│   │   ├── Server sends file transfer command
+│   │   ├── Client receives and saves file
+│   │   └── Confirmation sent back to dashboard
+│   └── Download: Client → Server → Browser
+│       ├── User requests file download
+│       ├── Client reads and base64-encodes file
+│       ├── Encoded data sent to server
+│       ├── Server saves to downloads directory
+│       └── Download link provided to user
+│
+├── 3️⃣ Screenshot Capture System
+│   ├── User clicks screenshot button
+│   ├── Command sent to target client
+│   ├── Client captures screen using platform APIs
+│   ├── Image encoded as base64 PNG
+│   ├── Data transmitted to server
+│   └── Screenshot saved and displayed
+│
+└── 4️⃣ File Explorer Navigation
+    ├── User navigates filesystem in dashboard
+    ├── Directory listing commands sent to client
+    ├── Client enumerates files and folders
+    ├── Results formatted as JSON structure
+    └── Dashboard updates file browser interface
+```
+
+#### **Phase 5: 🔨 Payload Generation & Deployment**
+
+```
+🔨 Payload Builder Workflow:
+├── 1️⃣ Builder Interface Access
+│   ├── User navigates to Builder tab
+│   ├── Load payload generation options
+│   ├── Display configuration parameters
+│   └── Initialize generation wizard
+│
+├── 2️⃣ Payload Configuration
+│   ├── Select payload type (Python/PowerShell/Netcat)
+│   ├── Configure server IP and port
+│   ├── Choose stealth mode (Silent/Stealth/Basic)
+│   ├── Set persistence options (30-second intervals)
+│   └── Specify output filename and format
+│
+├── 3️⃣ Generation Process
+│   ├── Template selection based on payload type
+│   ├── Variable substitution (IP, port, settings)
+│   ├── Code obfuscation and stealth features
+│   ├── Optional compilation (PyInstaller for EXE)
+│   └── Output file creation and validation
+│
+├── 4️⃣ Deployment Package Creation
+│   ├── Generate primary payload file
+│   ├── Create deployment instructions
+│   ├── Package with required dependencies
+│   ├── Generate metadata JSON file
+│   └── Provide download links and documentation
+│
+└── 5️⃣ Target Deployment
+    ├── Transfer payload to target system
+    ├── Execute with appropriate privileges
+    ├── Monitor connection establishment
+    ├── Verify client registration
+    └── Begin interactive control session
+```
+
+#### **Phase 6: 📊 Monitoring & Session Management**
+
+```
+📊 Active Session Management:
+├── 1️⃣ Client Status Monitoring
+│   ├── Real-time connection status indicators
+│   ├── Last seen timestamps and activity logs
+│   ├── Network latency and performance metrics
+│   └── System resource usage tracking
+│
+├── 2️⃣ Multi-Client Coordination
+│   ├── Simultaneous management of multiple clients
+│   ├── Session isolation and command queuing
+│   ├── Broadcast commands to multiple targets
+│   └── Centralized result aggregation
+│
+├── 3️⃣ Data Organization & Storage
+│   ├── Downloaded files sorted by client ID
+│   ├── Screenshots timestamped and cataloged
+│   ├── Command history and output logs
+│   └── Session metadata and statistics
+│
+└── 4️⃣ Performance Optimization
+    ├── Connection pooling and resource management
+    ├── Automatic cleanup of temporary files
+    ├── Memory usage optimization
+    └── Network bandwidth management
+```
+
+#### **Phase 7: 🔚 Session Termination & Cleanup**
+
+```
+🔚 Graceful Shutdown Sequence:
+├── 1️⃣ Client Disconnection
+│   ├── Send termination command to clients
+│   ├── Close TCP connections gracefully
+│   ├── Update dashboard with offline status
+│   └── Log disconnection events
+│
+├── 2️⃣ Server Shutdown Process
+│   ├── Stop accepting new connections
+│   ├── Complete pending operations
+│   ├── Close WebSocket connections
+│   ├── Cleanup temporary files
+│   └── Release system resources
+│
+├── 3️⃣ Data Preservation
+│   ├── Save session logs and statistics
+│   ├── Archive downloaded files
+│   ├── Preserve screenshot gallery
+│   └── Generate operation summary report
+│
+└── 4️⃣ Security Cleanup
+    ├── Clear sensitive data from memory
+    ├── Remove temporary payload files
+    ├── Reset client connection states
+    └── Secure log file permissions
+```
+
+### 🔗 **Communication Protocols & Data Flow**
 
 ### Communication Flow
 1. **Client** connects to **Server** via TCP (Port 4444)
@@ -1136,7 +1585,7 @@ Special thanks to all contributors who have helped make MEDUSA better:
 
 **🐍 MEDUSA C2 Framework** - *Professional C2 for Educational Excellence*
 
-**👨‍💻 Original Creator**: [**unknone_hart**](https://github.com/unknone_hart)
+**👨‍💻 Original Creator**: [**unknone_hart**](https://github.com/kishwordulal1234)
 
 *"Empowering the next generation of cybersecurity professionals"*
 
@@ -1157,6 +1606,4 @@ License: Custom - Use/Modify with Attribution, No Commercial Sale
 - ❌ **Prohibited**: Commercial sale, claiming ownership, removing credits
 - 📝 **Required**: Credit "unknone_hart" in all distributions
 
-
 </div>
-

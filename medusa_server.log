@@ -1,0 +1,645 @@
+2025-09-14 10:59:10,155 - INFO - Listener 'Default' stopped
+2025-09-14 10:59:10,155 - INFO - Server stopped
+2025-09-14 10:59:11,201 - INFO - Listener 'Default' started on 0.0.0.0:4444
+2025-09-14 10:59:11,201 - INFO - Default listener created on port 4444
+2025-09-14 10:59:11,201 - INFO - Starting web interface on 0.0.0.0:5000
+2025-09-14 10:59:12,481 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.3:5000
+2025-09-14 10:59:12,482 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-14 10:59:13,568 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:13] "GET / HTTP/1.1" 200 -
+2025-09-14 10:59:13,583 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:13] "GET /css/dashboard.css HTTP/1.1" 200 -
+2025-09-14 10:59:13,586 - ERROR - The client is using an unsupported version of the Socket.IO or Engine.IO protocols (further occurrences of this error will be logged with level INFO)
+2025-09-14 10:59:13,587 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:13] "GET /js/dashboard.js HTTP/1.1" 200 -
+2025-09-14 10:59:13,587 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:13] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 10:59:13,607 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:13] "[36mGET /static/medusa.jpg HTTP/1.1[0m" 304 -
+2025-09-14 10:59:13,635 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:13] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 10:59:15,645 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:15] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 10:59:15,655 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:15] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 10:59:15,657 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:15] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 10:59:15,658 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:15] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 10:59:15,688 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:15] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 10:59:17,687 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:17] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 10:59:17,704 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:17] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 10:59:17,712 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:17] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 10:59:17,720 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:17] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 10:59:17,728 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:17] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 10:59:19,734 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:19] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 10:59:19,769 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:19] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 10:59:19,770 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:19] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 10:59:19,770 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:19] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 10:59:19,779 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:19] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 10:59:21,790 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:21] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 10:59:21,828 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:21] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 10:59:21,828 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:21] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 10:59:21,829 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:21] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 10:59:21,838 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:21] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 10:59:23,851 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:23] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 10:59:23,874 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:23] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 10:59:23,880 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:23] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 10:59:23,885 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:23] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 10:59:23,892 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:23] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 10:59:24,700 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:24] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 10:59:25,897 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:25] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 10:59:25,931 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:25] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 10:59:25,931 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:25] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 10:59:25,932 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:25] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 10:59:25,942 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:25] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 10:59:26,115 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:26] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 10:59:27,949 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:27] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 10:59:27,983 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:27] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 10:59:27,984 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:27] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 10:59:27,984 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:27] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 10:59:27,992 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:27] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 10:59:30,008 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:30] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 10:59:30,044 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:30] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 10:59:30,044 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:30] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 10:59:30,045 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:30] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 10:59:30,056 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:30] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 10:59:32,062 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:32] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 10:59:32,093 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:32] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 10:59:32,096 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:32] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 10:59:32,096 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:32] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 10:59:32,104 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:32] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 10:59:34,113 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:34] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 10:59:34,143 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:34] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 10:59:34,143 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:34] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 10:59:34,144 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:34] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 10:59:34,162 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:34] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 10:59:36,176 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:36] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 10:59:36,210 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:36] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 10:59:36,211 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:36] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 10:59:36,211 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:36] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 10:59:36,222 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:36] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 10:59:38,234 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:38] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 10:59:38,268 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:38] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 10:59:38,268 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:38] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 10:59:38,269 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:38] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 10:59:38,278 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:38] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 10:59:40,284 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:40] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 10:59:40,318 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:40] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 10:59:40,318 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:40] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 10:59:40,319 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:40] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 10:59:40,328 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:40] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 10:59:42,338 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:42] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 10:59:42,375 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:42] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 10:59:42,375 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:42] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 10:59:42,376 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:42] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 10:59:42,385 - INFO - 192.168.101.3 - - [14/Sep/2025 10:59:42] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 10:59:43,925 - INFO - Listener 'Default' stopped
+2025-09-14 10:59:43,925 - INFO - Server stopped
+2025-09-14 11:00:20,502 - INFO - Listener 'Default' started on 0.0.0.0:4444
+2025-09-14 11:00:20,502 - INFO - Default listener created on port 4444
+2025-09-14 11:00:20,503 - INFO - Starting web interface on 0.0.0.0:5000
+2025-09-14 11:00:21,778 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.3:5000
+2025-09-14 11:00:21,778 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-14 11:00:26,534 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:26] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:00:26,581 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:26] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:00:26,589 - ERROR - The client is using an unsupported version of the Socket.IO or Engine.IO protocols (further occurrences of this error will be logged with level INFO)
+2025-09-14 11:00:26,589 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:26] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:00:26,591 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:26] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:00:26,605 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:26] "[36mGET /static/medusa.jpg HTTP/1.1[0m" 304 -
+2025-09-14 11:00:26,617 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:26] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:00:29,158 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:29] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:00:29,199 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:29] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:00:29,199 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:29] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:00:29,200 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:29] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:00:29,210 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:29] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:00:32,152 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:32] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:00:32,168 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:32] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:00:32,168 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:32] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:00:32,169 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:32] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:00:32,206 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:32] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:00:35,154 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:35] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:00:35,194 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:35] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:00:35,195 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:35] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:00:35,195 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:35] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:00:35,205 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:35] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:00:37,341 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:37] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:00:37,376 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:37] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:00:37,376 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:37] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:00:37,377 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:37] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:00:37,387 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:37] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:00:39,391 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:39] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:00:39,424 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:39] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:00:39,425 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:39] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:00:39,425 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:39] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:00:39,485 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:39] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:00:41,497 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:41] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:00:41,535 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:41] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:00:41,535 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:41] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:00:41,536 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:41] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:00:41,546 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:41] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:00:43,559 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:43] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:00:43,598 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:43] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:00:43,598 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:43] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:00:43,599 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:43] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:00:43,609 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:43] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:00:43,880 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:43] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:00:45,627 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:45] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:00:45,660 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:45] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:00:45,660 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:45] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:00:45,661 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:45] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:00:45,671 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:45] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:00:47,686 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:47] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:00:47,719 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:47] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:00:47,719 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:47] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:00:47,720 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:47] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:00:47,730 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:47] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:00:49,738 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:49] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:00:49,751 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:49] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:00:49,752 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:49] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:00:49,753 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:49] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:00:49,781 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:49] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:00:51,789 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:51] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:00:51,823 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:51] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:00:51,823 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:51] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:00:51,824 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:51] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:00:51,834 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:51] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:00:54,148 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:54] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:00:54,163 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:54] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:00:54,173 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:54] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:00:54,182 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:54] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:00:54,191 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:54] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:00:57,156 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:57] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:00:57,197 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:57] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:00:57,197 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:57] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:00:57,197 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:57] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:00:57,207 - INFO - 192.168.101.3 - - [14/Sep/2025 11:00:57] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:01:00,155 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:00] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:01:00,171 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:00] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:01:00,182 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:00] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:01:00,197 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:00] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:01:00,206 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:00] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:01:03,149 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:03] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:01:03,190 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:03] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:01:03,190 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:03] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:01:03,191 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:03] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:01:03,200 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:03] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:01:06,159 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:06] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:01:06,188 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:06] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:01:06,188 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:06] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:01:06,189 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:06] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:01:06,205 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:06] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:01:09,148 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:09] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:01:09,186 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:09] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:01:09,186 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:09] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:01:09,187 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:09] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:01:09,196 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:09] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:01:12,155 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:12] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:01:12,190 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:12] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:01:12,191 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:12] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:01:12,191 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:12] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:01:12,203 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:12] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:01:15,153 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:15] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:01:15,166 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:15] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:01:15,167 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:15] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:01:15,167 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:15] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:01:15,199 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:15] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:01:18,157 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:18] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:01:18,188 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:18] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:01:18,199 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:18] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:01:18,200 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:18] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:01:18,209 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:18] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:01:21,159 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:21] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:01:21,199 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:21] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:01:21,199 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:21] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:01:21,200 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:21] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:01:21,210 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:21] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:01:24,151 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:24] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:01:24,169 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:24] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:01:24,179 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:24] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:01:24,187 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:24] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:01:24,198 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:24] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:01:27,156 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:27] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:01:27,197 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:27] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:01:27,197 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:27] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:01:27,198 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:27] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:01:27,207 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:27] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:01:30,152 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:30] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:01:30,191 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:30] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:01:30,191 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:30] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:01:30,192 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:30] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:01:30,201 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:30] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:01:33,145 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:33] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:01:33,184 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:33] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:01:33,185 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:33] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:01:33,185 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:33] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:01:33,194 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:33] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:01:36,155 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:36] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:01:36,197 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:36] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:01:36,197 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:36] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:01:36,198 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:36] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:01:36,207 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:36] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:01:39,148 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:39] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:01:39,179 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:39] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:01:39,191 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:39] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:01:39,197 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:39] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:01:39,207 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:39] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:01:42,147 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:42] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:01:42,163 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:42] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:01:42,163 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:42] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:01:42,164 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:42] "GET /js/dashboard.js HTTP/1.1" 200 -
+2025-09-14 11:01:42,197 - INFO - 192.168.101.3 - - [14/Sep/2025 11:01:42] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:03:40,361 - INFO - Listener 'Default' started on 0.0.0.0:4444
+2025-09-14 11:03:40,361 - INFO - Default listener created on port 4444
+2025-09-14 11:03:40,362 - INFO - Starting web interface on 0.0.0.0:5000
+2025-09-14 11:03:41,644 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.3:5000
+2025-09-14 11:03:41,644 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-14 11:03:46,172 - INFO - Listener 'Default' started on 0.0.0.0:4444
+2025-09-14 11:03:46,172 - INFO - Default listener created on port 4444
+2025-09-14 11:03:46,173 - INFO - Starting web interface on 0.0.0.0:5000
+2025-09-14 11:03:47,452 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.3:5000
+2025-09-14 11:03:47,452 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-14 11:03:48,912 - INFO - 192.168.101.3 - - [14/Sep/2025 11:03:48] "GET / HTTP/1.1" 200 -
+2025-09-14 11:03:48,927 - INFO - 192.168.101.3 - - [14/Sep/2025 11:03:48] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:03:48,928 - INFO - 192.168.101.3 - - [14/Sep/2025 11:03:48] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:03:48,929 - INFO - 192.168.101.3 - - [14/Sep/2025 11:03:48] "GET /js/dashboard.js HTTP/1.1" 200 -
+2025-09-14 11:03:49,350 - INFO - 192.168.101.3 - - [14/Sep/2025 11:03:49] "[36mGET /static/medusa.jpg HTTP/1.1[0m" 304 -
+2025-09-14 11:03:49,374 - INFO - 192.168.101.3 - - [14/Sep/2025 11:03:49] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:03:55,786 - INFO - 192.168.101.3 - - [14/Sep/2025 11:03:55] "GET /api/listeners HTTP/1.1" 200 -
+2025-09-14 11:04:08,146 - INFO - 192.168.101.3 - - [14/Sep/2025 11:04:08] "GET /api/listeners HTTP/1.1" 200 -
+2025-09-14 11:04:53,415 - INFO - 192.168.101.3 - - [14/Sep/2025 11:04:53] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:04:53,448 - INFO - 192.168.101.3 - - [14/Sep/2025 11:04:53] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:04:53,448 - INFO - 192.168.101.3 - - [14/Sep/2025 11:04:53] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:04:53,449 - INFO - 192.168.101.3 - - [14/Sep/2025 11:04:53] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:04:53,454 - INFO - 192.168.101.3 - - [14/Sep/2025 11:04:53] "[36mGET /static/medusa.jpg HTTP/1.1[0m" 304 -
+2025-09-14 11:04:53,460 - INFO - 192.168.101.3 - - [14/Sep/2025 11:04:53] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:05:08,565 - INFO - 192.168.101.3 - - [14/Sep/2025 11:05:08] "GET /api/listeners HTTP/1.1" 200 -
+2025-09-14 11:05:14,950 - INFO - 192.168.101.3 - - [14/Sep/2025 11:05:14] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:05:18,558 - INFO - 192.168.101.3 - - [14/Sep/2025 11:05:18] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:06:37,726 - INFO - Listener 'Default' stopped
+2025-09-14 11:06:37,727 - INFO - Server stopped
+2025-09-14 11:07:05,826 - INFO - Listener 'Default' started on 0.0.0.0:4444
+2025-09-14 11:07:05,826 - INFO - Default listener created on port 4444
+2025-09-14 11:07:05,827 - INFO - Starting web interface on 0.0.0.0:5000
+2025-09-14 11:07:07,115 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.3:5000
+2025-09-14 11:07:07,115 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-14 11:07:18,909 - INFO - 192.168.101.3 - - [14/Sep/2025 11:07:18] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:07:18,925 - INFO - 192.168.101.3 - - [14/Sep/2025 11:07:18] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:07:18,925 - INFO - 192.168.101.3 - - [14/Sep/2025 11:07:18] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:07:18,926 - INFO - 192.168.101.3 - - [14/Sep/2025 11:07:18] "GET /js/dashboard.js HTTP/1.1" 200 -
+2025-09-14 11:07:18,953 - INFO - 192.168.101.3 - - [14/Sep/2025 11:07:18] "[36mGET /static/medusa.jpg HTTP/1.1[0m" 304 -
+2025-09-14 11:07:18,980 - INFO - 192.168.101.3 - - [14/Sep/2025 11:07:18] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:07:26,888 - INFO - 127.0.0.1 - - [14/Sep/2025 11:07:26] "GET /?id=97480d68-94b2-4d57-ad6c-b234b8d74e06&vscodeBrowserReqId=1757827346572 HTTP/1.1" 200 -
+2025-09-14 11:07:27,156 - INFO - 127.0.0.1 - - [14/Sep/2025 11:07:27] "GET /css/dashboard.css HTTP/1.1" 200 -
+2025-09-14 11:07:27,203 - INFO - 127.0.0.1 - - [14/Sep/2025 11:07:27] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:07:27,204 - INFO - 127.0.0.1 - - [14/Sep/2025 11:07:27] "GET /js/dashboard.js HTTP/1.1" 200 -
+2025-09-14 11:07:27,205 - INFO - 127.0.0.1 - - [14/Sep/2025 11:07:27] "GET /static/medusa.jpg HTTP/1.1" 200 -
+2025-09-14 11:07:27,468 - INFO - 127.0.0.1 - - [14/Sep/2025 11:07:27] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:07:41,174 - INFO - 192.168.101.3 - - [14/Sep/2025 11:07:41] "GET /api/listeners HTTP/1.1" 200 -
+2025-09-14 11:07:42,598 - INFO - 192.168.101.3 - - [14/Sep/2025 11:07:42] "[33mPOST /api/listeners/Default/stop HTTP/1.1[0m" 404 -
+2025-09-14 11:08:17,256 - INFO - Listener 'Default' stopped
+2025-09-14 11:08:17,257 - INFO - Server stopped
+2025-09-14 11:09:40,172 - INFO - Listener 'Default' started on 0.0.0.0:4444
+2025-09-14 11:09:40,172 - INFO - Default listener created on port 4444
+2025-09-14 11:09:40,172 - INFO - Starting web interface on 0.0.0.0:5000
+2025-09-14 11:09:41,448 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.3:5000
+2025-09-14 11:09:41,448 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-14 11:09:44,567 - INFO - 192.168.101.3 - - [14/Sep/2025 11:09:44] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:09:44,585 - INFO - 192.168.101.3 - - [14/Sep/2025 11:09:44] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:09:44,586 - ERROR - The client is using an unsupported version of the Socket.IO or Engine.IO protocols (further occurrences of this error will be logged with level INFO)
+2025-09-14 11:09:44,588 - INFO - 192.168.101.3 - - [14/Sep/2025 11:09:44] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:09:44,588 - INFO - 192.168.101.3 - - [14/Sep/2025 11:09:44] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:09:44,620 - INFO - 192.168.101.3 - - [14/Sep/2025 11:09:44] "[36mGET /static/medusa.jpg HTTP/1.1[0m" 304 -
+2025-09-14 11:09:44,635 - INFO - 192.168.101.3 - - [14/Sep/2025 11:09:44] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:10:01,869 - INFO - 127.0.0.1 - - [14/Sep/2025 11:10:01] "GET /?id=97480d68-94b2-4d57-ad6c-b234b8d74e06&vscodeBrowserReqId=1757827501563 HTTP/1.1" 200 -
+2025-09-14 11:10:02,136 - INFO - 127.0.0.1 - - [14/Sep/2025 11:10:02] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:10:02,182 - INFO - 127.0.0.1 - - [14/Sep/2025 11:10:02] "[31m[1mGET /socket.io/socket.io.js HTTP/1.1[0m" 400 -
+2025-09-14 11:10:02,183 - INFO - 127.0.0.1 - - [14/Sep/2025 11:10:02] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-09-14 11:10:02,183 - INFO - 127.0.0.1 - - [14/Sep/2025 11:10:02] "[36mGET /static/medusa.jpg HTTP/1.1[0m" 304 -
+2025-09-14 11:10:02,448 - INFO - 127.0.0.1 - - [14/Sep/2025 11:10:02] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:10:36,302 - INFO - 127.0.0.1 - - [14/Sep/2025 11:10:36] "GET /api/listeners HTTP/1.1" 200 -
+2025-09-14 11:10:37,448 - INFO - Listener 'Default' stopped successfully
+2025-09-14 11:10:37,448 - INFO - Listener 'Default' stopped via HTTP API
+2025-09-14 11:10:37,448 - INFO - 127.0.0.1 - - [14/Sep/2025 11:10:37] "POST /api/listeners/Default/stop HTTP/1.1" 200 -
+2025-09-14 11:10:37,697 - INFO - 127.0.0.1 - - [14/Sep/2025 11:10:37] "GET /api/listeners HTTP/1.1" 200 -
+2025-09-14 11:10:58,287 - INFO - 127.0.0.1 - - [14/Sep/2025 11:10:58] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:11:03,682 - INFO - 127.0.0.1 - - [14/Sep/2025 11:11:03] "GET /api/listeners HTTP/1.1" 200 -
+2025-09-14 11:12:40,010 - INFO - Listener 'Default' stopped successfully
+2025-09-14 11:12:40,010 - INFO - Server stopped
+2025-09-14 11:13:37,995 - INFO - Listener 'Default' started on 0.0.0.0:4444
+2025-09-14 11:13:37,995 - INFO - Default listener created on port 4444
+2025-09-14 11:13:37,995 - INFO - Starting web interface on 0.0.0.0:5000
+2025-09-14 11:13:39,264 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.3:5000
+2025-09-14 11:13:39,264 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-14 11:13:47,759 - INFO - 192.168.101.3 - - [14/Sep/2025 11:13:47] "GET / HTTP/1.1" 200 -
+2025-09-14 11:13:47,772 - INFO - 192.168.101.3 - - [14/Sep/2025 11:13:47] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:13:47,775 - INFO - 192.168.101.3 - - [14/Sep/2025 11:13:47] "GET /js/dashboard.js HTTP/1.1" 200 -
+2025-09-14 11:13:47,812 - INFO - 192.168.101.3 - - [14/Sep/2025 11:13:47] "[36mGET /static/medusa.jpg HTTP/1.1[0m" 304 -
+2025-09-14 11:13:47,997 - INFO - 192.168.101.3 - - [14/Sep/2025 11:13:47] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:13:48,001 - INFO - WebSocket client connected: yRXHB9OhWm2cP1QyAAAB
+2025-09-14 11:13:50,833 - INFO - 192.168.101.3 - - [14/Sep/2025 11:13:50] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:13:51,921 - INFO - 192.168.101.3 - - [14/Sep/2025 11:13:51] "GET /api/listeners HTTP/1.1" 200 -
+2025-09-14 11:14:25,568 - INFO - EXE built successfully: C:\Users\kishw\Desktop\nova\payloads\client.exe (Mode: silent)
+2025-09-14 11:14:25,569 - INFO - Payload generated: python for 127.0.0.1:4444 (Mode: silent)
+2025-09-14 11:14:54,796 - INFO - 192.168.101.3 - - [14/Sep/2025 11:14:54] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:14:57,088 - INFO - New connection from 127.0.0.1:57849
+2025-09-14 11:14:57,089 - INFO - Client 0d7c62e7-68f4-4f51-8af5-635edefdf793 connected: unknone (kishw)
+2025-09-14 11:14:59,313 - INFO - New connection from 127.0.0.1:57852
+2025-09-14 11:14:59,314 - INFO - Client 0d7c62e7-68f4-4f51-8af5-635edefdf793 connected: unknone (kishw)
+2025-09-14 11:15:06,589 - INFO - 192.168.101.3 - - [14/Sep/2025 11:15:06] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:15:07,509 - INFO - 192.168.101.3 - - [14/Sep/2025 11:15:07] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:15:08,389 - INFO - 192.168.101.3 - - [14/Sep/2025 11:15:08] "GET /api/listeners HTTP/1.1" 200 -
+2025-09-14 11:15:15,551 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir...
+2025-09-14 11:15:15,551 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir
+2025-09-14 11:15:15,566 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 36a19b89-4054-47c5-be8d-0608fbdd7c0e
+2025-09-14 11:15:24,594 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: pwd...
+2025-09-14 11:15:24,594 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: pwd
+2025-09-14 11:15:24,610 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 1bd87f03-fc60-464f-9fa7-f1bc86bd5fdf
+2025-09-14 11:15:27,365 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: whoami...
+2025-09-14 11:15:27,366 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: whoami
+2025-09-14 11:15:27,389 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 27d54053-a183-4134-90b1-271b3453fe39
+2025-09-14 11:15:32,258 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: cd .....
+2025-09-14 11:15:32,258 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: cd ..
+2025-09-14 11:15:32,273 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 96ed9cc0-afb1-4218-9172-0165b5442a32
+2025-09-14 11:15:33,760 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir...
+2025-09-14 11:15:33,760 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir
+2025-09-14 11:15:33,773 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 2948246f-9456-4f0f-9ddf-dfdbbb41f5d0
+2025-09-14 11:15:38,448 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: cd .....
+2025-09-14 11:15:38,448 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: cd ..
+2025-09-14 11:15:38,462 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 355edc10-3773-47a9-a2ae-eeeadfb3f6cf
+2025-09-14 11:15:39,694 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir...
+2025-09-14 11:15:39,695 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir
+2025-09-14 11:15:39,707 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task e24f5871-7ce9-4224-8717-fa1d6f18a18f
+2025-09-14 11:15:43,044 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: cd .....
+2025-09-14 11:15:43,045 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: cd ..
+2025-09-14 11:15:43,057 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task fdea30be-8fca-4825-9e64-966a271ef9c0
+2025-09-14 11:15:43,832 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: ls...
+2025-09-14 11:15:43,832 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: ls
+2025-09-14 11:15:43,848 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 1b9b3fc2-fdf6-4039-af9b-9ac0b09215c5
+2025-09-14 11:15:48,037 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: pwd...
+2025-09-14 11:15:48,038 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: pwd
+2025-09-14 11:15:48,051 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task c9521847-c123-47bd-82c8-80a8dfc9b479
+2025-09-14 11:15:52,125 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir...
+2025-09-14 11:15:52,125 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir
+2025-09-14 11:15:52,137 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 5f77de67-4ca3-4b60-b0ba-eed96167971e
+2025-09-14 11:16:04,065 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: cd .....
+2025-09-14 11:16:04,065 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: cd ..
+2025-09-14 11:16:04,078 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task d13fcf7f-7158-4981-aaa8-5dae697d44fb
+2025-09-14 11:16:07,156 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: cd .....
+2025-09-14 11:16:07,156 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: cd ..
+2025-09-14 11:16:07,168 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task af9d8e22-c36a-476d-ae7a-1269bb50d7c1
+2025-09-14 11:16:10,104 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir...
+2025-09-14 11:16:10,104 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir
+2025-09-14 11:16:10,116 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 1fd2796f-eede-48e2-b58c-2375965f3151
+2025-09-14 11:16:20,335 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\"...
+2025-09-14 11:16:20,335 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\"
+2025-09-14 11:16:20,350 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task add6710f-6d3b-4158-a4e2-a124c0614d6e
+2025-09-14 11:16:27,559 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\Windows\\"...
+2025-09-14 11:16:27,560 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\Windows\\"
+2025-09-14 11:16:27,577 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task aa66fd8f-96fe-41dd-a319-c22c6fef0a1e
+2025-09-14 11:16:27,776 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\Windows\\diagnostics\\"...
+2025-09-14 11:16:27,776 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\Windows\\diagnostics\\"
+2025-09-14 11:16:27,791 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task d3239f64-b54a-4701-b672-b1654d1962c4
+2025-09-14 11:16:29,599 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\Windows\\diagnostics\\"...
+2025-09-14 11:16:29,600 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\Windows\\diagnostics\\"
+2025-09-14 11:16:29,612 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task e9785fe8-63eb-4687-89fd-2e6b65825950
+2025-09-14 11:16:30,552 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\Windows\\diagnostics\\"...
+2025-09-14 11:16:30,552 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\Windows\\diagnostics\\"
+2025-09-14 11:16:30,564 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 0e7bed22-e341-4ca8-a3b6-f3c48d553891
+2025-09-14 11:16:33,216 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\Windows\\diagnostics\\"...
+2025-09-14 11:16:33,216 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\Windows\\diagnostics\\"
+2025-09-14 11:16:33,229 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task a13f1ea8-078c-472c-8e6c-e2833eb6a622
+2025-09-14 11:16:35,160 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\"...
+2025-09-14 11:16:35,160 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\"
+2025-09-14 11:16:35,173 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 5fe29f3f-6104-40c2-9bfe-fba2def3b8d9
+2025-09-14 11:16:36,584 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "D:\"...
+2025-09-14 11:16:36,584 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "D:\"
+2025-09-14 11:16:36,600 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 4620ea57-8def-4a99-8ca5-3d21d750ee2e
+2025-09-14 11:16:37,936 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "E:\"...
+2025-09-14 11:16:37,936 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "E:\"
+2025-09-14 11:16:37,951 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 6f3148cd-f502-4abe-94e6-b7f20bf260a1
+2025-09-14 11:16:38,432 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "F:\"...
+2025-09-14 11:16:38,432 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "F:\"
+2025-09-14 11:16:38,447 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task b3d01070-9012-4099-b67a-e985e9173b7b
+2025-09-14 11:16:38,872 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: wmic logicaldisk get size,freespace,caption...
+2025-09-14 11:16:38,872 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: wmic logicaldisk get size,freespace,caption
+2025-09-14 11:16:38,889 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 73d83c90-5da1-4ddb-94d0-823489a611e4
+2025-09-14 11:16:39,360 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: wmic logicaldisk get size,freespace,caption...
+2025-09-14 11:16:39,360 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: wmic logicaldisk get size,freespace,caption
+2025-09-14 11:16:39,374 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 5b053ca9-103a-40b7-a6a3-3c98f3e23cf0
+2025-09-14 11:16:39,672 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: wmic logicaldisk get size,freespace,caption...
+2025-09-14 11:16:39,672 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: wmic logicaldisk get size,freespace,caption
+2025-09-14 11:16:39,686 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 8ed41470-f505-4d9a-9df2-2055e990e1cd
+2025-09-14 11:16:41,576 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\"...
+2025-09-14 11:16:41,576 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\"
+2025-09-14 11:16:41,589 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 897fc960-f7ad-4730-8d42-831b82528c11
+2025-09-14 11:16:44,784 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\Windows\\"...
+2025-09-14 11:16:44,784 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\Windows\\"
+2025-09-14 11:16:44,798 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 8febe8db-2055-4c4e-bf5c-f0b37f1ed0f2
+2025-09-14 11:16:45,024 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\Windows\\diagnostics\\"...
+2025-09-14 11:16:45,024 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\Windows\\diagnostics\\"
+2025-09-14 11:16:45,037 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 27a6b400-f7b4-4c5a-bf55-af09918d4dd3
+2025-09-14 11:16:46,361 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\Windows\\diagnostics\\"...
+2025-09-14 11:16:46,361 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\Windows\\diagnostics\\"
+2025-09-14 11:16:46,373 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 8c675d43-8fed-40a1-b700-f6ccafc6ef6a
+2025-09-14 11:16:48,640 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\"...
+2025-09-14 11:16:48,641 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\"
+2025-09-14 11:16:48,653 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task fb223cd7-55fd-4d1a-a1cf-7fd4c76ad6e5
+2025-09-14 11:16:51,153 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\"...
+2025-09-14 11:16:51,153 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\"
+2025-09-14 11:16:51,166 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task e1070b56-e40f-4fb0-9053-45ca4720ef92
+2025-09-14 11:16:52,945 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\Windows\\"...
+2025-09-14 11:16:52,945 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\Windows\\"
+2025-09-14 11:16:52,961 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task c3000c33-9bfa-4027-8c82-aea896e0f590
+2025-09-14 11:17:04,803 - INFO - 192.168.101.3 - - [14/Sep/2025 11:17:04] "GET /api/listeners HTTP/1.1" 200 -
+2025-09-14 11:17:06,203 - INFO - 192.168.101.3 - - [14/Sep/2025 11:17:06] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:17:09,003 - INFO - 192.168.101.3 - - [14/Sep/2025 11:17:09] "GET /api/listeners HTTP/1.1" 200 -
+2025-09-14 11:17:23,860 - INFO - 192.168.101.3 - - [14/Sep/2025 11:17:23] "GET /api/listeners HTTP/1.1" 200 -
+2025-09-14 11:18:03,661 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\"...
+2025-09-14 11:18:03,661 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\"
+2025-09-14 11:18:03,674 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task c471e578-7c75-4f9d-802f-c9897ab11541
+2025-09-14 11:18:13,733 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: wmic logicaldisk get size,freespace,caption...
+2025-09-14 11:18:13,733 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: wmic logicaldisk get size,freespace,caption
+2025-09-14 11:18:13,748 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task ca3d92c4-217d-4a57-a0b8-f193e27b035b
+2025-09-14 11:18:14,901 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: wmic logicaldisk get size,freespace,caption...
+2025-09-14 11:18:14,901 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: wmic logicaldisk get size,freespace,caption
+2025-09-14 11:18:14,915 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 311bb113-dcca-48b1-ac3a-08c10058c654
+2025-09-14 11:18:46,247 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\"...
+2025-09-14 11:18:46,247 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\"
+2025-09-14 11:18:46,259 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 83ed66c8-3c3b-4abb-ac32-0698e6eca8a6
+2025-09-14 11:20:09,155 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\"...
+2025-09-14 11:20:09,155 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\"
+2025-09-14 11:20:09,169 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 7dbe460d-acb0-4cb2-8e67-0cd4e0ea12b0
+2025-09-14 11:20:14,348 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\inetpub\\"...
+2025-09-14 11:20:14,348 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\inetpub\\"
+2025-09-14 11:20:14,362 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 9ba50f79-daf4-48f5-9aaa-bcce640b2272
+2025-09-14 11:20:15,267 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\inetpub\\"...
+2025-09-14 11:20:15,267 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\inetpub\\"
+2025-09-14 11:20:15,280 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 57df9677-134e-40e4-93f9-fc37e6c4e6bd
+2025-09-14 11:20:15,539 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\inetpub\\"...
+2025-09-14 11:20:15,540 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\inetpub\\"
+2025-09-14 11:20:15,552 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 9b78c4ad-0707-4e24-ab79-af1db59a3f90
+2025-09-14 11:20:15,755 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\inetpub\\"...
+2025-09-14 11:20:15,756 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\inetpub\\"
+2025-09-14 11:20:15,768 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task 46d0d382-aace-4fd6-86e9-4e3309e929e7
+2025-09-14 11:20:15,955 - INFO - Sent command to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\inetpub\\"...
+2025-09-14 11:20:15,956 - INFO - Command sent to 0d7c62e7-68f4-4f51-8af5-635edefdf793: dir /b "C:\inetpub\\"
+2025-09-14 11:20:15,968 - INFO - Received response from 0d7c62e7-68f4-4f51-8af5-635edefdf793 for task f5340e04-02b6-4760-9988-4829316592ca
+2025-09-14 11:21:27,187 - INFO - Listener 'Default' stopped successfully
+2025-09-14 11:21:27,187 - INFO - Server stopped
+2025-09-14 11:21:27,187 - ERROR - Error receiving data from 0d7c62e7-68f4-4f51-8af5-635edefdf793: [WinError 10053] An established connection was aborted by the software in your host machine
+2025-09-14 11:21:27,188 - INFO - Client 0d7c62e7-68f4-4f51-8af5-635edefdf793 disconnected
+2025-09-14 11:26:39,425 - INFO - Listener 'Default' started on 0.0.0.0:4444
+2025-09-14 11:26:39,425 - INFO - Default listener created on port 4444
+2025-09-14 11:26:39,425 - INFO - Starting web interface on 0.0.0.0:5000
+2025-09-14 11:26:40,702 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.3:5000
+2025-09-14 11:26:40,702 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-14 11:28:21,509 - INFO - Listener 'Default' started on 0.0.0.0:4444
+2025-09-14 11:28:21,509 - INFO - Default listener created on port 4444
+2025-09-14 11:28:21,509 - INFO - Starting web interface on 0.0.0.0:5000
+2025-09-14 11:28:22,791 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.3:5000
+2025-09-14 11:28:22,791 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-14 11:28:23,922 - INFO - 192.168.101.3 - - [14/Sep/2025 11:28:23] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:28:23,935 - INFO - 192.168.101.3 - - [14/Sep/2025 11:28:23] "GET /css/dashboard.css HTTP/1.1" 200 -
+2025-09-14 11:28:23,936 - INFO - 192.168.101.3 - - [14/Sep/2025 11:28:23] "GET /js/dashboard.js HTTP/1.1" 200 -
+2025-09-14 11:28:24,245 - INFO - 192.168.101.3 - - [14/Sep/2025 11:28:24] "[36mGET /static/medusa.jpg HTTP/1.1[0m" 304 -
+2025-09-14 11:28:24,269 - INFO - 192.168.101.3 - - [14/Sep/2025 11:28:24] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:28:24,274 - INFO - WebSocket client connected: B3YUymgHJ_w3FVUjAAAB
+2025-09-14 11:28:26,384 - INFO - 192.168.101.3 - - [14/Sep/2025 11:28:26] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:28:27,615 - INFO - 192.168.101.3 - - [14/Sep/2025 11:28:27] "GET /api/listeners HTTP/1.1" 200 -
+2025-09-14 11:28:39,917 - INFO - New connection from 127.0.0.1:58016
+2025-09-14 11:28:39,935 - INFO - Client 5bfba671-0028-4b7b-a0ae-3738425e64de connected: unknone (kishw)
+2025-09-14 11:28:44,464 - INFO - 192.168.101.3 - - [14/Sep/2025 11:28:44] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:28:48,056 - INFO - 192.168.101.3 - - [14/Sep/2025 11:28:48] "GET /api/listeners HTTP/1.1" 200 -
+2025-09-14 11:28:49,833 - INFO - 192.168.101.3 - - [14/Sep/2025 11:28:49] "GET /api/listeners HTTP/1.1" 200 -
+2025-09-14 11:28:55,820 - INFO - Sent command to 5bfba671-0028-4b7b-a0ae-3738425e64de: whoami...
+2025-09-14 11:28:55,821 - INFO - Command sent to 5bfba671-0028-4b7b-a0ae-3738425e64de: whoami
+2025-09-14 11:28:55,843 - INFO - Received response from 5bfba671-0028-4b7b-a0ae-3738425e64de for task 8c3673c0-0d43-4763-aa8a-cf79c8c863fb
+2025-09-14 11:28:57,983 - INFO - Sent command to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir...
+2025-09-14 11:28:57,983 - INFO - Command sent to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir
+2025-09-14 11:28:57,998 - INFO - Received response from 5bfba671-0028-4b7b-a0ae-3738425e64de for task 6cd0cb54-1639-4173-9b3a-82cf3f472411
+2025-09-14 11:29:07,555 - INFO - Sent command to 5bfba671-0028-4b7b-a0ae-3738425e64de: cd .....
+2025-09-14 11:29:07,555 - INFO - Received response from 5bfba671-0028-4b7b-a0ae-3738425e64de for task 25b0fb0d-9069-4ca9-b4da-c82d2633a236
+2025-09-14 11:29:07,555 - INFO - Command sent to 5bfba671-0028-4b7b-a0ae-3738425e64de: cd ..
+2025-09-14 11:29:14,579 - INFO - Sent command to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir...
+2025-09-14 11:29:14,579 - INFO - Command sent to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir
+2025-09-14 11:29:14,593 - INFO - Received response from 5bfba671-0028-4b7b-a0ae-3738425e64de for task 257c48a9-e52d-49a2-b291-f37024148b91
+2025-09-14 11:29:23,436 - INFO - Sent command to 5bfba671-0028-4b7b-a0ae-3738425e64de: cd .....
+2025-09-14 11:29:23,436 - INFO - Command sent to 5bfba671-0028-4b7b-a0ae-3738425e64de: cd ..
+2025-09-14 11:29:23,436 - INFO - Received response from 5bfba671-0028-4b7b-a0ae-3738425e64de for task 996b4934-50bf-4ee4-85bd-ffd9a6a27f37
+2025-09-14 11:29:25,242 - INFO - Sent command to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir...
+2025-09-14 11:29:25,242 - INFO - Command sent to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir
+2025-09-14 11:29:25,255 - INFO - Received response from 5bfba671-0028-4b7b-a0ae-3738425e64de for task 747bc294-2a4b-4e6f-abd9-119267f9b780
+2025-09-14 11:29:29,161 - INFO - Sent command to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir /b "C:\"...
+2025-09-14 11:29:29,161 - INFO - Command sent to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir /b "C:\"
+2025-09-14 11:29:29,176 - INFO - Received response from 5bfba671-0028-4b7b-a0ae-3738425e64de for task 72e1113b-654d-4020-b3d4-ccf745d54c67
+2025-09-14 11:29:32,281 - INFO - Sent command to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir /b "C:\Windows\\"...
+2025-09-14 11:29:32,281 - INFO - Command sent to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir /b "C:\Windows\\"
+2025-09-14 11:29:32,298 - INFO - Received response from 5bfba671-0028-4b7b-a0ae-3738425e64de for task a4b3413a-dfdc-418a-82be-d7197c511cbe
+2025-09-14 11:29:34,289 - INFO - Sent command to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir /b "C:\Windows\\"...
+2025-09-14 11:29:34,289 - INFO - Command sent to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir /b "C:\Windows\\"
+2025-09-14 11:29:34,303 - INFO - Received response from 5bfba671-0028-4b7b-a0ae-3738425e64de for task d5e7212d-6b2e-4784-83d4-a049c2d06573
+2025-09-14 11:29:34,929 - INFO - Sent command to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir /b "C:\Windows\\"...
+2025-09-14 11:29:34,929 - INFO - Command sent to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir /b "C:\Windows\\"
+2025-09-14 11:29:34,943 - INFO - Received response from 5bfba671-0028-4b7b-a0ae-3738425e64de for task 417e7ec9-ea74-46f3-9235-b5e47a9148f3
+2025-09-14 11:29:35,137 - INFO - Sent command to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir /b "C:\Windows\\"...
+2025-09-14 11:29:35,137 - INFO - Command sent to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir /b "C:\Windows\\"
+2025-09-14 11:29:35,152 - INFO - Received response from 5bfba671-0028-4b7b-a0ae-3738425e64de for task 05ed7ece-d0c6-451b-b7b9-ed5cff089b6f
+2025-09-14 11:29:35,345 - INFO - Sent command to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir /b "C:\Windows\\"...
+2025-09-14 11:29:35,345 - INFO - Command sent to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir /b "C:\Windows\\"
+2025-09-14 11:29:35,359 - INFO - Received response from 5bfba671-0028-4b7b-a0ae-3738425e64de for task 2e61deba-00ab-4df7-afef-b5b9e1dd94e2
+2025-09-14 11:29:40,777 - INFO - Sent command to 5bfba671-0028-4b7b-a0ae-3738425e64de: powershell "Get-WmiObject -Class Win32_LogicalDisk...
+2025-09-14 11:29:40,777 - INFO - Command sent to 5bfba671-0028-4b7b-a0ae-3738425e64de: powershell "Get-WmiObject -Class Win32_LogicalDisk | Select-Object DeviceID, Size, FreeSpace | Format-Table -AutoSize"
+2025-09-14 11:29:40,984 - INFO - Received response from 5bfba671-0028-4b7b-a0ae-3738425e64de for task c8849ab5-b2a0-4944-be2a-2a3922581999
+2025-09-14 11:29:43,257 - INFO - Sent command to 5bfba671-0028-4b7b-a0ae-3738425e64de: powershell "Get-WmiObject -Class Win32_LogicalDisk...
+2025-09-14 11:29:43,257 - INFO - Command sent to 5bfba671-0028-4b7b-a0ae-3738425e64de: powershell "Get-WmiObject -Class Win32_LogicalDisk | Select-Object DeviceID, Size, FreeSpace | Format-Table -AutoSize"
+2025-09-14 11:29:43,423 - INFO - Received response from 5bfba671-0028-4b7b-a0ae-3738425e64de for task 18731279-03be-440d-add3-1dd6235a41e1
+2025-09-14 11:29:44,209 - INFO - Sent command to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir /b "K:\\"...
+2025-09-14 11:29:44,209 - INFO - Command sent to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir /b "K:\\"
+2025-09-14 11:29:44,224 - INFO - Received response from 5bfba671-0028-4b7b-a0ae-3738425e64de for task b633b2d3-e86e-4c3f-b28f-684c560d01b6
+2025-09-14 11:29:46,026 - INFO - Sent command to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir /b "K:\\"...
+2025-09-14 11:29:46,026 - INFO - Command sent to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir /b "K:\\"
+2025-09-14 11:29:46,038 - INFO - Received response from 5bfba671-0028-4b7b-a0ae-3738425e64de for task bea4b2bb-22ef-4710-a187-29a62597c903
+2025-09-14 11:29:46,850 - INFO - Sent command to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir /b "K:\\"...
+2025-09-14 11:29:46,850 - INFO - Command sent to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir /b "K:\\"
+2025-09-14 11:29:46,862 - INFO - Received response from 5bfba671-0028-4b7b-a0ae-3738425e64de for task 928d53ca-c841-4f84-8928-49f009552ae0
+2025-09-14 11:29:47,450 - INFO - Sent command to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir /b "K:\\"...
+2025-09-14 11:29:47,450 - INFO - Command sent to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir /b "K:\\"
+2025-09-14 11:29:47,461 - INFO - Received response from 5bfba671-0028-4b7b-a0ae-3738425e64de for task 19fcfcf6-99d9-4a6a-ac1b-76b2a7b0a7ce
+2025-09-14 11:29:47,650 - INFO - Sent command to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir /b "K:\\"...
+2025-09-14 11:29:47,650 - INFO - Command sent to 5bfba671-0028-4b7b-a0ae-3738425e64de: dir /b "K:\\"
+2025-09-14 11:29:47,662 - INFO - Received response from 5bfba671-0028-4b7b-a0ae-3738425e64de for task 4eb13171-5981-462b-b8b6-9a9ed90eb3a0
+2025-09-14 11:29:54,822 - INFO - New connection from 127.0.0.1:58028
+2025-09-14 11:29:54,845 - INFO - Client af1f9813-c085-4ebd-b7a9-04b67cd4d32f connected: unknone (kishw)
+2025-09-14 11:32:18,562 - INFO - Listener 'Default' stopped successfully
+2025-09-14 11:32:18,562 - ERROR - Error receiving data from 5bfba671-0028-4b7b-a0ae-3738425e64de: [WinError 10053] An established connection was aborted by the software in your host machine
+2025-09-14 11:32:18,562 - INFO - Server stopped
+2025-09-14 11:32:18,562 - ERROR - Error receiving data from af1f9813-c085-4ebd-b7a9-04b67cd4d32f: [WinError 10053] An established connection was aborted by the software in your host machine
+2025-09-14 11:32:18,562 - INFO - Client 5bfba671-0028-4b7b-a0ae-3738425e64de disconnected
+2025-09-14 11:32:18,563 - INFO - Client af1f9813-c085-4ebd-b7a9-04b67cd4d32f disconnected
+2025-09-14 11:32:20,528 - INFO - Listener 'Default' started on 0.0.0.0:4444
+2025-09-14 11:32:20,529 - INFO - Default listener created on port 4444
+2025-09-14 11:32:20,529 - INFO - Starting web interface on 0.0.0.0:5000
+2025-09-14 11:32:21,834 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.3:5000
+2025-09-14 11:32:21,834 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-14 11:32:22,177 - INFO - WebSocket client connected: AUTULXoAKedo82UQAAAB
+2025-09-14 11:32:24,057 - INFO - 192.168.101.3 - - [14/Sep/2025 11:32:24] "[36mGET / HTTP/1.1[0m" 304 -
+2025-09-14 11:32:24,073 - INFO - 192.168.101.3 - - [14/Sep/2025 11:32:24] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-09-14 11:32:24,075 - INFO - 192.168.101.3 - - [14/Sep/2025 11:32:24] "GET /js/dashboard.js HTTP/1.1" 200 -
+2025-09-14 11:32:24,113 - INFO - 192.168.101.3 - - [14/Sep/2025 11:32:24] "[36mGET /static/medusa.jpg HTTP/1.1[0m" 304 -
+2025-09-14 11:32:24,127 - INFO - 192.168.101.3 - - [14/Sep/2025 11:32:24] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:32:24,135 - INFO - WebSocket client connected: ixnVUS1tXxnpYPX4AAAD
+2025-09-14 11:32:27,212 - INFO - 192.168.101.3 - - [14/Sep/2025 11:32:27] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:32:28,156 - INFO - 192.168.101.3 - - [14/Sep/2025 11:32:28] "GET /api/listeners HTTP/1.1" 200 -
+2025-09-14 11:32:28,627 - INFO - 192.168.101.3 - - [14/Sep/2025 11:32:28] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:32:35,043 - INFO - WebSocket client disconnected: AUTULXoAKedo82UQAAAB
+2025-09-14 11:32:36,620 - INFO - 192.168.101.3 - - [14/Sep/2025 11:32:36] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:32:47,208 - INFO - New connection from 127.0.0.1:58081
+2025-09-14 11:32:47,225 - INFO - Client e3e67c06-6a4f-4155-9ec7-bbe70e3c63ca connected: unknone (kishw)
+2025-09-14 11:32:55,149 - INFO - 192.168.101.3 - - [14/Sep/2025 11:32:55] "GET /api/clients HTTP/1.1" 200 -
+2025-09-14 11:32:58,268 - INFO - Sent command to e3e67c06-6a4f-4155-9ec7-bbe70e3c63ca: dir /b "C:\"...
+2025-09-14 11:32:58,268 - INFO - Command sent to e3e67c06-6a4f-4155-9ec7-bbe70e3c63ca: dir /b "C:\"
+2025-09-14 11:32:58,283 - INFO - Received response from e3e67c06-6a4f-4155-9ec7-bbe70e3c63ca for task 9de93990-9282-47e5-a7e5-4ae256ed6a0e
+2025-09-14 11:32:59,667 - INFO - Sent command to e3e67c06-6a4f-4155-9ec7-bbe70e3c63ca: powershell "Get-WmiObject -Class Win32_LogicalDisk...
+2025-09-14 11:32:59,668 - INFO - Command sent to e3e67c06-6a4f-4155-9ec7-bbe70e3c63ca: powershell "Get-WmiObject -Class Win32_LogicalDisk | Select-Object DeviceID, Size, FreeSpace | Format-Table -AutoSize"
+2025-09-14 11:32:59,837 - INFO - Received response from e3e67c06-6a4f-4155-9ec7-bbe70e3c63ca for task 2722b970-4992-4594-9f8b-207a8aaae445
+2025-09-14 11:33:01,636 - INFO - Sent command to e3e67c06-6a4f-4155-9ec7-bbe70e3c63ca: dir /b "C:\"...
+2025-09-14 11:33:01,636 - INFO - Command sent to e3e67c06-6a4f-4155-9ec7-bbe70e3c63ca: dir /b "C:\"
+2025-09-14 11:33:01,648 - INFO - Received response from e3e67c06-6a4f-4155-9ec7-bbe70e3c63ca for task cecc1a3d-018c-47b1-9fc2-184acab70b5c
+2025-09-14 11:33:05,212 - INFO - Sent command to e3e67c06-6a4f-4155-9ec7-bbe70e3c63ca: dir /b "C:\Windows\"...
+2025-09-14 11:33:05,212 - INFO - Command sent to e3e67c06-6a4f-4155-9ec7-bbe70e3c63ca: dir /b "C:\Windows\"
+2025-09-14 11:33:05,230 - INFO - Received response from e3e67c06-6a4f-4155-9ec7-bbe70e3c63ca for task 88bee4fb-a9f7-47f1-b94c-bc46a09e1452
+2025-09-14 11:33:07,396 - INFO - Sent command to e3e67c06-6a4f-4155-9ec7-bbe70e3c63ca: dir /b "C:\"...
+2025-09-14 11:33:07,396 - INFO - Command sent to e3e67c06-6a4f-4155-9ec7-bbe70e3c63ca: dir /b "C:\"
+2025-09-14 11:33:07,409 - INFO - Received response from e3e67c06-6a4f-4155-9ec7-bbe70e3c63ca for task ed932de9-fe58-4b08-95dd-f27f9b638d2e
+2025-09-14 11:33:09,684 - INFO - Sent command to e3e67c06-6a4f-4155-9ec7-bbe70e3c63ca: dir /b "C:\Windows\"...
+2025-09-14 11:33:09,684 - INFO - Command sent to e3e67c06-6a4f-4155-9ec7-bbe70e3c63ca: dir /b "C:\Windows\"
+2025-09-14 11:33:09,699 - INFO - Received response from e3e67c06-6a4f-4155-9ec7-bbe70e3c63ca for task 769eccbd-46ec-4e9d-a47f-4072e25815a2
+2025-09-14 11:33:18,994 - INFO - New connection from 127.0.0.1:58087
+2025-09-14 11:33:18,995 - INFO - Client 5bfba671-0028-4b7b-a0ae-3738425e64de connected: unknone (kishw)
+2025-09-14 11:33:29,157 - INFO - Sent command to e3e67c06-6a4f-4155-9ec7-bbe70e3c63ca: download C:\Windows\comsetup.log...
+2025-09-14 11:33:29,157 - INFO - File download requested from e3e67c06-6a4f-4155-9ec7-bbe70e3c63ca: C:\Windows\comsetup.log
+2025-09-14 11:33:29,165 - INFO - Received file from e3e67c06-6a4f-4155-9ec7-bbe70e3c63ca: comsetup.log
+2025-09-14 11:35:31,366 - INFO - WebSocket client disconnected: ixnVUS1tXxnpYPX4AAAD
+2025-09-14 11:36:18,881 - INFO - New connection from 127.0.0.1:58118
+2025-09-14 11:36:18,882 - INFO - Client af1f9813-c085-4ebd-b7a9-04b67cd4d32f connected: unknone (kishw)

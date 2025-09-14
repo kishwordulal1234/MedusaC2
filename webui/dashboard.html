@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEDUSA C2 Framework</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="color: var(--dracula-pink);">
+                <i class="fas fa-skull-crossbones"></i> MEDUSA C2
+            </a>
+            <div class="d-flex align-items-center">
+                <span class="text-muted me-3">Educational Use Only</span>
+                <span class="text-muted small">by <strong style="color: var(--dracula-purple);">unknown_hart</strong></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 sidebar p-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2">
+                        <a class="nav-link active" href="#" data-page="dashboard" style="color: var(--dracula-foreground);">
+                            <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link" href="#" data-page="clients" style="color: var(--dracula-foreground);">
+                            <i class="fas fa-desktop me-2"></i> Clients
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link" href="#" data-page="listeners" style="color: var(--dracula-foreground);">
+                            <i class="fas fa-broadcast-tower me-2"></i> Listeners
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link" href="#" data-page="terminal" style="color: var(--dracula-foreground);">
+                            <i class="fas fa-terminal me-2"></i> Terminal
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link" href="#" data-page="filemanager" style="color: var(--dracula-foreground);">
+                            <i class="fas fa-folder-open me-2"></i> File Explorer
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link" href="#" data-page="builder" style="color: var(--dracula-foreground);">
+                            <i class="fas fa-hammer me-2"></i> Builder
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-10 p-4">
+                <!-- Dashboard Section -->
+                <div id="dashboard" class="page-section active">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title" style="color: var(--dracula-pink);">
+                                        <i class="fas fa-skull-crossbones me-2"></i>MEDUSA C2 Framework
+                                    </h5>
+                                    <p class="card-text">Command & Control Framework - Educational Use Only</p>
+                                    <p class="text-muted small mb-3"><i class="fas fa-code me-1"></i>Made by <strong style="color: var(--dracula-purple);">unknown_hart</strong></p>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="card bg-dark">
+                                                <div class="card-body text-center">
+                                                    <h6 style="color: var(--dracula-green);">Active Clients</h6>
+                                                    <h3 id="client-count">0</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="card bg-dark">
+                                                <div class="card-body text-center">
+                                                    <h6 style="color: var(--dracula-purple);">Active Listeners</h6>
+                                                    <h3>1</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="card bg-dark">
+                                                <div class="card-body text-center">
+                                                    <h6 style="color: var(--dracula-pink);">Framework Status</h6>
+                                                    <h3 style="color: var(--dracula-green);">Online</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Clients Section -->
+                <div id="clients" class="page-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-desktop me-2"></i>Connected Clients</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-dark table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Hostname</th>
+                                            <th>Username</th>
+                                            <th>IP Address</th>
+                                            <th>OS</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="clients-list">
+                                        <!-- Clients will be populated here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Listeners Section -->
+                <div id="listeners" class="page-section">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5><i class="fas fa-broadcast-tower me-2"></i>Active Listeners</h5>
+                            <button class="btn btn-success btn-sm" onclick="showCreateListenerModal()">
+                                <i class="fas fa-plus me-1"></i> Create Listener
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-dark table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Host</th>
+                                            <th>Port</th>
+                                            <th>Status</th>
+                                            <th>Clients</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="listeners-list">
+                                        <!-- Listeners will be populated here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terminal Section -->
+                <div id="terminal" class="page-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-terminal me-2"></i>Interactive Terminal</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <select class="form-control" id="client-select">
+                                    <option value="">Select Client</option>
+                                </select>
+                            </div>
+                            <div id="terminal-output" class="terminal mb-3"></div>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="command-input" placeholder="Enter command..." disabled>
+                                <button class="btn btn-primary" id="execute-btn" onclick="executeCommand()" disabled>Execute</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- File Manager Section -->
+                <div id="filemanager" class="page-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-folder-open me-2"></i>File Explorer</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <select class="form-control" id="file-client-select">
+                                        <option value="">Select Client</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="drive-buttons">
+                                        <button type="button" class="btn btn-outline-light btn-sm" onclick="browsePath('C:\\')">
+                                            <i class="fas fa-hdd"></i> C:
+                                        </button>
+                                        <button type="button" class="btn btn-outline-light btn-sm" onclick="browsePath('D:\\')">
+                                            <i class="fas fa-hdd"></i> D:
+                                        </button>
+                                        <button type="button" class="btn btn-outline-light btn-sm" onclick="browsePath('E:\\')">
+                                            <i class="fas fa-hdd"></i> E:
+                                        </button>
+                                        <button type="button" class="btn btn-outline-light btn-sm" onclick="browsePath('F:\\')">
+                                            <i class="fas fa-hdd"></i> F:
+                                        </button>
+                                        <button type="button" class="btn btn-outline-success btn-sm" onclick="listAllDrives()">
+                                            <i class="fas fa-server"></i> All Drives
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="current-path mb-3">
+                                <strong>Current Path: </strong><span id="current-path">C:\</span>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <button class="btn btn-primary btn-sm me-2" onclick="refreshFiles()">
+                                    <i class="fas fa-refresh"></i> Refresh
+                                </button>
+                                <button class="btn btn-success btn-sm me-2" onclick="showUploadModal()">
+                                    <i class="fas fa-upload"></i> Upload
+                                </button>
+                                <button class="btn btn-info btn-sm me-2" onclick="downloadFile()">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                                <button class="btn btn-warning btn-sm me-2" onclick="editFile()">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                                <button class="btn btn-danger btn-sm me-2" onclick="deleteFile()">
+                                    <i class="fas fa-trash"></i> Delete
+                                </button>
+                                <button class="btn btn-secondary btn-sm" onclick="createFolder()">
+                                    <i class="fas fa-folder-plus"></i> New Folder
+                                </button>
+                            </div>
+                            
+                            <div id="file-explorer" class="border rounded" style="height: 400px; overflow-y: auto;">
+                                <!-- File listing will appear here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Builder Section -->
+                <div id="builder" class="page-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-hammer me-2"></i>Payload Builder</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Payload Type</label>
+                                        <select class="form-control" id="payload-type">
+                                            <option value="python">Python Executable</option>
+                                            <option value="netcat">Netcat Reverse Shell</option>
+                                            <option value="powershell">PowerShell Script</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div id="python-options">
+                                        <div class="mb-3">
+                                            <label class="form-label">Payload Mode</label>
+                                            <select class="form-control" id="payload-mode">
+                                                <option value="silent">Silent Stealth (Recommended) - Completely hidden operation</option>
+                                                <option value="stealth">Advanced Stealth - Enhanced hiding with priority management</option>
+                                                <option value="basic">Basic Mode - Standard executable</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label class="form-label">Output Name</label>
+                                            <input type="text" class="form-control" id="exe-name" placeholder="client" value="client">
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="add-persistence">
+                                                <label class="form-check-label" for="add-persistence">
+                                                    Add Persistence (Auto-start)
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="form-label">Server IP</label>
+                                        <input type="text" class="form-control" id="server-ip" placeholder="192.168.1.100">
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="form-label">Server Port</label>
+                                        <input type="number" class="form-control" id="server-port" placeholder="4444" value="4444">
+                                    </div>
+                                    
+                                    <button class="btn btn-primary" onclick="generatePayload()">
+                                        <i class="fas fa-hammer"></i> Generate Payload
+                                    </button>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Generated Output</label>
+                                        <textarea class="form-control" id="payload-output" rows="15" readonly placeholder="Generated payload will appear here..."></textarea>
+                                    </div>
+                                    <button class="btn btn-success" id="copy-btn" onclick="copyToClipboard()" disabled>
+                                        <i class="fas fa-copy"></i> Copy to Clipboard
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Modal -->
+    <div class="modal fade" id="uploadModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Upload File</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Select File</label>
+                        <input type="file" class="form-control" id="upload-file">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Upload Path</label>
+                        <input type="text" class="form-control" id="upload-path" placeholder="C:\">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="uploadFile()">Upload</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit File Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit File</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <textarea class="form-control" id="file-content" rows="20" style="font-family: 'Courier New', monospace;"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="saveFile()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Listener Modal -->
+    <div class="modal fade" id="createListenerModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create New Listener</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Listener Name</label>
+                        <input type="text" class="form-control" id="listener-name" placeholder="e.g., Custom-443">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Host</label>
+                        <input type="text" class="form-control" id="listener-host" value="0.0.0.0">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Port</label>
+                        <input type="number" class="form-control" id="listener-port" placeholder="e.g., 443, 8080">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="createListener()">Create Listener</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Use compatible Socket.IO version for Flask-SocketIO 5.5.1 -->
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js" integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO" crossorigin="anonymous"></script>
+    <script src="js/dashboard.js"></script>
+    
+    <!-- Footer Attribution -->
+    <footer class="text-center py-3 mt-4" style="border-top: 1px solid var(--dracula-comment); background-color: var(--dracula-background);">
+        <div class="container">
+            <p class="mb-0 text-muted small">
+                <i class="fas fa-skull-crossbones me-1" style="color: var(--dracula-pink);"></i>
+                <strong>MEDUSA C2 Framework</strong> - Created by 
+                <strong style="color: var(--dracula-purple);">unknown_hart</strong>
+                <span class="mx-2">|</span>
+                <i class="fas fa-graduation-cap me-1" style="color: var(--dracula-green);"></i>
+                Educational Use Only
+                <span class="mx-2">|</span>
+                <i class="fas fa-shield-alt me-1" style="color: var(--dracula-yellow);"></i>
+                Authorized Testing Required
+            </p>
+            <p class="mb-0 text-muted" style="font-size: 0.8rem;">
+                <i class="fas fa-copyright me-1"></i>
+                &copy; 2024 unknown_hart - Use, modify, and distribute with attribution
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,204 @@
+/* MEDUSA C2 Framework - Dashboard Styles */
+:root {
+    --dracula-bg: #282a36;
+    --dracula-current: #44475a;
+    --dracula-foreground: #f8f8f2;
+    --dracula-purple: #bd93f9;
+    --dracula-pink: #ff79c6;
+    --dracula-green: #50fa7b;
+    --dracula-red: #ff5555;
+}
+
+body {
+    background-color: var(--dracula-bg);
+    color: var(--dracula-foreground);
+    font-family: 'Courier New', monospace;
+    background-image: linear-gradient(rgba(40, 42, 54, 0.65), rgba(40, 42, 54, 0.65)), url('/static/medusa.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+/* Glass-morphism effects */
+.sidebar, .card, .navbar {
+    background-color: rgba(68, 71, 90, 0.85) !important;
+    backdrop-filter: blur(2px);
+}
+
+.terminal {
+    background-color: rgba(40, 42, 54, 0.9) !important;
+    backdrop-filter: blur(1px);
+}
+
+.navbar {
+    background-color: rgba(68, 71, 90, 0.85) !important;
+    border-bottom: 2px solid var(--dracula-pink);
+    backdrop-filter: blur(2px);
+}
+
+.sidebar {
+    background-color: rgba(68, 71, 90, 0.85) !important;
+    min-height: 100vh;
+    border-right: 2px solid var(--dracula-purple);
+    backdrop-filter: blur(2px);
+}
+
+.card {
+    background-color: rgba(68, 71, 90, 0.85) !important;
+    border: 1px solid var(--dracula-purple);
+    color: var(--dracula-foreground);
+    backdrop-filter: blur(2px);
+}
+
+.terminal {
+    background-color: var(--dracula-bg);
+    border: 2px solid var(--dracula-purple);
+    height: 400px;
+    overflow-y: auto;
+    padding: 15px;
+    font-family: 'Courier New', monospace;
+    color: var(--dracula-green);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    line-height: 1.2;
+}
+
+.btn-primary {
+    background-color: var(--dracula-purple);
+    border-color: var(--dracula-purple);
+}
+
+.form-control {
+    background-color: rgba(40, 42, 54, 0.9);
+    border-color: var(--dracula-purple);
+    color: var(--dracula-foreground);
+}
+
+/* Builder section payload output styling */
+#payload-output {
+    background-color: var(--dracula-bg) !important;
+    border: 2px solid var(--dracula-purple) !important;
+    color: var(--dracula-green) !important;
+    font-family: 'Courier New', monospace !important;
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    line-height: 1.3 !important;
+}
+
+#payload-output:focus {
+    background-color: var(--dracula-bg) !important;
+    border-color: var(--dracula-pink) !important;
+    color: var(--dracula-green) !important;
+    box-shadow: 0 0 5px rgba(189, 147, 249, 0.3) !important;
+}
+
+.table-dark {
+    --bs-table-bg: rgba(68, 71, 90, 0.8);
+    color: var(--dracula-foreground);
+}
+
+.page-section {
+    display: none;
+}
+
+.page-section.active {
+    display: block;
+}
+
+.file-item {
+    border-color: var(--dracula-purple) !important;
+    transition: background-color 0.2s;
+    background-color: rgba(68, 71, 90, 0.6) !important;
+}
+
+.file-item:hover {
+    background-color: rgba(189, 147, 249, 0.3) !important;
+}
+
+.file-item.selected {
+    background-color: rgba(189, 147, 249, 0.4) !important;
+    border: 2px solid var(--dracula-pink) !important;
+    box-shadow: 0 0 10px rgba(189, 147, 249, 0.3) !important;
+}
+
+.modal-content {
+    background-color: rgba(68, 71, 90, 0.95) !important;
+    border: 1px solid var(--dracula-purple);
+    backdrop-filter: blur(3px);
+}
+
+/* Notification System */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    max-width: 400px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.notification.success {
+    background: linear-gradient(135deg, var(--dracula-green), #45a049);
+    border-left: 4px solid var(--dracula-green);
+}
+
+.notification.warning {
+    background: linear-gradient(135deg, #ff9500, #ff7b00);
+    border-left: 4px solid #ff9500;
+}
+
+.notification.error {
+    background: linear-gradient(135deg, var(--dracula-red), #cc4444);
+    border-left: 4px solid var(--dracula-red);
+}
+
+.notification .notification-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.notification .notification-message {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Drive selection buttons */
+.drive-buttons {
+    margin-bottom: 15px;
+}
+
+.drive-buttons .btn {
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+/* File explorer styling */
+#file-explorer {
+    max-height: 500px;
+    overflow-y: auto;
+    border: 1px solid var(--dracula-purple);
+    border-radius: 5px;
+}
+
+.current-path {
+    background-color: rgba(68, 71, 90, 0.9);
+    color: var(--dracula-purple);
+    font-weight: bold;
+    padding: 10px;
+    border-bottom: 1px solid var(--dracula-purple);
+}

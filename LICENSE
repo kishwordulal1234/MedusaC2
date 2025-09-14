@@ -1,0 +1,49 @@
+MEDUSA C2 Framework License
+
+Copyright (c) 2024 unknown_hart
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to use,
+copy, modify, and distribute the Software, subject to the following conditions:
+
+RESTRICTIONS:
+1. The Software may NOT be sold, licensed for commercial use, or used for
+   monetary gain without explicit written permission from the original author.
+
+2. Any distribution, modification, or derivative work MUST include proper
+   attribution to the original author (unknown_hart) and this license notice.
+
+3. You may NOT claim ownership, authorship, or copyright of the original
+   Software or present it as your own work.
+
+4. Any public distribution or sharing MUST clearly credit "unknown_hart" as
+   the original creator and link to the original repository.
+
+PERMISSIONS:
+✅ Use for educational and research purposes
+✅ Modify and adapt for personal/educational use
+✅ Distribute with proper attribution
+✅ Create derivative works with attribution
+
+PROHIBITED:
+❌ Commercial sale or licensing
+❌ Claiming ownership or authorship
+❌ Removing attribution or license notices
+❌ Redistribution without proper credit
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+CREDIT REQUIREMENT:
+When using, modifying, or distributing this software, you must include:
+"MEDUSA C2 Framework - Created by unknown_hart"
+
+EDUCATIONAL USE ONLY:
+This software is intended solely for educational purposes in cybersecurity
+learning and authorized penetration testing. Any misuse for illegal activities
+is strictly prohibited and not endorsed by the author.

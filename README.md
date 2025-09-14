@@ -8,7 +8,7 @@
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)
 ![Version](https://img.shields.io/badge/Version-2.1.0-purple.svg)
 ![Build](https://img.shields.io/badge/Build-Stable-success.svg)
-![Creator](https://img.shields.io/badge/Created%20by-unknown__hart-ff79c6.svg)
+![Creator](https://img.shields.io/badge/Created%20by-unknone__hart-ff79c6.svg)
 
 **🎯 Professional Command & Control Framework for Cybersecurity Education**
 
@@ -1156,5 +1156,6 @@ License: Custom - Use/Modify with Attribution, No Commercial Sale
 - ✅ **Allowed**: Use, modify, distribute with proper attribution
 - ❌ **Prohibited**: Commercial sale, claiming ownership, removing credits
 - 📝 **Required**: Credit "unknown_hart" in all distributions
+
 
 </div>

@@ -14,7 +14,7 @@
 
 *A comprehensive, feature-rich C2 framework built for educational purposes and authorized penetration testing*
 
-**👨‍💻 Created by: [unknown_hart](https://github.com/unknown_hart)**
+**👨‍💻 Created by: [unknone_hart](https://github.com/kishwordulal1234)**
 
 **⭐ Star this repository if you find it useful!**
 
@@ -1024,7 +1024,7 @@ Suggest new features by:
 ```
 MEDUSA C2 Framework License
 
-Copyright (c) 2024 unknown_hart
+Copyright (c) 2024 unknone_hart
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to use,
@@ -1035,12 +1035,12 @@ RESTRICTIONS:
    monetary gain without explicit written permission from the original author.
 
 2. Any distribution, modification, or derivative work MUST include proper
-   attribution to the original author (unknown_hart) and this license notice.
+   attribution to the original author (unknone_hart) and this license notice.
 
 3. You may NOT claim ownership, authorship, or copyright of the original
    Software or present it as your own work.
 
-4. Any public distribution or sharing MUST clearly credit "unknown_hart" as
+4. Any public distribution or sharing MUST clearly credit "unknone_hart" as
    the original creator and link to the original repository.
 
 PERMISSIONS:
@@ -1065,12 +1065,12 @@ SOFTWARE.
 
 CREDIT REQUIREMENT:
 When using, modifying, or distributing this software, you must include:
-"MEDUSA C2 Framework - Created by unknown_hart"
+"MEDUSA C2 Framework - Created by unknone_hart"
 ```
 
 ### ⚠️ Disclaimer
 
-**IMPORTANT**: This software is provided for educational purposes only. The author (unknown_hart):
+**IMPORTANT**: This software is provided for educational purposes only. The author (unknone_hart):
 
 - 🚫 **Does not condone** illegal or unethical use of this software
 - 🛡️ **Is not responsible** for any misuse or damages caused
@@ -1079,14 +1079,14 @@ When using, modifying, or distributing this software, you must include:
 
 **Users assume full responsibility** for ensuring their use complies with all applicable laws and regulations.
 
-**ATTRIBUTION REQUIRED**: Any use, modification, or distribution must credit "unknown_hart" as the original creator.
+**ATTRIBUTION REQUIRED**: Any use, modification, or distribution must credit "unknone_hart" as the original creator.
 
 ---
 
 ## 🙏 Acknowledgments
 
 ### 👨‍💻 Original Creator
-**Created by: unknown_hart**  
+**Created by: unknone_hart**  
 *MEDUSA C2 Framework - Professional Command & Control for Educational Excellence*
 
 ### 🤝 Contributors
@@ -1113,7 +1113,7 @@ Special thanks to all contributors who have helped make MEDUSA better:
 
 | Contributor | Contribution | Impact |
 |-------------|--------------|--------|
-| **unknown_hart** | Original creator and lead developer | 🚀 Creator |
+| **unknone_hart** | Original creator and lead developer | 🚀 Creator |
 | **Community** | Bug reports and feature requests | 🐛 High |
 | **Educators** | Educational use cases and feedback | 🎓 High |
 | **Developers** | Code contributions and improvements | 💻 High |
@@ -1136,7 +1136,7 @@ Special thanks to all contributors who have helped make MEDUSA better:
 
 **🐍 MEDUSA C2 Framework** - *Professional C2 for Educational Excellence*
 
-**👨‍💻 Original Creator**: [**unknown_hart**](https://github.com/unknown_hart)
+**👨‍💻 Original Creator**: [**unknone_hart**](https://github.com/unknone_hart)
 
 *"Empowering the next generation of cybersecurity professionals"*
 
@@ -1147,7 +1147,7 @@ Special thanks to all contributors who have helped make MEDUSA better:
 **When using this software, you MUST include:**
 
 ```
-MEDUSA C2 Framework - Created by unknown_hart
+MEDUSA C2 Framework - Created by unknone_hart
 Original Repository: [Your Repository URL]
 License: Custom - Use/Modify with Attribution, No Commercial Sale
 ```
@@ -1155,7 +1155,8 @@ License: Custom - Use/Modify with Attribution, No Commercial Sale
 **⚠️ Important**: 
 - ✅ **Allowed**: Use, modify, distribute with proper attribution
 - ❌ **Prohibited**: Commercial sale, claiming ownership, removing credits
-- 📝 **Required**: Credit "unknown_hart" in all distributions
+- 📝 **Required**: Credit "unknone_hart" in all distributions
 
 
 </div>
+

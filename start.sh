@@ -1,5 +1,24 @@
 #!/bin/bash
 
+echo "============================================================"
+echo "MEDUSA C2 Framework - Startup Script"
+echo "Educational Use Only"
+echo "============================================================"
+
+echo "Checking Python installation..."
+if ! command -v python3 &> /dev/null
+then
+    echo "Python 3 is not installed"
+    echo "Please install Python 3.7 or higher"
+    exit 1
+fi
+
+echo "Checking/installing required packages..."
+pip3 install -r requirements.txt
+
+echo "Starting MEDUSA C2 Framework..."
+python3 server.py
+
 # MEDUSA C2 Framework Launcher - Linux/macOS
 # Professional Command & Control Framework
 # Educational Use Only - Developed for Cybersecurity Training

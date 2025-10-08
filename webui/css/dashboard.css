@@ -7,6 +7,11 @@
     --dracula-pink: #ff79c6;
     --dracula-green: #50fa7b;
     --dracula-red: #ff5555;
+    --dracula-yellow: #f1fa8c;
+    --dracula-blue: #6272a4;
+    --dracula-comment: #6272a4;
+    --dracula-cyan: #8be9fd;
+    --dracula-orange: #ffb86c;
 }
 
 body {
@@ -70,10 +75,48 @@ body {
     border-color: var(--dracula-purple);
 }
 
+.btn-secondary {
+    background-color: var(--dracula-comment);
+    border-color: var(--dracula-comment);
+}
+
+.btn-success {
+    background-color: var(--dracula-green);
+    border-color: var(--dracula-green);
+}
+
+.btn-warning {
+    background-color: var(--dracula-yellow);
+    border-color: var(--dracula-yellow);
+    color: #000;
+}
+
+.btn-danger {
+    background-color: var(--dracula-red);
+    border-color: var(--dracula-red);
+}
+
+.btn-info {
+    background-color: var(--dracula-blue);
+    border-color: var(--dracula-blue);
+}
+
 .form-control {
     background-color: rgba(40, 42, 54, 0.9);
     border-color: var(--dracula-purple);
     color: var(--dracula-foreground);
+}
+
+.form-control:focus {
+    background-color: rgba(40, 42, 54, 0.9);
+    border-color: var(--dracula-pink);
+    color: var(--dracula-foreground);
+    box-shadow: 0 0 0 0.2rem rgba(189, 147, 249, 0.25);
+}
+
+.form-control-color {
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.5rem;
 }
 
 /* Builder section payload output styling */
@@ -158,13 +201,19 @@ body {
 }
 
 .notification.warning {
-    background: linear-gradient(135deg, #ff9500, #ff7b00);
-    border-left: 4px solid #ff9500;
+    background: linear-gradient(135deg, var(--dracula-yellow), #ff7b00);
+    border-left: 4px solid var(--dracula-yellow);
+    color: #000;
 }
 
 .notification.error {
     background: linear-gradient(135deg, var(--dracula-red), #cc4444);
     border-left: 4px solid var(--dracula-red);
+}
+
+.notification.info {
+    background: linear-gradient(135deg, var(--dracula-blue), #4a5a8c);
+    border-left: 4px solid var(--dracula-blue);
 }
 
 .notification .notification-title {
@@ -201,4 +250,255 @@ body {
     font-weight: bold;
     padding: 10px;
     border-bottom: 1px solid var(--dracula-purple);
+}
+
+/* Chart styling */
+.chart-container {
+    position: relative;
+    height: 100px;
+    width: 100%;
+}
+
+/* Settings panel styling */
+.settings-panel {
+    background-color: rgba(68, 71, 90, 0.7) !important;
+    border: 1px solid var(--dracula-purple);
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.settings-panel .card-header {
+    background-color: rgba(68, 71, 90, 0.9) !important;
+    border-bottom: 1px solid var(--dracula-purple);
+}
+
+/* Activity log styling */
+#activity-log td {
+    font-size: 0.9em;
+}
+
+/* Tooltip styling */
+.tooltip {
+    font-family: 'Courier New', monospace;
+}
+
+.tooltip-inner {
+    background-color: var(--dracula-purple);
+    color: var(--dracula-foreground);
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+
+.tooltip.bs-tooltip-top .tooltip-arrow::before,
+.tooltip.bs-tooltip-auto[data-popper-placement^="top"] .tooltip-arrow::before {
+    border-top-color: var(--dracula-purple);
+}
+
+.tooltip.bs-tooltip-end .tooltip-arrow::before,
+.tooltip.bs-tooltip-auto[data-popper-placement^="right"] .tooltip-arrow::before {
+    border-right-color: var(--dracula-purple);
+}
+
+.tooltip.bs-tooltip-bottom .tooltip-arrow::before,
+.tooltip.bs-tooltip-auto[data-popper-placement^="bottom"] .tooltip-arrow::before {
+    border-bottom-color: var(--dracula-purple);
+}
+
+.tooltip.bs-tooltip-start .tooltip-arrow::before,
+.tooltip.bs-tooltip-auto[data-popper-placement^="left"] .tooltip-arrow::before {
+    border-left-color: var(--dracula-purple);
+}
+
+/* Client Visualization Styles */
+.client-icon {
+    position: relative;
+    display: inline-block;
+    margin: 15px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    text-align: center;
+    width: 120px;
+}
+
+.client-icon:hover {
+    transform: scale(1.1);
+}
+
+.client-icon .icon-container {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--dracula-purple), var(--dracula-pink));
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ensure the hacked.png image is the only content */
+.client-icon .icon-container i {
+    display: none;
+}
+
+.client-icon .icon-container.windows {
+    background: linear-gradient(135deg, #0078d7, #005a9e);
+}
+
+.client-icon .icon-container.linux {
+    background: linear-gradient(135deg, #f90, #c60);
+}
+
+.client-icon .icon-container.mac {
+    background: linear-gradient(135deg, #aaa, #888);
+}
+
+/* Ensure the hacked.png image is displayed properly for all OS types */
+.client-icon .icon-container.windows i,
+.client-icon .icon-container.linux i,
+.client-icon .icon-container.mac i {
+    display: none;
+}
+
+/* Use hacked.png as the background image for client icons */
+.client-icon .icon-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/static/hacked.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+/* Hide any default icons */
+.client-icon .icon-container i {
+    display: none !important;
+    z-index: 0;
+}
+
+/* Position status indicator above the image */
+.client-icon .status-indicator {
+    z-index: 2;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+/* Position OS badge above the image */
+.client-icon .os-badge {
+    z-index: 2;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+}
+
+.client-icon .client-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--dracula-foreground);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+}
+
+.client-icon .client-ip {
+    font-size: 12px;
+    color: var(--dracula-comment);
+}
+
+.client-icon .status-indicator {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--dracula-green);
+    border: 2px solid var(--dracula-bg);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.client-icon .status-indicator.offline {
+    background-color: var(--dracula-red);
+}
+
+.client-icon .os-badge {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    font-size: 10px;
+    padding: 2px 5px;
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+/* Client Interaction Modal */
+.client-interaction-modal .modal-content {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.client-interaction-modal .modal-header {
+    background: linear-gradient(90deg, var(--dracula-purple), var(--dracula-pink));
+    color: white;
+    border-bottom: none;
+}
+
+.client-interaction-modal .client-details-card {
+    background: rgba(68, 71, 90, 0.7);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.client-interaction-modal .quick-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.client-interaction-modal .quick-action-btn {
+    background: rgba(68, 71, 90, 0.9);
+    border: 1px solid var(--dracula-purple);
+    color: var(--dracula-foreground);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.client-interaction-modal .quick-action-btn:hover {
+    background: var(--dracula-purple);
+    transform: translateY(-2px);
+}
+
+.client-interaction-modal .quick-action-btn i {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+/* Visualization container */
+#clients-visualization {
+    background: rgba(40, 42, 54, 0.5);
+    border-radius: 8px;
+    border: 1px solid var(--dracula-purple);
+    min-height: 300px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }

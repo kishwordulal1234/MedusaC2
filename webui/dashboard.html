@@ -26,33 +26,38 @@
             <div class="col-md-2 sidebar p-3">
                 <ul class="nav flex-column">
                     <li class="nav-item mb-2">
-                        <a class="nav-link active" href="#" data-page="dashboard" style="color: var(--dracula-foreground);">
+                        <a class="nav-link active" href="#" onclick="showPage('dashboard'); return false;" style="color: var(--dracula-foreground);">
                             <i class="fas fa-tachometer-alt me-2"></i> Dashboard
                         </a>
                     </li>
                     <li class="nav-item mb-2">
-                        <a class="nav-link" href="#" data-page="clients" style="color: var(--dracula-foreground);">
+                        <a class="nav-link" href="#" onclick="showPage('clients'); return false;" style="color: var(--dracula-foreground);">
                             <i class="fas fa-desktop me-2"></i> Clients
                         </a>
                     </li>
                     <li class="nav-item mb-2">
-                        <a class="nav-link" href="#" data-page="listeners" style="color: var(--dracula-foreground);">
+                        <a class="nav-link" href="#" onclick="showPage('listeners'); return false;" style="color: var(--dracula-foreground);">
                             <i class="fas fa-broadcast-tower me-2"></i> Listeners
                         </a>
                     </li>
                     <li class="nav-item mb-2">
-                        <a class="nav-link" href="#" data-page="terminal" style="color: var(--dracula-foreground);">
+                        <a class="nav-link" href="#" onclick="showPage('terminal'); return false;" style="color: var(--dracula-foreground);">
                             <i class="fas fa-terminal me-2"></i> Terminal
                         </a>
                     </li>
                     <li class="nav-item mb-2">
-                        <a class="nav-link" href="#" data-page="filemanager" style="color: var(--dracula-foreground);">
+                        <a class="nav-link" href="#" onclick="showPage('filemanager'); return false;" style="color: var(--dracula-foreground);">
                             <i class="fas fa-folder-open me-2"></i> File Explorer
                         </a>
                     </li>
                     <li class="nav-item mb-2">
-                        <a class="nav-link" href="#" data-page="builder" style="color: var(--dracula-foreground);">
+                        <a class="nav-link" href="#" onclick="showPage('builder'); return false;" style="color: var(--dracula-foreground);">
                             <i class="fas fa-hammer me-2"></i> Builder
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link" href="#" onclick="showPage('settings'); return false;" style="color: var(--dracula-foreground);">
+                            <i class="fas fa-cog me-2"></i> Settings
                         </a>
                     </li>
                 </ul>
@@ -83,7 +88,7 @@
                                             <div class="card bg-dark">
                                                 <div class="card-body text-center">
                                                     <h6 style="color: var(--dracula-purple);">Active Listeners</h6>
-                                                    <h3>1</h3>
+                                                    <h3 id="listener-count">1</h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -92,6 +97,82 @@
                                                 <div class="card-body text-center">
                                                     <h6 style="color: var(--dracula-pink);">Framework Status</h6>
                                                     <h3 style="color: var(--dracula-green);">Online</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Performance Monitoring Section -->
+                                    <div class="row mt-4">
+                                        <div class="col-md-12">
+                                            <div class="card bg-dark">
+                                                <div class="card-header">
+                                                    <h5><i class="fas fa-chart-line me-2"></i>Performance Monitoring</h5>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <canvas id="cpuChart" height="100"></canvas>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <canvas id="memoryChart" height="100"></canvas>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mt-3">
+                                                        <div class="col-md-12">
+                                                            <canvas id="networkChart" height="100"></canvas>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Recent Activity Section -->
+                                    <div class="row mt-4">
+                                        <div class="col-md-12">
+                                            <div class="card bg-dark">
+                                                <div class="card-header">
+                                                    <h5><i class="fas fa-bell me-2"></i>Recent Activity</h5>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-dark table-striped">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Time</th>
+                                                                    <th>Event</th>
+                                                                    <th>Details</th>
+                                                                    <th>Status</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="activity-log">
+                                                                <tr>
+                                                                    <td colspan="4" class="text-center">No recent activity</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Interactive Client Visualization Section -->
+                                    <div class="row mt-4">
+                                        <div class="col-md-12">
+                                            <div class="card bg-dark">
+                                                <div class="card-header">
+                                                    <h5><i class="fas fa-network-wired me-2"></i>Connected Clients Visualization</h5>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div id="clients-visualization" class="d-flex flex-wrap justify-content-center align-items-center" style="min-height: 300px;">
+                                                        <div id="no-clients-message" class="text-center text-muted">
+                                                            <i class="fas fa-desktop fa-3x mb-3"></i>
+                                                            <p>No clients connected</p>
+                                                        </div>
+                                                        <!-- Client icons will be populated here -->
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -314,6 +395,135 @@
                                     <button class="btn btn-success" id="copy-btn" onclick="copyToClipboard()" disabled>
                                         <i class="fas fa-copy"></i> Copy to Clipboard
                                     </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Section -->
+                <div id="settings" class="page-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-cog me-2"></i>Framework Settings</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card bg-dark">
+                                        <div class="card-header">
+                                            <h6><i class="fas fa-palette me-2"></i>Theme Customization</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="mb-3">
+                                                <label class="form-label">Primary Color</label>
+                                                <input type="color" class="form-control form-control-color" id="primary-color" value="#bd93f9">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Accent Color</label>
+                                                <input type="color" class="form-control form-control-color" id="accent-color" value="#ff79c6">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Success Color</label>
+                                                <input type="color" class="form-control form-control-color" id="success-color" value="#50fa7b">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Background Color</label>
+                                                <input type="color" class="form-control form-control-color" id="bg-color" value="#282a36">
+                                            </div>
+                                            <button class="btn btn-primary" onclick="applyTheme()">Apply Theme</button>
+                                            <button class="btn btn-secondary" onclick="resetTheme()">Reset to Default</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card bg-dark mt-3">
+                                        <div class="card-header">
+                                            <h6><i class="fas fa-bell me-2"></i>Alert Configuration</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="alert-client-connect" checked>
+                                                <label class="form-check-label" for="alert-client-connect">
+                                                    Client Connection Alerts
+                                                </label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="alert-client-disconnect" checked>
+                                                <label class="form-check-label" for="alert-client-disconnect">
+                                                    Client Disconnection Alerts
+                                                </label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="alert-file-transfer" checked>
+                                                <label class="form-check-label" for="alert-file-transfer">
+                                                    File Transfer Alerts
+                                                </label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="alert-error" checked>
+                                                <label class="form-check-label" for="alert-error">
+                                                    Error Alerts
+                                                </label>
+                                            </div>
+                                            <button class="btn btn-primary mt-2" onclick="saveAlertSettings()">Save Alert Settings</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="card bg-dark">
+                                        <div class="card-header">
+                                            <h6><i class="fas fa-file-alt me-2"></i>Logging Configuration</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="mb-3">
+                                                <label class="form-label">Log Level</label>
+                                                <select class="form-control" id="log-level">
+                                                    <option value="DEBUG">Debug</option>
+                                                    <option value="INFO" selected>Info</option>
+                                                    <option value="WARNING">Warning</option>
+                                                    <option value="ERROR">Error</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Log Retention (days)</label>
+                                                <input type="number" class="form-control" id="log-retention" value="7" min="1" max="365">
+                                            </div>
+                                            <div class="form-check mb-3">
+                                                <input class="form-check-input" type="checkbox" id="enable-file-logging" checked>
+                                                <label class="form-check-label" for="enable-file-logging">
+                                                    Enable File Logging
+                                                </label>
+                                            </div>
+                                            <button class="btn btn-primary" onclick="saveLogSettings()">Save Log Settings</button>
+                                            <button class="btn btn-info ms-2" onclick="viewLogs()">View Logs</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card bg-dark mt-3">
+                                        <div class="card-header">
+                                            <h6><i class="fas fa-chart-bar me-2"></i>Analytics Configuration</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="enable-analytics" checked>
+                                                <label class="form-check-label" for="enable-analytics">
+                                                    Enable Performance Analytics
+                                                </label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="enable-historical-data" checked>
+                                                <label class="form-check-label" for="enable-historical-data">
+                                                    Store Historical Data
+                                                </label>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Data Collection Interval (seconds)</label>
+                                                <input type="number" class="form-control" id="data-interval" value="30" min="5" max="300">
+                                            </div>
+                                            <button class="btn btn-primary" onclick="saveAnalyticsSettings()">Save Analytics Settings</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

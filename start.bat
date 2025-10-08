@@ -1,4 +1,25 @@
 @echo off
+echo ============================================================
+echo MEDUSA C2 Framework - Startup Script
+echo Educational Use Only
+echo ============================================================
+
+echo Checking Python installation...
+python --version >nul 2>&1
+if %errorlevel% neq 0 (
+    echo Python is not installed or not in PATH
+    echo Please install Python 3.7 or higher
+    pause
+    exit /b 1
+)
+
+echo Checking/installing required packages...
+pip install -r requirements.txt
+
+echo Starting MEDUSA C2 Framework...
+python server.py
+
+pause
 color 0A
 title MEDUSA C2 Framework - Professional Command & Control
 mode con: cols=100 lines=35

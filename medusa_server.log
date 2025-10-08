@@ -643,3 +643,292 @@
 2025-09-14 11:35:31,366 - INFO - WebSocket client disconnected: ixnVUS1tXxnpYPX4AAAD
 2025-09-14 11:36:18,881 - INFO - New connection from 127.0.0.1:58118
 2025-09-14 11:36:18,882 - INFO - Client af1f9813-c085-4ebd-b7a9-04b67cd4d32f connected: unknone (kishw)
+2025-10-08 12:29:04,813 - INFO - Listener 'Default' started on 0.0.0.0:4444
+2025-10-08 12:29:04,814 - INFO - Default listener created on port 4444
+2025-10-08 12:29:04,814 - INFO - Starting web interface on 0.0.0.0:5000
+2025-10-08 12:29:04,843 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.4:5000
+2025-10-08 12:29:04,844 - INFO - [33mPress CTRL+C to quit[0m
+2025-10-08 12:29:07,991 - INFO - 192.168.101.4 - - [08/Oct/2025 12:29:07] "GET / HTTP/1.1" 200 -
+2025-10-08 12:29:08,005 - INFO - 192.168.101.4 - - [08/Oct/2025 12:29:08] "GET /css/dashboard.css HTTP/1.1" 200 -
+2025-10-08 12:29:08,005 - INFO - 192.168.101.4 - - [08/Oct/2025 12:29:08] "GET /js/dashboard.js HTTP/1.1" 200 -
+2025-10-08 12:29:08,009 - INFO - 192.168.101.4 - - [08/Oct/2025 12:29:08] "GET /js/dashboard.js HTTP/1.1" 200 -
+2025-10-08 12:29:08,284 - INFO - 192.168.101.4 - - [08/Oct/2025 12:29:08] "GET /static/medusa.jpg HTTP/1.1" 200 -
+2025-10-08 12:29:08,329 - INFO - 192.168.101.4 - - [08/Oct/2025 12:29:08] "GET /api/clients HTTP/1.1" 200 -
+2025-10-08 12:29:08,330 - INFO - 192.168.101.4 - - [08/Oct/2025 12:29:08] "GET /api/listeners HTTP/1.1" 200 -
+2025-10-08 12:29:08,332 - INFO - WebSocket client connected: SpfwCdWXqn37wMJ7AAAB
+2025-10-08 12:29:08,362 - INFO - 192.168.101.4 - - [08/Oct/2025 12:29:08] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-10-08 12:29:35,033 - INFO - 192.168.101.4 - - [08/Oct/2025 12:29:35] "[36mGET / HTTP/1.1[0m" 304 -
+2025-10-08 12:29:35,037 - INFO - WebSocket client disconnected: SpfwCdWXqn37wMJ7AAAB
+2025-10-08 12:29:35,075 - INFO - 192.168.101.4 - - [08/Oct/2025 12:29:35] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-10-08 12:29:35,076 - INFO - 192.168.101.4 - - [08/Oct/2025 12:29:35] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-10-08 12:29:35,079 - INFO - 192.168.101.4 - - [08/Oct/2025 12:29:35] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-10-08 12:29:35,089 - INFO - 192.168.101.4 - - [08/Oct/2025 12:29:35] "GET /api/clients HTTP/1.1" 200 -
+2025-10-08 12:29:35,089 - INFO - 192.168.101.4 - - [08/Oct/2025 12:29:35] "GET /api/listeners HTTP/1.1" 200 -
+2025-10-08 12:29:35,094 - INFO - WebSocket client connected: fjbXdmwunL31seMyAAAD
+2025-10-08 12:30:15,171 - INFO - Listener 'Default' stopped successfully
+2025-10-08 12:30:15,171 - INFO - Server stopped
+2025-10-08 12:34:16,196 - INFO - Listener 'Default' started on 0.0.0.0:4444
+2025-10-08 12:34:16,197 - INFO - Default listener created on port 4444
+2025-10-08 12:34:16,197 - INFO - Starting web interface on 0.0.0.0:5000
+2025-10-08 12:34:16,207 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.4:5000
+2025-10-08 12:34:16,207 - INFO - [33mPress CTRL+C to quit[0m
+2025-10-08 12:34:27,725 - INFO - 192.168.101.4 - - [08/Oct/2025 12:34:27] "[36mGET / HTTP/1.1[0m" 304 -
+2025-10-08 12:34:27,741 - INFO - 192.168.101.4 - - [08/Oct/2025 12:34:27] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-10-08 12:34:27,741 - INFO - 192.168.101.4 - - [08/Oct/2025 12:34:27] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-10-08 12:34:27,745 - INFO - 192.168.101.4 - - [08/Oct/2025 12:34:27] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-10-08 12:34:27,775 - INFO - 192.168.101.4 - - [08/Oct/2025 12:34:27] "[36mGET /static/medusa.jpg HTTP/1.1[0m" 304 -
+2025-10-08 12:34:27,813 - INFO - 192.168.101.4 - - [08/Oct/2025 12:34:27] "GET /api/clients HTTP/1.1" 200 -
+2025-10-08 12:34:27,813 - INFO - 192.168.101.4 - - [08/Oct/2025 12:34:27] "GET /api/listeners HTTP/1.1" 200 -
+2025-10-08 12:34:27,823 - INFO - WebSocket client connected: oVhbj_V2vZz2PMDdAAAB
+2025-10-08 12:34:41,272 - INFO - WebSocket client disconnected: oVhbj_V2vZz2PMDdAAAB
+2025-10-08 12:34:57,861 - INFO - New connection from 127.0.0.1:8537
+2025-10-08 12:34:57,880 - INFO - Client 400f4d56-1f5e-4873-ba8c-8f53253638bd connected: unknone (kishw)
+2025-10-08 12:35:47,372 - ERROR - Error receiving data from 400f4d56-1f5e-4873-ba8c-8f53253638bd: [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-10-08 12:35:47,372 - INFO - Client 400f4d56-1f5e-4873-ba8c-8f53253638bd disconnected
+2025-10-08 12:38:06,853 - INFO - Listener 'Default' started on 0.0.0.0:4444
+2025-10-08 12:38:06,853 - INFO - Default listener created on port 4444
+2025-10-08 12:38:06,854 - INFO - Starting web interface on 0.0.0.0:5000
+2025-10-08 12:38:06,863 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.4:5000
+2025-10-08 12:38:06,863 - INFO - [33mPress CTRL+C to quit[0m
+2025-10-08 12:38:11,625 - INFO - 192.168.101.4 - - [08/Oct/2025 12:38:11] "[36mGET / HTTP/1.1[0m" 304 -
+2025-10-08 12:38:11,643 - INFO - 192.168.101.4 - - [08/Oct/2025 12:38:11] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-10-08 12:38:11,643 - INFO - 192.168.101.4 - - [08/Oct/2025 12:38:11] "GET /js/dashboard.js HTTP/1.1" 200 -
+2025-10-08 12:38:11,664 - INFO - 192.168.101.4 - - [08/Oct/2025 12:38:11] "GET /js/dashboard.js HTTP/1.1" 200 -
+2025-10-08 12:38:11,670 - INFO - 192.168.101.4 - - [08/Oct/2025 12:38:11] "[36mGET /static/medusa.jpg HTTP/1.1[0m" 304 -
+2025-10-08 12:38:11,712 - INFO - 192.168.101.4 - - [08/Oct/2025 12:38:11] "GET /api/clients HTTP/1.1" 200 -
+2025-10-08 12:38:11,713 - INFO - 192.168.101.4 - - [08/Oct/2025 12:38:11] "GET /api/listeners HTTP/1.1" 200 -
+2025-10-08 12:38:11,715 - INFO - WebSocket client connected: 7uHprTQrhy8TfFBDAAAB
+2025-10-08 12:38:32,630 - INFO - New connection from 127.0.0.1:51281
+2025-10-08 12:38:32,651 - INFO - Client 4fa13cb8-c44d-400b-9b1d-2622003da471 connected: unknone (kishw)
+2025-10-08 12:51:00,861 - INFO - Listener 'Default' started on 0.0.0.0:4444
+2025-10-08 12:51:00,861 - INFO - Default listener created on port 4444
+2025-10-08 12:51:00,861 - INFO - Starting web interface on 0.0.0.0:5000
+2025-10-08 12:51:00,873 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.4:5000
+2025-10-08 12:51:00,873 - INFO - [33mPress CTRL+C to quit[0m
+2025-10-08 12:51:06,740 - INFO - 192.168.101.4 - - [08/Oct/2025 12:51:06] "[36mGET / HTTP/1.1[0m" 304 -
+2025-10-08 12:51:06,756 - INFO - 192.168.101.4 - - [08/Oct/2025 12:51:06] "GET /css/dashboard.css HTTP/1.1" 200 -
+2025-10-08 12:51:06,756 - INFO - 192.168.101.4 - - [08/Oct/2025 12:51:06] "GET /js/dashboard.js HTTP/1.1" 200 -
+2025-10-08 12:51:06,760 - INFO - 192.168.101.4 - - [08/Oct/2025 12:51:06] "GET /js/dashboard.js HTTP/1.1" 200 -
+2025-10-08 12:51:06,806 - INFO - 192.168.101.4 - - [08/Oct/2025 12:51:06] "[36mGET /static/medusa.jpg HTTP/1.1[0m" 304 -
+2025-10-08 12:51:06,848 - INFO - 192.168.101.4 - - [08/Oct/2025 12:51:06] "GET /api/clients HTTP/1.1" 200 -
+2025-10-08 12:51:06,848 - INFO - 192.168.101.4 - - [08/Oct/2025 12:51:06] "GET /api/listeners HTTP/1.1" 200 -
+2025-10-08 12:51:06,857 - INFO - WebSocket client connected: Qvo6QZ2e1AfNTn-LAAAB
+2025-10-08 12:52:24,267 - INFO - Listener 'Default' stopped successfully
+2025-10-08 12:52:24,267 - INFO - Server stopped
+2025-10-08 12:57:35,445 - INFO - Listener 'Default' started on 0.0.0.0:4444
+2025-10-08 12:57:35,445 - INFO - Default listener created on port 4444
+2025-10-08 12:57:35,445 - INFO - Starting web interface on 0.0.0.0:5000
+2025-10-08 12:57:35,455 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.4:5000
+2025-10-08 12:57:35,455 - INFO - [33mPress CTRL+C to quit[0m
+2025-10-08 12:57:39,985 - INFO - 192.168.101.4 - - [08/Oct/2025 12:57:39] "[36mGET / HTTP/1.1[0m" 304 -
+2025-10-08 12:57:40,001 - INFO - 192.168.101.4 - - [08/Oct/2025 12:57:40] "GET /css/dashboard.css HTTP/1.1" 200 -
+2025-10-08 12:57:40,001 - INFO - 192.168.101.4 - - [08/Oct/2025 12:57:40] "GET /js/dashboard.js HTTP/1.1" 200 -
+2025-10-08 12:57:40,032 - INFO - 192.168.101.4 - - [08/Oct/2025 12:57:40] "GET /js/dashboard.js HTTP/1.1" 200 -
+2025-10-08 12:57:40,038 - INFO - 192.168.101.4 - - [08/Oct/2025 12:57:40] "[36mGET /static/medusa.jpg HTTP/1.1[0m" 304 -
+2025-10-08 12:57:40,080 - INFO - 192.168.101.4 - - [08/Oct/2025 12:57:40] "GET /api/clients HTTP/1.1" 200 -
+2025-10-08 12:57:40,081 - INFO - 192.168.101.4 - - [08/Oct/2025 12:57:40] "GET /api/listeners HTTP/1.1" 200 -
+2025-10-08 12:57:40,082 - INFO - WebSocket client connected: 6oCzStch5pwhSSBXAAAB
+2025-10-08 13:00:30,580 - INFO - Listener 'Default' started on 0.0.0.0:4444
+2025-10-08 13:00:30,580 - INFO - Default listener created on port 4444
+2025-10-08 13:00:30,580 - INFO - Starting web interface on 0.0.0.0:5000
+2025-10-08 13:00:30,590 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.4:5000
+2025-10-08 13:00:30,590 - INFO - [33mPress CTRL+C to quit[0m
+2025-10-08 13:00:32,156 - INFO - WebSocket client connected: eYhUSkn56zYWbIOKAAAB
+2025-10-08 13:00:35,827 - INFO - 192.168.101.4 - - [08/Oct/2025 13:00:35] "[36mGET / HTTP/1.1[0m" 304 -
+2025-10-08 13:00:35,843 - INFO - 192.168.101.4 - - [08/Oct/2025 13:00:35] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-10-08 13:00:35,843 - INFO - 192.168.101.4 - - [08/Oct/2025 13:00:35] "GET /js/dashboard.js HTTP/1.1" 200 -
+2025-10-08 13:00:35,854 - INFO - 192.168.101.4 - - [08/Oct/2025 13:00:35] "GET /js/dashboard.js HTTP/1.1" 200 -
+2025-10-08 13:00:35,889 - INFO - 192.168.101.4 - - [08/Oct/2025 13:00:35] "[36mGET /static/medusa.jpg HTTP/1.1[0m" 304 -
+2025-10-08 13:00:35,919 - INFO - 192.168.101.4 - - [08/Oct/2025 13:00:35] "GET /api/clients HTTP/1.1" 200 -
+2025-10-08 13:00:35,920 - INFO - 192.168.101.4 - - [08/Oct/2025 13:00:35] "GET /api/listeners HTTP/1.1" 200 -
+2025-10-08 13:00:35,922 - INFO - WebSocket client connected: EvVN3iMS5p5cEKnEAAAD
+2025-10-08 13:00:41,589 - INFO - WebSocket client disconnected: eYhUSkn56zYWbIOKAAAB
+2025-10-08 13:01:32,887 - INFO - Listener 'Default' started on 0.0.0.0:4444
+2025-10-08 13:01:32,887 - INFO - Default listener created on port 4444
+2025-10-08 13:01:32,888 - INFO - Starting web interface on 0.0.0.0:5000
+2025-10-08 13:01:32,901 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.4:5000
+2025-10-08 13:01:32,902 - INFO - [33mPress CTRL+C to quit[0m
+2025-10-08 13:01:34,138 - INFO - 127.0.0.1 - - [08/Oct/2025 13:01:34] "GET /?id=51a4bffe-529f-4629-8506-3e4874483a2d&vscodeBrowserReqId=1759907793810 HTTP/1.1" 200 -
+2025-10-08 13:01:34,384 - INFO - 127.0.0.1 - - [08/Oct/2025 13:01:34] "GET /css/dashboard.css HTTP/1.1" 200 -
+2025-10-08 13:01:34,462 - INFO - 127.0.0.1 - - [08/Oct/2025 13:01:34] "GET /js/dashboard.js HTTP/1.1" 200 -
+2025-10-08 13:01:34,463 - INFO - 127.0.0.1 - - [08/Oct/2025 13:01:34] "GET /static/medusa.jpg HTTP/1.1" 200 -
+2025-10-08 13:01:34,696 - INFO - 127.0.0.1 - - [08/Oct/2025 13:01:34] "GET /api/clients HTTP/1.1" 200 -
+2025-10-08 13:01:34,793 - INFO - 127.0.0.1 - - [08/Oct/2025 13:01:34] "GET /api/listeners HTTP/1.1" 200 -
+2025-10-08 13:01:34,802 - INFO - WebSocket client connected: S07THUkWaccy64X4AAAB
+2025-10-08 13:01:42,533 - INFO - 127.0.0.1 - - [08/Oct/2025 13:01:42] "GET /?id=51a4bffe-529f-4629-8506-3e4874483a2d&vscodeBrowserReqId=1759907802528 HTTP/1.1" 200 -
+2025-10-08 13:01:42,733 - INFO - WebSocket client disconnected: S07THUkWaccy64X4AAAB
+2025-10-08 13:01:42,855 - INFO - 127.0.0.1 - - [08/Oct/2025 13:01:42] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-10-08 13:01:42,855 - INFO - 127.0.0.1 - - [08/Oct/2025 13:01:42] "GET /js/dashboard.js HTTP/1.1" 200 -
+2025-10-08 13:01:43,104 - INFO - 127.0.0.1 - - [08/Oct/2025 13:01:43] "GET /api/clients HTTP/1.1" 200 -
+2025-10-08 13:01:43,183 - INFO - 127.0.0.1 - - [08/Oct/2025 13:01:43] "GET /api/listeners HTTP/1.1" 200 -
+2025-10-08 13:01:43,184 - INFO - WebSocket client connected: C4bJDidcJOAB7alwAAAD
+2025-10-08 13:04:44,376 - INFO - Listener 'Default' started on 0.0.0.0:4444
+2025-10-08 13:04:44,376 - INFO - Default listener created on port 4444
+2025-10-08 13:04:44,376 - INFO - Starting web interface on 0.0.0.0:5000
+2025-10-08 13:04:44,387 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.4:5000
+2025-10-08 13:04:44,387 - INFO - [33mPress CTRL+C to quit[0m
+2025-10-08 13:04:45,314 - INFO - WebSocket client connected: jPebumqjDOQconKqAAAB
+2025-10-08 13:04:52,789 - INFO - WebSocket client disconnected: jPebumqjDOQconKqAAAB
+2025-10-08 13:04:52,918 - INFO - 127.0.0.1 - - [08/Oct/2025 13:04:52] "GET /?id=51a4bffe-529f-4629-8506-3e4874483a2d&vscodeBrowserReqId=1759907992589 HTTP/1.1" 200 -
+2025-10-08 13:04:53,164 - INFO - 127.0.0.1 - - [08/Oct/2025 13:04:53] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-10-08 13:04:53,225 - INFO - 127.0.0.1 - - [08/Oct/2025 13:04:53] "GET /js/dashboard.js HTTP/1.1" 200 -
+2025-10-08 13:04:53,231 - INFO - 127.0.0.1 - - [08/Oct/2025 13:04:53] "GET /api/clients HTTP/1.1" 200 -
+2025-10-08 13:04:53,536 - INFO - 127.0.0.1 - - [08/Oct/2025 13:04:53] "GET /api/listeners HTTP/1.1" 200 -
+2025-10-08 13:04:53,537 - INFO - WebSocket client connected: Uu95jzdTQ-3I9JC-AAAD
+2025-10-08 13:04:54,878 - INFO - 127.0.0.1 - - [08/Oct/2025 13:04:54] "GET /api/listeners HTTP/1.1" 200 -
+2025-10-08 13:04:55,703 - INFO - 127.0.0.1 - - [08/Oct/2025 13:04:55] "GET /api/clients HTTP/1.1" 200 -
+2025-10-08 13:05:19,200 - INFO - Listener 'Default' started on 0.0.0.0:4444
+2025-10-08 13:05:19,201 - INFO - Default listener created on port 4444
+2025-10-08 13:05:19,201 - INFO - Starting web interface on 0.0.0.0:5000
+2025-10-08 13:05:19,210 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.4:5000
+2025-10-08 13:05:19,210 - INFO - [33mPress CTRL+C to quit[0m
+2025-10-08 13:05:20,555 - INFO - WebSocket client connected: 0JL7sDhuacv_P8MMAAAB
+2025-10-08 13:05:31,325 - INFO - WebSocket client disconnected: 0JL7sDhuacv_P8MMAAAB
+2025-10-08 13:05:31,453 - INFO - 127.0.0.1 - - [08/Oct/2025 13:05:31] "GET /?id=51a4bffe-529f-4629-8506-3e4874483a2d&vscodeBrowserReqId=1759908031117 HTTP/1.1" 200 -
+2025-10-08 13:05:31,684 - INFO - 127.0.0.1 - - [08/Oct/2025 13:05:31] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-10-08 13:05:31,762 - INFO - 127.0.0.1 - - [08/Oct/2025 13:05:31] "GET /js/dashboard.js HTTP/1.1" 200 -
+2025-10-08 13:05:31,769 - INFO - 127.0.0.1 - - [08/Oct/2025 13:05:31] "GET /api/clients HTTP/1.1" 200 -
+2025-10-08 13:05:32,074 - INFO - 127.0.0.1 - - [08/Oct/2025 13:05:32] "GET /api/listeners HTTP/1.1" 200 -
+2025-10-08 13:05:32,075 - INFO - WebSocket client connected: lVYE-9HZEj9TlIyiAAAD
+2025-10-08 13:05:58,780 - INFO - Listener 'Default' started on 0.0.0.0:4444
+2025-10-08 13:05:58,781 - INFO - Default listener created on port 4444
+2025-10-08 13:05:58,781 - INFO - Starting web interface on 0.0.0.0:5000
+2025-10-08 13:05:58,794 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.4:5000
+2025-10-08 13:05:58,794 - INFO - [33mPress CTRL+C to quit[0m
+2025-10-08 13:06:00,621 - INFO - 192.168.101.4 - - [08/Oct/2025 13:06:00] "GET / HTTP/1.1" 200 -
+2025-10-08 13:06:00,634 - INFO - 192.168.101.4 - - [08/Oct/2025 13:06:00] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-10-08 13:06:00,636 - INFO - 192.168.101.4 - - [08/Oct/2025 13:06:00] "GET /js/dashboard.js HTTP/1.1" 200 -
+2025-10-08 13:06:00,677 - INFO - 192.168.101.4 - - [08/Oct/2025 13:06:00] "[36mGET /static/medusa.jpg HTTP/1.1[0m" 304 -
+2025-10-08 13:06:00,753 - INFO - 192.168.101.4 - - [08/Oct/2025 13:06:00] "GET /api/clients HTTP/1.1" 200 -
+2025-10-08 13:06:00,754 - INFO - 192.168.101.4 - - [08/Oct/2025 13:06:00] "GET /api/listeners HTTP/1.1" 200 -
+2025-10-08 13:06:00,758 - INFO - WebSocket client connected: 2zEGe5ocHFxxR32oAAAB
+2025-10-08 13:06:06,495 - INFO - 192.168.101.4 - - [08/Oct/2025 13:06:06] "GET /api/clients HTTP/1.1" 200 -
+2025-10-08 13:06:14,016 - INFO - 192.168.101.4 - - [08/Oct/2025 13:06:14] "GET /api/listeners HTTP/1.1" 200 -
+2025-10-08 13:06:57,730 - INFO - WebSocket client disconnected: 2zEGe5ocHFxxR32oAAAB
+2025-10-08 13:10:08,626 - INFO - Listener 'Default' started on 0.0.0.0:4444
+2025-10-08 13:10:08,626 - INFO - Default listener created on port 4444
+2025-10-08 13:10:08,626 - INFO - Starting web interface on 0.0.0.0:5000
+2025-10-08 13:10:08,638 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.4:5000
+2025-10-08 13:10:08,638 - INFO - [33mPress CTRL+C to quit[0m
+2025-10-08 13:10:17,958 - INFO - 192.168.101.4 - - [08/Oct/2025 13:10:17] "[36mGET / HTTP/1.1[0m" 304 -
+2025-10-08 13:10:17,973 - INFO - 192.168.101.4 - - [08/Oct/2025 13:10:17] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-10-08 13:10:17,974 - INFO - 192.168.101.4 - - [08/Oct/2025 13:10:17] "GET /js/dashboard.js HTTP/1.1" 200 -
+2025-10-08 13:10:18,020 - INFO - 192.168.101.4 - - [08/Oct/2025 13:10:18] "[36mGET /static/medusa.jpg HTTP/1.1[0m" 304 -
+2025-10-08 13:10:18,055 - INFO - 192.168.101.4 - - [08/Oct/2025 13:10:18] "GET /api/clients HTTP/1.1" 200 -
+2025-10-08 13:10:18,056 - INFO - 192.168.101.4 - - [08/Oct/2025 13:10:18] "GET /api/listeners HTTP/1.1" 200 -
+2025-10-08 13:10:18,064 - INFO - WebSocket client connected: RcskT0wND3deu44ZAAAB
+2025-10-08 13:10:19,113 - INFO - 192.168.101.4 - - [08/Oct/2025 13:10:19] "GET /api/clients HTTP/1.1" 200 -
+2025-10-08 13:10:19,720 - INFO - 192.168.101.4 - - [08/Oct/2025 13:10:19] "GET /api/listeners HTTP/1.1" 200 -
+2025-10-08 13:11:54,053 - INFO - Listener 'Default' started on 0.0.0.0:4444
+2025-10-08 13:11:54,053 - INFO - Default listener created on port 4444
+2025-10-08 13:11:54,053 - INFO - Starting web interface on 0.0.0.0:5000
+2025-10-08 13:11:54,064 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.4:5000
+2025-10-08 13:11:54,064 - INFO - [33mPress CTRL+C to quit[0m
+2025-10-08 13:11:55,156 - INFO - WebSocket client connected: 7QYl518c-zbJ8Vq3AAAB
+2025-10-08 13:14:15,762 - INFO - Listener 'Default' started on 0.0.0.0:4444
+2025-10-08 13:14:15,762 - INFO - Default listener created on port 4444
+2025-10-08 13:14:15,762 - INFO - Starting web interface on 0.0.0.0:5000
+2025-10-08 13:14:15,776 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.4:5000
+2025-10-08 13:14:15,776 - INFO - [33mPress CTRL+C to quit[0m
+2025-10-08 13:14:16,152 - INFO - WebSocket client connected: lkddVrZD0a7Gc-IYAAAB
+2025-10-08 13:14:44,236 - INFO - 192.168.101.4 - - [08/Oct/2025 13:14:44] "[36mGET / HTTP/1.1[0m" 304 -
+2025-10-08 13:14:44,240 - INFO - WebSocket client disconnected: lkddVrZD0a7Gc-IYAAAB
+2025-10-08 13:14:44,275 - INFO - 192.168.101.4 - - [08/Oct/2025 13:14:44] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-10-08 13:14:44,275 - INFO - 192.168.101.4 - - [08/Oct/2025 13:14:44] "GET /js/dashboard.js HTTP/1.1" 200 -
+2025-10-08 13:14:44,282 - INFO - 192.168.101.4 - - [08/Oct/2025 13:14:44] "[36mGET /static/medusa.jpg HTTP/1.1[0m" 304 -
+2025-10-08 13:14:44,297 - INFO - 192.168.101.4 - - [08/Oct/2025 13:14:44] "GET /api/clients HTTP/1.1" 200 -
+2025-10-08 13:14:44,298 - INFO - 192.168.101.4 - - [08/Oct/2025 13:14:44] "GET /api/listeners HTTP/1.1" 200 -
+2025-10-08 13:14:44,300 - INFO - WebSocket client connected: DmyZAeGPzQc-A3YSAAAD
+2025-10-08 13:15:37,672 - INFO - 192.168.101.4 - - [08/Oct/2025 13:15:37] "GET /api/listeners HTTP/1.1" 200 -
+2025-10-08 13:15:40,374 - INFO - Listener 'Default' stopped successfully
+2025-10-08 13:15:40,374 - INFO - Listener 'Default' stopped
+2025-10-08 13:15:40,384 - INFO - 192.168.101.4 - - [08/Oct/2025 13:15:40] "GET /api/listeners HTTP/1.1" 200 -
+2025-10-08 13:15:54,952 - INFO - 192.168.101.4 - - [08/Oct/2025 13:15:54] "GET /api/clients HTTP/1.1" 200 -
+2025-10-08 13:15:55,384 - INFO - 192.168.101.4 - - [08/Oct/2025 13:15:55] "GET /api/listeners HTTP/1.1" 200 -
+2025-10-08 13:16:11,276 - INFO - WebSocket client disconnected: DmyZAeGPzQc-A3YSAAAD
+2025-10-08 13:16:39,768 - INFO - Listener 'Default' started on 0.0.0.0:4444
+2025-10-08 13:16:39,768 - INFO - Default listener created on port 4444
+2025-10-08 13:16:39,769 - INFO - Starting web interface on 0.0.0.0:5000
+2025-10-08 13:16:39,782 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.101.4:5000
+2025-10-08 13:16:39,782 - INFO - [33mPress CTRL+C to quit[0m
+2025-10-08 13:16:42,323 - INFO - 192.168.101.4 - - [08/Oct/2025 13:16:42] "[36mGET / HTTP/1.1[0m" 304 -
+2025-10-08 13:16:42,338 - INFO - 192.168.101.4 - - [08/Oct/2025 13:16:42] "[36mGET /css/dashboard.css HTTP/1.1[0m" 304 -
+2025-10-08 13:16:42,338 - INFO - 192.168.101.4 - - [08/Oct/2025 13:16:42] "[36mGET /js/dashboard.js HTTP/1.1[0m" 304 -
+2025-10-08 13:16:42,439 - INFO - 192.168.101.4 - - [08/Oct/2025 13:16:42] "[36mGET /static/medusa.jpg HTTP/1.1[0m" 304 -
+2025-10-08 13:16:42,487 - INFO - 192.168.101.4 - - [08/Oct/2025 13:16:42] "GET /api/clients HTTP/1.1" 200 -
+2025-10-08 13:16:42,487 - INFO - 192.168.101.4 - - [08/Oct/2025 13:16:42] "GET /api/listeners HTTP/1.1" 200 -
+2025-10-08 13:16:42,488 - INFO - WebSocket client connected: xPwwshpsWMvrNJc1AAAB
+2025-10-08 13:17:07,104 - INFO - New connection from 127.0.0.1:28676
+2025-10-08 13:17:07,123 - INFO - Client 443cef34-030a-4390-a6c8-d21192c2044d connected: unknone (kishw)
+2025-10-08 13:17:07,128 - INFO - 192.168.101.4 - - [08/Oct/2025 13:17:07] "[33mGET /static/hacked.png HTTP/1.1[0m" 404 -
+2025-10-08 13:17:17,172 - INFO - Sent command to 443cef34-030a-4390-a6c8-d21192c2044d: dir /b "C:\"...
+2025-10-08 13:17:17,172 - INFO - Sent command to 443cef34-030a-4390-a6c8-d21192c2044d: dir /b "C:\"...
+2025-10-08 13:17:17,172 - INFO - Command sent to 443cef34-030a-4390-a6c8-d21192c2044d: dir /b "C:\"
+2025-10-08 13:17:17,172 - INFO - Command sent to 443cef34-030a-4390-a6c8-d21192c2044d: dir /b "C:\"
+2025-10-08 13:17:17,190 - INFO - Received response from 443cef34-030a-4390-a6c8-d21192c2044d for task 884e3c27-befa-4f41-8033-794b25bd1f86
+2025-10-08 13:17:17,203 - INFO - Received response from 443cef34-030a-4390-a6c8-d21192c2044d for task 13109152-5789-4e75-9a74-0b33d4a74199
+2025-10-08 13:17:21,291 - INFO - Sent command to 443cef34-030a-4390-a6c8-d21192c2044d: dir /b "C:\Program Files (x86)\"...
+2025-10-08 13:17:21,291 - INFO - Command sent to 443cef34-030a-4390-a6c8-d21192c2044d: dir /b "C:\Program Files (x86)\"
+2025-10-08 13:17:21,307 - INFO - Received response from 443cef34-030a-4390-a6c8-d21192c2044d for task 914bb899-154a-430b-924d-dd0c0d92da6c
+2025-10-08 13:17:22,971 - INFO - Sent command to 443cef34-030a-4390-a6c8-d21192c2044d: dir /b "C:\Program Files (x86)\BraveSoftware\"...
+2025-10-08 13:17:22,971 - INFO - Command sent to 443cef34-030a-4390-a6c8-d21192c2044d: dir /b "C:\Program Files (x86)\BraveSoftware\"
+2025-10-08 13:17:22,986 - INFO - Received response from 443cef34-030a-4390-a6c8-d21192c2044d for task 3e0c07ac-62b5-4b31-8d71-1fb3b780a668
+2025-10-08 13:17:23,931 - INFO - Sent command to 443cef34-030a-4390-a6c8-d21192c2044d: dir /b "C:\Program Files (x86)\"...
+2025-10-08 13:17:23,931 - INFO - Command sent to 443cef34-030a-4390-a6c8-d21192c2044d: dir /b "C:\Program Files (x86)\"
+2025-10-08 13:17:23,944 - INFO - Received response from 443cef34-030a-4390-a6c8-d21192c2044d for task 1c0eeca3-3d3e-4a53-a91e-813feb674870
+2025-10-08 13:17:24,467 - INFO - Sent command to 443cef34-030a-4390-a6c8-d21192c2044d: dir /b "C:\"...
+2025-10-08 13:17:24,467 - INFO - Command sent to 443cef34-030a-4390-a6c8-d21192c2044d: dir /b "C:\"
+2025-10-08 13:17:24,480 - INFO - Received response from 443cef34-030a-4390-a6c8-d21192c2044d for task 627a37cd-8258-4a56-90d0-f6f26ea1d956
+2025-10-08 13:17:25,179 - INFO - Sent command to 443cef34-030a-4390-a6c8-d21192c2044d: dir /b "C:\burpsuite pro\"...
+2025-10-08 13:17:25,179 - INFO - Command sent to 443cef34-030a-4390-a6c8-d21192c2044d: dir /b "C:\burpsuite pro\"
+2025-10-08 13:17:25,196 - INFO - Received response from 443cef34-030a-4390-a6c8-d21192c2044d for task 6b8ae1bf-3eed-426b-a8d8-ba97d9c62904
+2025-10-08 13:17:26,379 - INFO - Sent command to 443cef34-030a-4390-a6c8-d21192c2044d: dir /b "C:\"...
+2025-10-08 13:17:26,379 - INFO - Command sent to 443cef34-030a-4390-a6c8-d21192c2044d: dir /b "C:\"
+2025-10-08 13:17:26,392 - INFO - Received response from 443cef34-030a-4390-a6c8-d21192c2044d for task a8fbbcc9-408f-4488-98e1-ea042e3fb934
+2025-10-08 13:17:28,453 - INFO - 192.168.101.4 - - [08/Oct/2025 13:17:28] "GET /api/clients HTTP/1.1" 200 -
+2025-10-08 13:17:40,052 - INFO - Sent command to 443cef34-030a-4390-a6c8-d21192c2044d: screenshot...
+2025-10-08 13:17:40,052 - INFO - Command sent to 443cef34-030a-4390-a6c8-d21192c2044d: screenshot
+2025-10-08 13:17:40,386 - INFO - Received screenshot from 443cef34-030a-4390-a6c8-d21192c2044d
+2025-10-08 13:17:53,704 - INFO - WebSocket client disconnected: xPwwshpsWMvrNJc1AAAB

@@ -9,6 +9,32 @@ let currentPath = 'C:\\';
 let selectedFile = null;
 let clients = {};
 let globalSelectedClient = null; // Global client selection
+let cpuChart, memoryChart, networkChart; // Chart instances
+let activityLog = []; // Activity log storage
+let settings = {
+    theme: {
+        primary: '#bd93f9',
+        accent: '#ff79c6',
+        success: '#50fa7b',
+        background: '#282a36'
+    },
+    alerts: {
+        clientConnect: true,
+        clientDisconnect: true,
+        fileTransfer: true,
+        error: true
+    },
+    logging: {
+        level: 'INFO',
+        retention: 7,
+        fileLogging: true
+    },
+    analytics: {
+        enabled: true,
+        historicalData: true,
+        interval: 30
+    }
+};
 
 $(document).ready(function() {
     // Initialize socket with error handling and proper configuration
@@ -33,15 +59,16 @@ $(document).ready(function() {
     }
     loadDashboard();
     
+    // Initialize charts
+    initializeCharts();
+    
+    // Load saved settings
+    loadSettings();
+    
     // Debug: Log that DOM is ready
     console.log('DOM ready, initializing event handlers');
     
-    $('.nav-link').click(function(e) {
-        e.preventDefault();
-        console.log('Navigation clicked:', $(this).data('page'));
-        const page = $(this).data('page');
-        showPage(page);
-    });
+    // Navigation is now handled by onclick attributes in HTML
     
     $('#command-input').keypress(function(e) {
         if (e.which === 13) executeCommand();
@@ -76,6 +103,17 @@ $(document).ready(function() {
             $('#python-options').hide();
         }
     });
+    
+    // Initialize tooltips
+    $('[data-bs-toggle="tooltip"]').tooltip();
+    
+    // Log all navigation links
+    console.log('Navigation links found:', $('.nav-link').length);
+    $('.nav-link').each(function() {
+        console.log('Nav link:', $(this).data('page'));
+    });
+    
+    // Removed delayed initialization to prevent conflicts
 });
 
 function initializeSocket() {
@@ -83,11 +121,13 @@ function initializeSocket() {
     socket.on('connect', function() {
         console.log('Socket connected successfully - real-time features enabled');
         socketConnected = true;
+        showNotification('🔗 Connection Restored', 'Real-time features enabled', 'success');
     });
     
     socket.on('disconnect', function() {
         console.log('Socket disconnected - switching to HTTP mode');
         socketConnected = false;
+        showNotification('⚠️ Connection Lost', 'Switching to HTTP mode', 'warning');
     });
     
     socket.on('connect_error', function(error) {
@@ -95,21 +135,34 @@ function initializeSocket() {
         socketConnected = false;
         // Don't show annoying notifications for connection errors
     });
+    
     socket.on('client_connected', function(data) {
         clients[data.id] = data;
         updateClients();
+        updateClientVisualization();
         addTerminalMessage(`Client connected: ${data.hostname}`);
         
-        // Show notification
-        showNotification('🔗 Client Connected', `${data.hostname} (${data.username}) from ${data.ip_address}`, 'success');
+        // Show notification based on settings
+        if (settings.alerts.clientConnect) {
+            showNotification('🔗 Client Connected', `${data.hostname} (${data.username}) from ${data.ip_address}`, 'success');
+        }
+        
+        // Log activity
+        logActivity('Client Connected', `${data.hostname} (${data.username}) from ${data.ip_address}`, 'success');
     });
     
     socket.on('client_disconnected', function(data) {
         delete clients[data.id];
         updateClients();
+        updateClientVisualization();
         
-        // Show notification
-        showNotification('🔌 Client Disconnected', `Client ${data.id.substring(0, 8)}... has disconnected`, 'warning');
+        // Show notification based on settings
+        if (settings.alerts.clientDisconnect) {
+            showNotification('🔌 Client Disconnected', `Client ${data.id.substring(0, 8)}... has disconnected`, 'warning');
+        }
+        
+        // Log activity
+        logActivity('Client Disconnected', `Client ${data.id.substring(0, 8)}... has disconnected`, 'warning');
     });
     
     socket.on('task_updated', function(data) {
@@ -123,6 +176,9 @@ function initializeSocket() {
             // Display error if any
             if (data.error && data.error.trim()) {
                 addTerminalMessage(`Error: ${data.error}`);
+                if (settings.alerts.error) {
+                    showNotification('❌ Command Error', data.error, 'error');
+                }
             }
         }
         
@@ -145,14 +201,20 @@ function initializeSocket() {
     // Handle download events
     socket.on('download_requested', function(data) {
         console.log('Download requested:', data);
-        showNotification('📎 Download Request Sent', `Download request sent for: ${data.file_path}`, 'success');
+        if (settings.alerts.fileTransfer) {
+            showNotification('📎 Download Request Sent', `Download request sent for: ${data.file_path}`, 'info');
+        }
+        logActivity('Download Requested', `File: ${data.file_path}`, 'info');
     });
     
     // Handle file download completion (when client sends file data)
     socket.on('file_received', function(data) {
         if (data.client_id === selectedFileClientId) {
             console.log('File received:', data);
-            showNotification('✅ Download Complete', `File downloaded: ${data.filename}`, 'success');
+            if (settings.alerts.fileTransfer) {
+                showNotification('✅ Download Complete', `File downloaded: ${data.filename}`, 'success');
+            }
+            logActivity('Download Complete', `File: ${data.filename}`, 'success');
         }
     });
     
@@ -160,7 +222,10 @@ function initializeSocket() {
     socket.on('file_uploaded', function(data) {
         if (data.client_id === selectedFileClientId) {
             console.log('File uploaded:', data);
-            showNotification('✅ Upload Complete', `File uploaded: ${data.file_path}`, 'success');
+            if (settings.alerts.fileTransfer) {
+                showNotification('✅ Upload Complete', `File uploaded: ${data.file_path}`, 'success');
+            }
+            logActivity('Upload Complete', `File: ${data.file_path}`, 'success');
             setTimeout(() => refreshFiles(), 1000);
         }
     });
@@ -168,41 +233,62 @@ function initializeSocket() {
     // Handle general errors
     socket.on('error', function(data) {
         console.error('Socket error:', data);
-        showNotification('❌ Error', data.message || 'An error occurred', 'error');
+        if (settings.alerts.error) {
+            showNotification('❌ Error', data.message || 'An error occurred', 'error');
+        }
+        logActivity('Error', data.message || 'An error occurred', 'error');
     });
     
     // Listener event handlers
     socket.on('listener_created', function(data) {
         showNotification('✅ Listener Created', `Listener '${data.name}' created on ${data.host}:${data.port}`, 'success');
+        logActivity('Listener Created', `Listener '${data.name}' on ${data.host}:${data.port}`, 'success');
         loadListeners();
     });
     
     socket.on('listener_started', function(data) {
         showNotification('▶️ Listener Started', `Listener '${data.name}' is now running`, 'success');
+        logActivity('Listener Started', `Listener '${data.name}' started`, 'success');
         loadListeners();
     });
     
     socket.on('listener_stopped', function(data) {
         showNotification('⏹️ Listener Stopped', `Listener '${data.name}' has been stopped`, 'warning');
+        logActivity('Listener Stopped', `Listener '${data.name}' stopped`, 'warning');
         loadListeners();
     });
     
     socket.on('listener_deleted', function(data) {
         showNotification('🗑️ Listener Deleted', `Listener '${data.name}' has been deleted`, 'info');
+        logActivity('Listener Deleted', `Listener '${data.name}' deleted`, 'info');
         loadListeners();
     });
     
     socket.on('listener_error', function(data) {
-        showNotification('❌ Listener Error', data.message, 'error');
+        if (settings.alerts.error) {
+            showNotification('❌ Listener Error', data.message, 'error');
+        }
+        logActivity('Listener Error', data.message, 'error');
+    });
+    
+    // Performance data handler
+    socket.on('performance_data', function(data) {
+        updateCharts(data);
     });
 }
 
 function showPage(page) {
     console.log('Switching to page:', page);
+    console.log('Available sections:', $('.page-section').length);
+    console.log('Target section:', $(`#${page}`).length);
+    
     $('.page-section').removeClass('active');
     $(`#${page}`).addClass('active');
+    
+    // Update active state for navigation links
     $('.nav-link').removeClass('active');
-    $(`.nav-link[data-page="${page}"]`).addClass('active');
+    // Find the nav link with the matching onclick attribute
+    $(`.nav-link[onclick*="'${page}'"]`).addClass('active');
     
     // Auto-select global client when switching pages
     if (globalSelectedClient && clients[globalSelectedClient]) {
@@ -219,6 +305,10 @@ function showPage(page) {
     
     if (page === 'clients') loadClients();
     if (page === 'listeners') loadListeners();
+    if (page === 'dashboard') startPerformanceMonitoring();
+    if (page === 'settings') loadSettingsIntoForm();
+    
+    console.log('Page switch completed for:', page);
 }
 
 function loadDashboard() {
@@ -231,6 +321,14 @@ function loadDashboard() {
                 clients[client.id] = client;
             });
             updateClients();
+            updateClientVisualization();
+        });
+    
+    // Load listener count
+    fetch('/api/listeners')
+        .then(response => response.json())
+        .then(data => {
+            $('#listener-count').text(data.length);
         });
 }
 
@@ -267,6 +365,9 @@ function updateClients() {
                     <button class="btn btn-sm btn-primary" onclick="selectGlobalClient('${client.id}')">
                         <i class="fas fa-mouse-pointer"></i> Select
                     </button>
+                    <button class="btn btn-sm btn-info" onclick="showClientInteractionModal('${client.id}')">
+                        <i class="fas fa-desktop"></i> Interact
+                    </button>
                 </td>
             </tr>
         `;
@@ -278,6 +379,244 @@ function updateClients() {
         clientSelect.val(globalSelectedClient);
         fileClientSelect.val(globalSelectedClient);
     }
+    
+    // Update client visualization
+    updateClientVisualization();
+}
+
+// Client Visualization Functions
+function updateClientVisualization() {
+    const visualizationContainer = $('#clients-visualization');
+    const noClientsMessage = $('#no-clients-message');
+    
+    // Clear existing client icons
+    visualizationContainer.find('.client-icon').remove();
+    
+    // Show/hide no clients message
+    if (Object.keys(clients).length === 0) {
+        noClientsMessage.show();
+        return;
+    }
+    
+    noClientsMessage.hide();
+    
+    // Create client icons
+    Object.values(clients).forEach(client => {
+        const osClass = getOSClass(client.os);
+        const clientIcon = $(`
+            <div class="client-icon" data-client-id="${client.id}">
+                <div class="icon-container ${osClass}">
+                    <div class="status-indicator" title="Online"></div>
+                    <div class="os-badge">${getOSShortName(client.os)}</div>
+                </div>
+                <div class="client-name" title="${client.hostname}">${truncateText(client.hostname, 15)}</div>
+                <div class="client-ip">${client.ip_address}</div>
+            </div>
+        `);
+        
+        // Add click event
+        clientIcon.on('click', function() {
+            showClientInteractionModal(client.id);
+        });
+        
+        visualizationContainer.append(clientIcon);
+    });
+}
+
+function getOSClass(os) {
+    if (os.toLowerCase().includes('windows')) {
+        return 'windows';
+    } else if (os.toLowerCase().includes('linux')) {
+        return 'linux';
+    } else if (os.toLowerCase().includes('mac') || os.toLowerCase().includes('darwin')) {
+        return 'mac';
+    }
+    return ''; // default
+}
+
+function getOSShortName(os) {
+    if (os.toLowerCase().includes('windows')) {
+        return 'WIN';
+    } else if (os.toLowerCase().includes('linux')) {
+        return 'LNX';
+    } else if (os.toLowerCase().includes('mac') || os.toLowerCase().includes('darwin')) {
+        return 'MAC';
+    }
+    return 'UNK';
+}
+
+function truncateText(text, maxLength) {
+    if (text.length <= maxLength) {
+        return text;
+    }
+    return text.substring(0, maxLength - 3) + '...';
+}
+
+function showClientInteractionModal(clientId) {
+    const client = clients[clientId];
+    if (!client) return;
+    
+    // Create modal if it doesn't exist
+    if ($('#clientInteractionModal').length === 0) {
+        const modalHtml = `
+            <div class="modal fade client-interaction-modal" id="clientInteractionModal" tabindex="-1">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"><i class="fas fa-desktop me-2"></i>Client Interaction</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="client-details-card">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6><i class="fas fa-info-circle me-2"></i>Client Information</h6>
+                                        <p><strong>Hostname:</strong> <span id="modal-hostname"></span></p>
+                                        <p><strong>Username:</strong> <span id="modal-username"></span></p>
+                                        <p><strong>IP Address:</strong> <span id="modal-ip"></span></p>
+                                        <p><strong>Operating System:</strong> <span id="modal-os"></span></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6><i class="fas fa-clock me-2"></i>Connection Details</h6>
+                                        <p><strong>First Seen:</strong> <span id="modal-first-seen"></span></p>
+                                        <p><strong>Last Seen:</strong> <span id="modal-last-seen"></span></p>
+                                        <p><strong>Client ID:</strong> <span id="modal-client-id"></span></p>
+                                        <p><strong>Status:</strong> <span class="badge bg-success">Online</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h6><i class="fas fa-bolt me-2"></i>Quick Actions</h6>
+                            <div class="quick-actions">
+                                <div class="quick-action-btn" onclick="quickActionTerminal()">
+                                    <i class="fas fa-terminal"></i>
+                                    <span>Terminal</span>
+                                </div>
+                                <div class="quick-action-btn" onclick="quickActionFileManager()">
+                                    <i class="fas fa-folder-open"></i>
+                                    <span>File Manager</span>
+                                </div>
+                                <div class="quick-action-btn" onclick="quickActionScreenshot()">
+                                    <i class="fas fa-camera"></i>
+                                    <span>Screenshot</span>
+                                </div>
+                                <div class="quick-action-btn" onclick="quickActionDownload()">
+                                    <i class="fas fa-download"></i>
+                                    <span>Download</span>
+                                </div>
+                                <div class="quick-action-btn" onclick="quickActionUpload()">
+                                    <i class="fas fa-upload"></i>
+                                    <span>Upload</span>
+                                </div>
+                                <div class="quick-action-btn" onclick="quickActionDisconnect()">
+                                    <i class="fas fa-plug"></i>
+                                    <span>Disconnect</span>
+                                </div>
+                            </div>
+                            
+                            <h6><i class="fas fa-tasks me-2"></i>Recent Commands</h6>
+                            <div class="table-responsive">
+                                <table class="table table-dark table-striped table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Command</th>
+                                            <th>Time</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="modal-command-history">
+                                        <tr>
+                                            <td colspan="3" class="text-center">No commands executed</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="openFullTerminal()">Open Full Terminal</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        $('body').append(modalHtml);
+    }
+    
+    // Update modal content
+    $('#modal-hostname').text(client.hostname);
+    $('#modal-username').text(client.username);
+    $('#modal-ip').text(client.ip_address);
+    $('#modal-os').text(client.os);
+    $('#modal-first-seen').text(client.first_seen);
+    $('#modal-last-seen').text(client.last_seen);
+    $('#modal-client-id').text(client.id.substring(0, 8) + '...');
+    
+    // Store selected client ID
+    globalSelectedClient = clientId;
+    
+    // Show modal
+    $('#clientInteractionModal').modal('show');
+}
+
+// Quick Action Functions
+function quickActionTerminal() {
+    $('#clientInteractionModal').modal('hide');
+    showPage('terminal');
+    // Auto-select the client in terminal
+    $('#client-select').val(globalSelectedClient);
+    selectedClientId = globalSelectedClient;
+    $('#command-input, #execute-btn').prop('disabled', false);
+}
+
+function quickActionFileManager() {
+    $('#clientInteractionModal').modal('hide');
+    showPage('filemanager');
+    // Auto-select the client in file manager
+    $('#file-client-select').val(globalSelectedClient);
+    selectedFileClientId = globalSelectedClient;
+    browsePath('C:\\');
+}
+
+function quickActionScreenshot() {
+    if (!socket || !socketConnected) {
+        showNotification('❌ Error', 'Not connected to server', 'error');
+        return;
+    }
+    
+    socket.emit('execute_command', {
+        client_id: globalSelectedClient,
+        command: 'screenshot'
+    });
+    
+    showNotification('📷 Screenshot Requested', 'Screenshot request sent to client', 'info');
+    $('#clientInteractionModal').modal('hide');
+}
+
+function quickActionDownload() {
+    showNotification('📥 Download', 'Please use File Manager for downloads', 'info');
+    quickActionFileManager();
+}
+
+function quickActionUpload() {
+    showNotification('📤 Upload', 'Please use File Manager for uploads', 'info');
+    quickActionFileManager();
+}
+
+function quickActionDisconnect() {
+    if (confirm('Are you sure you want to disconnect this client?')) {
+        // In a real implementation, you would send a disconnect command to the client
+        showNotification('🔌 Disconnect', 'Client disconnect functionality would be implemented here', 'info');
+    }
+}
+
+function openFullTerminal() {
+    $('#clientInteractionModal').modal('hide');
+    showPage('terminal');
+    // Auto-select the client in terminal
+    $('#client-select').val(globalSelectedClient);
+    selectedClientId = globalSelectedClient;
+    $('#command-input, #execute-btn').prop('disabled', false);
 }
 
 function selectGlobalClient(clientId) {
@@ -401,15 +740,403 @@ function showNotification(title, message, type = 'success') {
     }, 4000);
 }
 
-// File Explorer Functions
-function browsePath(path) {
-    if (!selectedFileClientId) {
-        alert('Please select a client first');
+// Activity Logging System
+function logActivity(event, details, status) {
+    const timestamp = new Date().toLocaleTimeString();
+    activityLog.unshift({
+        timestamp: timestamp,
+        event: event,
+        details: details,
+        status: status
+    });
+    
+    // Keep only the last 50 activities
+    if (activityLog.length > 50) {
+        activityLog = activityLog.slice(0, 50);
+    }
+    
+    updateActivityLog();
+}
+
+function updateActivityLog() {
+    const logBody = $('#activity-log');
+    logBody.empty();
+    
+    if (activityLog.length === 0) {
+        logBody.append('<tr><td colspan="4" class="text-center">No recent activity</td></tr>');
         return;
     }
     
-    // Normalize the path - remove excessive backslashes
-    path = path.replace(/\\{3,}/g, '\\\\').replace(/\\{2}$/, '\\');
+    activityLog.slice(0, 10).forEach(entry => {
+        let statusBadge = '';
+        switch(entry.status) {
+            case 'success':
+                statusBadge = '<span class="badge bg-success">Success</span>';
+                break;
+            case 'warning':
+                statusBadge = '<span class="badge bg-warning">Warning</span>';
+                break;
+            case 'error':
+                statusBadge = '<span class="badge bg-danger">Error</span>';
+                break;
+            case 'info':
+                statusBadge = '<span class="badge bg-info">Info</span>';
+                break;
+            default:
+                statusBadge = '<span class="badge bg-secondary">Unknown</span>';
+        }
+        
+        const row = `
+            <tr>
+                <td>${entry.timestamp}</td>
+                <td>${entry.event}</td>
+                <td>${entry.details}</td>
+                <td>${statusBadge}</td>
+            </tr>
+        `;
+        logBody.append(row);
+    });
+}
+
+// Performance Monitoring
+function initializeCharts() {
+    // Initialize Chart.js charts
+    const cpuCtx = document.getElementById('cpuChart').getContext('2d');
+    const memoryCtx = document.getElementById('memoryChart').getContext('2d');
+    const networkCtx = document.getElementById('networkChart').getContext('2d');
+    
+    // CPU Chart
+    cpuChart = new Chart(cpuCtx, {
+        type: 'line',
+        data: {
+            labels: Array(10).fill('').map((_, i) => `${i*5}s`),
+            datasets: [{
+                label: 'CPU Usage (%)',
+                data: Array(10).fill(0),
+                borderColor: '#ff79c6',
+                backgroundColor: 'rgba(255, 121, 198, 0.1)',
+                tension: 0.4,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    min: 0,
+                    max: 100,
+                    grid: {
+                        color: 'rgba(189, 147, 249, 0.1)'
+                    },
+                    ticks: {
+                        color: '#f8f8f2'
+                    }
+                },
+                x: {
+                    grid: {
+                        color: 'rgba(189, 147, 249, 0.1)'
+                    },
+                    ticks: {
+                        color: '#f8f8f2'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#f8f8f2'
+                    }
+                }
+            }
+        }
+    });
+    
+    // Memory Chart
+    memoryChart = new Chart(memoryCtx, {
+        type: 'line',
+        data: {
+            labels: Array(10).fill('').map((_, i) => `${i*5}s`),
+            datasets: [{
+                label: 'Memory Usage (%)',
+                data: Array(10).fill(0),
+                borderColor: '#50fa7b',
+                backgroundColor: 'rgba(80, 250, 123, 0.1)',
+                tension: 0.4,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    min: 0,
+                    max: 100,
+                    grid: {
+                        color: 'rgba(189, 147, 249, 0.1)'
+                    },
+                    ticks: {
+                        color: '#f8f8f2'
+                    }
+                },
+                x: {
+                    grid: {
+                        color: 'rgba(189, 147, 249, 0.1)'
+                    },
+                    ticks: {
+                        color: '#f8f8f2'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#f8f8f2'
+                    }
+                }
+            }
+        }
+    });
+    
+    // Network Chart
+    networkChart = new Chart(networkCtx, {
+        type: 'line',
+        data: {
+            labels: Array(10).fill('').map((_, i) => `${i*5}s`),
+            datasets: [
+                {
+                    label: 'Network In (KB/s)',
+                    data: Array(10).fill(0),
+                    borderColor: '#8be9fd',
+                    backgroundColor: 'rgba(139, 233, 253, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                },
+                {
+                    label: 'Network Out (KB/s)',
+                    data: Array(10).fill(0),
+                    borderColor: '#bd93f9',
+                    backgroundColor: 'rgba(189, 147, 249, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        color: 'rgba(189, 147, 249, 0.1)'
+                    },
+                    ticks: {
+                        color: '#f8f8f2'
+                    }
+                },
+                x: {
+                    grid: {
+                        color: 'rgba(189, 147, 249, 0.1)'
+                    },
+                    ticks: {
+                        color: '#f8f8f2'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#f8f8f2'
+                    }
+                }
+            }
+        }
+    });
+}
+
+function updateCharts(data) {
+    if (!cpuChart || !memoryChart || !networkChart) return;
+    
+    // Update CPU chart
+    const cpuData = cpuChart.data.datasets[0].data;
+    cpuData.push(data.cpu || 0);
+    if (cpuData.length > 10) cpuData.shift();
+    cpuChart.update();
+    
+    // Update Memory chart
+    const memoryData = memoryChart.data.datasets[0].data;
+    memoryData.push(data.memory || 0);
+    if (memoryData.length > 10) memoryData.shift();
+    memoryChart.update();
+    
+    // Update Network chart
+    const networkInData = networkChart.data.datasets[0].data;
+    const networkOutData = networkChart.data.datasets[1].data;
+    networkInData.push(data.network_in || 0);
+    networkOutData.push(data.network_out || 0);
+    if (networkInData.length > 10) {
+        networkInData.shift();
+        networkOutData.shift();
+    }
+    networkChart.update();
+}
+
+function startPerformanceMonitoring() {
+    if (settings.analytics.enabled && socketConnected) {
+        // Request performance data from server
+        socket.emit('request_performance_data');
+        
+        // Set up periodic updates
+        setInterval(() => {
+            if (socketConnected) {
+                socket.emit('request_performance_data');
+            }
+        }, settings.analytics.interval * 1000);
+    }
+}
+
+// Settings Management
+function loadSettings() {
+    // Load settings from localStorage if available
+    const savedSettings = localStorage.getItem('medusaSettings');
+    if (savedSettings) {
+        try {
+            settings = JSON.parse(savedSettings);
+        } catch (e) {
+            console.error('Error loading settings:', e);
+        }
+    }
+    
+    // Apply theme
+    applyThemeSettings();
+}
+
+function loadSettingsIntoForm() {
+    // Load theme settings
+    $('#primary-color').val(settings.theme.primary);
+    $('#accent-color').val(settings.theme.accent);
+    $('#success-color').val(settings.theme.success);
+    $('#bg-color').val(settings.theme.background);
+    
+    // Load alert settings
+    $('#alert-client-connect').prop('checked', settings.alerts.clientConnect);
+    $('#alert-client-disconnect').prop('checked', settings.alerts.clientDisconnect);
+    $('#alert-file-transfer').prop('checked', settings.alerts.fileTransfer);
+    $('#alert-error').prop('checked', settings.alerts.error);
+    
+    // Load logging settings
+    $('#log-level').val(settings.logging.level);
+    $('#log-retention').val(settings.logging.retention);
+    $('#enable-file-logging').prop('checked', settings.logging.fileLogging);
+    
+    // Load analytics settings
+    $('#enable-analytics').prop('checked', settings.analytics.enabled);
+    $('#enable-historical-data').prop('checked', settings.analytics.historicalData);
+    $('#data-interval').val(settings.analytics.interval);
+    
+    // Add event handlers for real-time updates
+    $('#primary-color, #accent-color, #success-color, #bg-color').off('change.settings').on('change.settings', function() {
+        applyTheme();
+    });
+    
+    $('#alert-client-connect, #alert-client-disconnect, #alert-file-transfer, #alert-error').off('change.settings').on('change.settings', function() {
+        saveAlertSettings();
+    });
+    
+    $('#log-level, #log-retention, #enable-file-logging').off('change.settings').on('change.settings', function() {
+        saveLogSettings();
+    });
+    
+    $('#enable-analytics, #enable-historical-data, #data-interval').off('change.settings').on('change.settings', function() {
+        saveAnalyticsSettings();
+    });
+}
+
+function applyTheme() {
+    settings.theme.primary = $('#primary-color').val();
+    settings.theme.accent = $('#accent-color').val();
+    settings.theme.success = $('#success-color').val();
+    settings.theme.background = $('#bg-color').val();
+    
+    saveSettings();
+    applyThemeSettings();
+    showNotification('🎨 Theme Applied', 'Custom theme has been applied', 'success');
+}
+
+function resetTheme() {
+    settings.theme = {
+        primary: '#bd93f9',
+        accent: '#ff79c6',
+        success: '#50fa7b',
+        background: '#282a36'
+    };
+    
+    saveSettings();
+    loadSettingsIntoForm();
+    applyThemeSettings();
+    showNotification('🔄 Theme Reset', 'Theme has been reset to default', 'info');
+}
+
+function applyThemeSettings() {
+    // Apply CSS variables
+    document.documentElement.style.setProperty('--dracula-purple', settings.theme.primary);
+    document.documentElement.style.setProperty('--dracula-pink', settings.theme.accent);
+    document.documentElement.style.setProperty('--dracula-green', settings.theme.success);
+    document.documentElement.style.setProperty('--dracula-bg', settings.theme.background);
+}
+
+function saveAlertSettings() {
+    settings.alerts.clientConnect = $('#alert-client-connect').is(':checked');
+    settings.alerts.clientDisconnect = $('#alert-client-disconnect').is(':checked');
+    settings.alerts.fileTransfer = $('#alert-file-transfer').is(':checked');
+    settings.alerts.error = $('#alert-error').is(':checked');
+    
+    saveSettings();
+    showNotification('✅ Settings Saved', 'Alert configuration has been saved', 'success');
+}
+
+function saveLogSettings() {
+    settings.logging.level = $('#log-level').val();
+    settings.logging.retention = parseInt($('#log-retention').val());
+    settings.logging.fileLogging = $('#enable-file-logging').is(':checked');
+    
+    saveSettings();
+    showNotification('✅ Settings Saved', 'Logging configuration has been saved', 'success');
+}
+
+function saveAnalyticsSettings() {
+    settings.analytics.enabled = $('#enable-analytics').is(':checked');
+    settings.analytics.historicalData = $('#enable-historical-data').is(':checked');
+    settings.analytics.interval = parseInt($('#data-interval').val());
+    
+    saveSettings();
+    showNotification('✅ Settings Saved', 'Analytics configuration has been saved', 'success');
+}
+
+function saveSettings() {
+    localStorage.setItem('medusaSettings', JSON.stringify(settings));
+}
+
+function viewLogs() {
+    showNotification('📋 Logs', 'Log viewing functionality would be implemented here', 'info');
+}
+
+// File Explorer Functions
+function browsePath(path) {
+    if (!selectedFileClientId) {
+        showNotification('❌ Error', 'Please select a client first', 'error');
+        return;
+    }
+    
+    // Normalize the path for Windows
+    path = path.replace(/\//g, '\\').replace(/\\+/g, '\\');
+    
+    // Ensure drive paths end with backslash
+    if (path.match(/^[A-Za-z]:$/)) {
+        path += '\\';
+    }
     
     currentPath = path;
     $('#current-path').text(path);
@@ -427,7 +1154,7 @@ function browsePath(path) {
 
 function listAllDrives() {
     if (!selectedFileClientId) {
-        alert('Please select a client first');
+        showNotification('❌ Error', 'Please select a client first', 'error');
         return;
     }
     
@@ -527,7 +1254,7 @@ function displayDirectoryListing(output, path) {
     explorer.empty();
     
     // Add parent directory link if not at root
-    if (path !== 'C:\\' && path !== 'D:\\' && path !== 'E:\\' && !path.endsWith(':\\')) {
+    if (path !== 'C:\\' && path !== 'D:\\' && path !== 'E:\\' && path !== 'F:\\' && !path.match(/^[A-Z]:\\$/)) {
         // Fix parent path calculation - handle trailing backslashes properly
         let cleanPath = path.replace(/\\+$/, ''); // Remove trailing backslashes
         let parentPath;
@@ -568,15 +1295,27 @@ function displayDirectoryListing(output, path) {
     files.forEach(fileName => {
         fileName = fileName.trim();
         if (fileName && fileName !== '.' && fileName !== '..') {
-            const isDirectory = !fileName.includes('.') || fileName.endsWith('.lnk');
+            // Determine if it's a directory based on extension or if it ends with a backslash
+            const isDirectory = !fileName.includes('.') || fileName.endsWith('.lnk') || fileName.endsWith('\\');
             const icon = isDirectory ? 'fas fa-folder text-warning' : 'fas fa-file text-light';
             
             const fileDiv = $('<div class="file-item p-2 border-bottom">').css('cursor', 'pointer');
             
             if (isDirectory) {
                 fileDiv.on('click', function() {
-                    // Ensure proper path concatenation
-                    const newPath = path.endsWith('\\') ? path + fileName + '\\\\' : path + '\\\\' + fileName + '\\\\';
+                    // Ensure proper path concatenation for directories
+                    let newPath;
+                    if (path.endsWith('\\')) {
+                        newPath = path + fileName;
+                    } else {
+                        newPath = path + '\\' + fileName;
+                    }
+                    
+                    // Add trailing backslash for directories
+                    if (!newPath.endsWith('\\')) {
+                        newPath += '\\';
+                    }
+                    
                     browsePath(newPath);
                 });
             } else {
@@ -641,14 +1380,18 @@ function refreshFiles() {
 
 function downloadFile() {
     if (!selectedFile || !selectedFileClientId) {
-        alert('Please select a file first');
+        showNotification('❌ Error', 'Please select a file first', 'error');
         return;
     }
     
-    console.log('Download request for:', selectedFile, 'from client:', selectedFileClientId);
+    // Construct the full file path correctly
+    let filePath = currentPath;
+    if (!currentPath.endsWith('\\')) {
+        filePath += '\\';
+    }
+    filePath += selectedFile;
     
-    const filePath = currentPath.endsWith('\\') ? currentPath + selectedFile : currentPath + '\\' + selectedFile;
-    console.log('Full file path:', filePath);
+    console.log('Download request for:', filePath, 'from client:', selectedFileClientId);
     
     // Show loading notification
     showNotification('📎 Download Started', `Downloading: ${selectedFile}`, 'success');
@@ -660,9 +1403,18 @@ function downloadFile() {
 }
 
 function editFile() {
-    if (!selectedFile || !selectedFileClientId) return;
+    if (!selectedFile || !selectedFileClientId) {
+        showNotification('❌ Error', 'Please select a file first', 'error');
+        return;
+    }
     
-    const filePath = currentPath.endsWith('\\') ? currentPath + selectedFile : currentPath + '\\' + selectedFile;
+    // Construct the full file path correctly
+    let filePath = currentPath;
+    if (!currentPath.endsWith('\\')) {
+        filePath += '\\';
+    }
+    filePath += selectedFile;
+    
     socket.emit('get_file_content', {
         client_id: selectedFileClientId,
         file_path: filePath
@@ -670,22 +1422,33 @@ function editFile() {
 }
 
 function deleteFile() {
-    if (!selectedFile || !selectedFileClientId) return;
+    if (!selectedFile || !selectedFileClientId) {
+        showNotification('❌ Error', 'Please select a file first', 'error');
+        return;
+    }
     
     if (!confirm('Are you sure you want to delete ' + selectedFile + '?')) return;
     
-    const filePath = currentPath.endsWith('\\') ? currentPath + selectedFile : currentPath + '\\' + selectedFile;
+    // Construct the full file path correctly
+    let filePath = currentPath;
+    if (!currentPath.endsWith('\\')) {
+        filePath += '\\';
+    }
+    filePath += selectedFile;
+    
     socket.emit('execute_command', {
         client_id: selectedFileClientId,
         command: 'del "' + filePath + '"'
     });
     
-    setTimeout(() => refreshFiles(), 1000);
+    // Clear selection and refresh after a delay
+    selectedFile = null;
+    setTimeout(() => refreshFiles(), 1500);
 }
 
 function showUploadModal() {
     if (!selectedFileClientId) {
-        alert('Please select a client first');
+        showNotification('❌ Error', 'Please select a client first', 'error');
         return;
     }
     $('#upload-path').val(currentPath);
@@ -697,16 +1460,25 @@ function uploadFile() {
     const path = $('#upload-path').val();
     
     if (!file || !path) {
-        alert('Please select a file and specify upload path');
+        showNotification('❌ Error', 'Please select a file and specify upload path', 'error');
         return;
     }
     
+    // Show loading notification
+    showNotification('📎 Upload Started', `Uploading: ${file.name}`, 'success');
+    
     const reader = new FileReader();
     reader.onload = function(e) {
+        // Extract base64 data (remove data URL prefix)
+        let fileData = e.target.result;
+        if (fileData.startsWith('data:')) {
+            fileData = fileData.split(',')[1];
+        }
+        
         socket.emit('upload_file', {
             client_id: selectedFileClientId,
             file_name: file.name,
-            file_data: e.target.result.split(',')[1], // Remove data:type;base64, prefix
+            file_data: fileData,
             upload_path: path
         });
     };
@@ -717,28 +1489,43 @@ function uploadFile() {
 
 function createFolder() {
     if (!selectedFileClientId) {
-        alert('Please select a client first');
+        showNotification('❌ Error', 'Please select a client first', 'error');
         return;
     }
     
     const folderName = prompt('Enter folder name:');
     if (!folderName) return;
     
-    const folderPath = currentPath.endsWith('\\') ? currentPath + folderName : currentPath + '\\' + folderName;
+    // Construct the full folder path correctly
+    let folderPath = currentPath;
+    if (!currentPath.endsWith('\\')) {
+        folderPath += '\\';
+    }
+    folderPath += folderName;
     
     socket.emit('execute_command', {
         client_id: selectedFileClientId,
         command: 'mkdir "' + folderPath + '"'
     });
     
-    setTimeout(() => refreshFiles(), 1000);
+    // Add a small delay before refreshing to allow the folder to be created
+    setTimeout(() => refreshFiles(), 1500);
 }
 
 function saveFile() {
-    if (!selectedFile || !selectedFileClientId) return;
+    if (!selectedFile || !selectedFileClientId) {
+        showNotification('❌ Error', 'No file selected', 'error');
+        return;
+    }
     
     const content = $('#file-content').val();
-    const filePath = currentPath.endsWith('\\') ? currentPath + selectedFile : currentPath + '\\' + selectedFile;
+    
+    // Construct the full file path correctly
+    let filePath = currentPath;
+    if (!currentPath.endsWith('\\')) {
+        filePath += '\\';
+    }
+    filePath += selectedFile;
     
     socket.emit('save_file', {
         client_id: selectedFileClientId,
@@ -747,6 +1534,7 @@ function saveFile() {
     });
     
     $('#editModal').modal('hide');
+    showNotification('✅ Success', 'File saved successfully', 'success');
 }
 
 // Enhanced Payload Builder Functions
@@ -764,7 +1552,7 @@ function generatePayload() {
     }
     
     if (!ip || !port) {
-        alert('Please enter server IP and port');
+        showNotification('❌ Error', 'Please enter server IP and port', 'error');
         return;
     }
     
@@ -866,8 +1654,12 @@ socket.on('payload_generated', function(data) {
         
         $('#payload-output').text(output.replace(/\\n/g, '\n'));
         $('#copy-btn').prop('disabled', false);
+        showNotification('🔨 Payload Generated', 'Payload generation completed successfully', 'success');
+        logActivity('Payload Generated', `Type: ${data.type}, IP: ${data.ip}:${data.port}`, 'success');
     } else {
         $('#payload-output').text('❌ Error: ' + data.error + '\n\nPlease check:\n- PyInstaller is installed: pip install pyinstaller\n- Python is in PATH\n- Sufficient disk space available\n- Antivirus is not blocking the build process');
+        showNotification('❌ Generation Failed', data.error, 'error');
+        logActivity('Payload Generation Failed', data.error, 'error');
     }
 });
 
@@ -904,9 +1696,9 @@ function buildPowershellOutput(script) {
 function copyToClipboard() {
     const output = $('#payload-output').text();
     navigator.clipboard.writeText(output).then(() => {
-        alert('✅ Copied to clipboard!');
+        showNotification('✅ Copied', 'Payload copied to clipboard', 'success');
     }).catch(() => {
-        alert('❌ Failed to copy to clipboard');
+        showNotification('❌ Error', 'Failed to copy to clipboard', 'error');
     });
 }
 
@@ -919,6 +1711,7 @@ function loadListeners() {
         })
         .catch(error => {
             console.error('Error loading listeners:', error);
+            showNotification('❌ Error', 'Failed to load listeners', 'error');
         });
 }
 
@@ -968,7 +1761,7 @@ function createListener() {
     const port = parseInt($('#listener-port').val());
     
     if (!name || !host || !port) {
-        alert('Please fill in all fields');
+        showNotification('❌ Error', 'Please fill in all fields', 'error');
         return;
     }
     

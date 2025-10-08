@@ -1,0 +1,24 @@
+{
+  "theme": {
+    "primary": "#bd93f9",
+    "accent": "#ff79c6",
+    "success": "#50fa7b",
+    "background": "#282a36"
+  },
+  "alerts": {
+    "clientConnect": true,
+    "clientDisconnect": true,
+    "fileTransfer": true,
+    "error": true
+  },
+  "logging": {
+    "level": "INFO",
+    "retention": 7,
+    "fileLogging": true
+  },
+  "analytics": {
+    "enabled": true,
+    "historicalData": true,
+    "interval": 30
+  }
+}

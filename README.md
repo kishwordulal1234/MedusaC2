@@ -246,6 +246,32 @@ python client.py
   - **Modal Dialogs**: Focused interactions for complex operations
   - **Dropdown Menus**: Organized options and selections
 
+### 🛠️ Enhanced Features
+
+### 📊 Performance Monitoring
+- Real-time CPU, memory, and network usage visualization
+- Historical performance data tracking
+- Interactive charts with Chart.js
+- Configurable monitoring intervals
+
+### ⚙️ Advanced Configuration
+- **Theme Customization**: Personalize the Dracula theme with custom colors
+- **Alert System**: Configure which events trigger notifications
+- **Logging Configuration**: Set log levels and retention policies
+- **Analytics Settings**: Control data collection and storage preferences
+
+### 📈 Advanced Analytics
+- Performance trend analysis
+- Resource usage patterns
+- Connection metrics and statistics
+- Historical data visualization
+
+### 🎯 Comprehensive Alert System
+- Client connection/disconnection notifications
+- File transfer success/failure alerts
+- Error and warning notifications
+- Configurable alert preferences
+
 ### 🏁 **End-to-End Workflow Summary**
 
 1. **🎬 Framework Startup**: Launch server, access dashboard, verify connectivity
@@ -1400,7 +1426,7 @@ We welcome contributions from the cybersecurity community! 🎉
 
 When reporting bugs, please include:
 
-```markdown
+```
 **Environment**
 - OS: Windows 11 / Ubuntu 20.04 / macOS 12
 - Python Version: 3.9.7
@@ -1605,6 +1631,3 @@ License: Custom - Use/Modify with Attribution, No Commercial Sale
 - ✅ **Allowed**: Use, modify, distribute with proper attribution
 - ❌ **Prohibited**: Commercial sale, claiming ownership, removing credits
 - 📝 **Required**: Credit "unknone_hart" in all distributions
-
-</div>
-
